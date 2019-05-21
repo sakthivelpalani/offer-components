@@ -12,7 +12,96 @@
 
   <script type="text/javascript">
       window.addEventListener("load", function(){
-        offercomponents.launchOfferTable({}, "root");      
+        var offersData = [
+                    {
+                        "id": "6d11f7e2-9f29-4d1c-918b-efa4b0ee1ef1",
+                        "bank" : {
+                            "id" : 2,
+                            "name" : "HDFC BANK"
+                        },
+                        "interestRate" : {
+                            "minPercentage" : 23,
+                            "maxPercentage" : 45,
+                            "type" : "FLOATING"
+                        },
+                        "processingFee": {
+                            "value" : 0,
+                            "bankbazaarExclusive" : true
+                        },
+                        "loanAmount":{
+                            "max": 2500000,
+                            "min": 1500000
+                        },
+                        "tenure": {
+                            "max": 5,
+                            "min": 1
+                        },
+                        "reviewsSummary" : {
+                            "avgRating":  {
+                                "rating": 4.0,
+                                "scale": 5.0
+                            },
+                            "count" : 1231
+                        }
+                    }, {
+                        "id": "40a217c7-b5e1-47e6-8081-e9cd07918f13",
+                        "bank" : {
+                            "id" : 4,
+                            "name" : "ICICI BANK"
+                        },
+                        "interestRate" : {
+                            "minPercentage" : 12,
+                            "maxPercentage" : 22,
+                            "type": "FIXED"
+                        },
+                        "processingFee": {
+                            "maxPercentage" : 2
+                        },
+                        "loanAmount":{
+                            "max": 4000000,
+                        },
+                        "tenure": {
+                            "max": 4
+                        },
+                        "reviewsSummary" : {
+                            "avgRating":  {
+                                "rating": 3.5,
+                                "scale": 5.0
+                            },
+                            "count" : 97979
+                        }
+                    }, {
+                        "id": "40a217c7-b5e1-47e6-8081-e9cd07918f11",
+                        "bank" : {
+                            "id" : 6,
+                            "name" : "STATE BANK OF INDIA"
+                        },
+                        "interestRate" : {
+                            "minPercentage" : 8,
+                            "maxPercentage" : 12,
+                            "type": "FIXED"
+                        },
+                        "processingFee": {
+                            "maxPercentage" : 1
+                        },
+                        "loanAmount":{
+                            "max": 5000000,
+                        },
+                        "tenure": {
+                            "max": 5
+                        },
+                        "reviewsSummary" : {
+                            "avgRating":  {
+                                "rating": 2.5,
+                                "scale": 5.0
+                            },
+                            "count" : 6897
+                        }
+                    }];
+        
+        var offersManager = offercomponents.createOffersManager(offersData);
+        offercomponents.launchOfferTable(offersManager, "root");
+
       });
   </script>
 
