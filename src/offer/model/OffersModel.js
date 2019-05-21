@@ -2,11 +2,16 @@ import OfferModel from "./OfferModel";
 
 export default class OffersModel {
 
-    constructor(offersData) {
-        const offersMap = offersData.map((offerData) => new OfferModel(offerData));
+    constructor(offersData, context) {
+        this.offersMap = offersData.map((offerData) => new OfferModel(offerData));
+        this.context = context;
+    }
 
-        return {
-            offersMap: offersMap
-        };
+    getOffersMap() {
+        return this.offersMap;
+    }
+
+    getContext() {
+        return this.context;
     }
 }
