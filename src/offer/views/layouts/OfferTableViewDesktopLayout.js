@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import OffersModel from "../../model/OffersModel";
 import Context from "../../../helpers/Context.js";
 
+import Style from "./OfferTableViewDesktopLayout.scss";
+
 import {ColumnRendererForDomain} from "../domainRenderers";
 
 export default class OfferTableViewDesktopLayout extends React.PureComponent {
@@ -50,10 +52,10 @@ export default class OfferTableViewDesktopLayout extends React.PureComponent {
             offerRows.push(this.renderOfferRow(offer));
         });
 
-        const style = {"marginTop":"30px"};
+        const style = Style.offerSection;
         return (
             <div>
-                <table border = "1" style = {style}>
+                <table border = "1" style = {{style}}>
                     <thead>
                         {this.renderHeading()}
                     </thead>
