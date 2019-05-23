@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Rewards from "../../domain/Rewards";
 
-export class RewardsOneLinerItemRenderer extends React.PureComponent {
+export class OneLinerItemRenderer extends React.PureComponent {
     
     static props = {
         domain: PropTypes.instanceOf(Rewards)
@@ -11,5 +11,9 @@ export class RewardsOneLinerItemRenderer extends React.PureComponent {
 
     render() {
         return <span>{this.props.domain.getOneLinerRewardText()} </span>;
+    }
+
+    static requiredDomain() {
+        return "Rewards";
     }
 }

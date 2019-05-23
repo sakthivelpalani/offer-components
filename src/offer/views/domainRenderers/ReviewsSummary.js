@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import ReviewsSummary from "../../domain/ReviewsSummary";
 
-export class ReviewRatingItemRenderer extends React.PureComponent {
+export class RatingItemRenderer extends React.PureComponent {
 
     static props = {
         domain: PropTypes.instanceOf(ReviewsSummary)
@@ -15,5 +15,9 @@ export class ReviewRatingItemRenderer extends React.PureComponent {
                 {this.props.domain.getAvgRating()}
             </span>
         );
+    }
+
+    static requiredDomain() {
+        return "ReviewsSummary";
     }
 }

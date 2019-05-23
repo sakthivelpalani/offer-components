@@ -23,6 +23,23 @@
                             "id" : 2,
                             "name" : "HDFC BANK"
                         },
+                        "creditCard" : {
+                            "id" : 21,
+                            "name" : "HDFC REGALIA CREDIT CARD",
+                            "displayName" : "HDFC BANK REGALIA CARD"
+                        },
+                        "creditCardAnnualFee": {
+                          "firstYearFee": {
+                            "value": 10000,
+                          },
+                          "secondYearOnwardsFee": 2000
+                        },
+                        "rewards": {
+                          "oneliner": {
+                            "text": "Great savings on everyday spends",
+                            "type": "SAVINGS"
+                          }
+                        },
                         "interestRate" : {
                             "minPercentage" : 23,
                             "maxPercentage" : 45,
@@ -53,6 +70,25 @@
                             "id" : 4,
                             "name" : "ICICI BANK"
                         },
+                        "creditCard" : {
+                            "id" : 76,
+                            "name" : "ICICI Platinum Identity Credit Card",
+                            "displayName" : "ICICI Bank Platinum Identity Credit Card"
+                        },
+                        "creditCardAnnualFee": {
+                          "firstYearFee": {
+                            "value": 1500,
+                            "reducedValue": 2000,
+                            "conditionsForReducedValue": "annual spends > Rs. 30,000"
+                          },
+                          "secondYearOnwardsFee": 1899
+                        },
+                        "rewards": {
+                          "oneliner": {
+                            "text": "Lots of rewards on everyday spends  ",
+                            "type": "REWARD"
+                          }
+                        },
                         "interestRate" : {
                             "minPercentage" : 12,
                             "maxPercentage" : 22,
@@ -79,6 +115,25 @@
                         "bank" : {
                             "id" : 6,
                             "name" : "STATE BANK OF INDIA"
+                        },
+                        "creditCard" : {
+                            "id" : 76,
+                            "name" : "Air India SBI Signature Card",
+                            "displayName" : "Air India SBI Signature Card"
+                        },
+                        "creditCardAnnualFee": {
+                          "firstYearFee": {
+                            "value": 1000,
+                            "reducedValue": 2000,
+                            "conditionsForReducedValue": "spends > Rs. 1 lakh in 90 days"
+                          },
+                          "secondYearOnwardsFee": 1899
+                        },
+                        "rewards": {
+                          "oneliner": {
+                            "text": "71 L free fuel every year ",
+                            "type": "FUEL"
+                          }
                         },
                         "interestRate" : {
                             "minPercentage" : 8,
@@ -107,7 +162,7 @@
             userContext: {isInternal: true},
             experimentContext: {},
             deviceType: deviceType.toUpperCase(),
-            productType: "PL"
+            productType: "CC"
         });
         var offersManager = offercomponents.createOffersManager({offersData, context});
         offercomponents.launchOfferTable(offersManager, "root");

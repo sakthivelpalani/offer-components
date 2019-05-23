@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import CreditCardAnnualFee from "../../domain/CreditCardAnnualFee";
 
-export class CreditCardFirstYearAnnualFeeItemRenderer extends React.PureComponent {
+export class FirstYearFeeItemRenderer extends React.PureComponent {
     
     static props = {
         domain: PropTypes.instanceOf(CreditCardAnnualFee)
@@ -14,5 +14,9 @@ export class CreditCardFirstYearAnnualFeeItemRenderer extends React.PureComponen
             ${this.props.domain.getFirstYearFee()} <br />
             1st YEAR FEE
             </div>;
+    }
+
+    static requiredDomain() {
+        return "CreditCardAnnualFee";
     }
 }
