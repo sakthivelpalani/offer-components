@@ -16,13 +16,13 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
     getConfiguration() {
         return {
             "CC"    : {
-                "logoType": "CreditCard_Name",
-                "nameType": "CreditCard_Image",
+                "logoType": "CreditCard_Image",
                 "rowsTypes": {
-                    0: ["AnnualFee_FirstYear"],
-                    1: ["ReviewsSummary_Rating", "Rewards_OneLiner"]
+                    1: ["CreditCard_Name"],
+                    2: ["AnnualFee_FirstYear"],
+                    3: ["Rewards_OneLiner"]
                 },
-                "ctaButtonRowPosition": "0"                
+                "ctaButtonRowPosition": "2"                
             }
         };
     }
@@ -34,8 +34,8 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
             return getItemRendererFor(config.logoType, offer);
         }
 
-        function getNameRenderer(){
-            return getItemRendererFor(config.nameType, offer);
+        function getRatingsRenderer(){
+            return getItemRendererFor("ReviewsSummary_Rating", offer);
         }
 
         function getRowsRenderer() {
@@ -55,7 +55,7 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
         return (
             <div key={`row-${offer.getId()}`}>
                 {getLogoRenderer()}
-                {getNameRenderer()}
+                {getRatingsRenderer()}
                 {getRowsRenderer()}
                 <div> 
                     {this.renderCTAButton()}
