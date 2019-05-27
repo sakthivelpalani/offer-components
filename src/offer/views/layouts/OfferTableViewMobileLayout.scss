@@ -1,13 +1,2 @@
-.offerSection {
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-    width: 100%;
-}
-
-.offerRow {
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-    width: 100%;
-}
+@import "../../../styles/components/offer-row";
+@import "../../../styles/components/filter-sticky";

@@ -32,15 +32,19 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
             this.onCompareCheckChange(offer, data.checked);
         };
         return (
-            <div key={`row-${offer.getId()}`}>
-                <Checkbox value={offer.getId()} onChange={compareCheckHandler} />
-                {getLogoRenderer(config, offer)}
-                {getRatingsRenderer(config, offer)}
-                {getRowsRenderer(config, offer)}
-                <div> 
-                    {this.renderCTAButton()}
+            <section className={Style.offer} key={`row-${offer.getId()}`}>
+                <div className={Style.offerTopSection}>
+                    <span className={Style.offerImageSection}>
+                        <Checkbox value={offer.getId()} onChange={compareCheckHandler} />
+                        {getLogoRenderer(config, offer)}
+                        {getRatingsRenderer(config, offer)}
+                    </span>
+                    {getRowsRenderer(config, offer)}
+                    <div> 
+                        {this.renderCTAButton()}
+                    </div>
                 </div>
-            </div>
+            </section>
         );
     }
 
@@ -54,14 +58,17 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
             offersModel={this.props.offersModel}
             onFilter={this.onFilter}/>;
         return (
-            <div>
-                <button onClick={this.showFilter}>Filter</button>
-                <div style={!this.state.filterShown ? {display: "none"}: {}}>
+        //<div className={Style.offerSection}>{offerRows}</div>
+            <div className={Style.offerSection}>
+                <div className={[Style.editAppContainer, Style.container, Style.filterSticky].join(" ")}>
+                    <div className={Style.filterStickyContainer}>
+                        <div className={Style.offerCountInfo}>We found 14 Credit Cards<span onClick={this.showFilter} className={[Style.filterBtn, Style.textWithIcon, Style.offerSprite, Style["bbicons-filter"]].join(" ")}>Filter</span></div>
+                    </div>
+                </div>
+                <div className="modal filterModal" style={!this.state.filterShown ? {display: "none"}: {}}>
                     {filterContainer}
                 </div>
-                <div style={this.state.filterShown ? {display: "none"}: {}}>
-                    {offerRowsComponent}
-                </div>
+                {offerRowsComponent}
             </div>
         );
     }
@@ -86,7 +93,7 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
 
     renderCTAButton() {
         return (
-            <a onClick={this.applyNowHandler}>
+            <a className={Style.offerButton} onClick={this.applyNowHandler}>
                     APPLY NOW
             </a>
         );
@@ -114,7 +121,7 @@ const getRowsRenderer = function(config, offer) {
             return (<div key={rowNumber}>{reactElementForRendererViewConfig(itemType, offer)}</div>);
         });
         rows.push((
-            <div className={`row-${rowNumber}`} key={rowNumber}>
+            <div className={[`row-${rowNumber}`, Style.row].join(" ")}>
                 {itemsDiv}
             </div>
         ));

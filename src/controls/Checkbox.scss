@@ -1,0 +1,67 @@
+:global {
+    .checkboxBtnStyle {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+        margin-right: 5px;
+
+        input[type="checkbox"] {
+            position: absolute;
+            top: 0;
+            height: 16px;
+            width: 16px;
+            opacity: 0;
+            z-index: 1;
+            cursor: pointer;
+            margin: 0;
+            left: 0;
+        }
+
+        .firstIcon {
+            height: 15px;
+            width: 15px;
+            border-radius: 4px;
+            display: block;
+            background: #bdc3c7;
+        }
+
+        .secondIcon {
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            margin: 0 auto;
+            display: none;
+            width: 18px;
+            height: 18px;
+            -ms-transform: rotate(45deg); /*IE 9*/
+            -webkit-transform: rotate(45deg); /*Chrome, Safari, Opera*/
+            transform: rotate(45deg);
+            .secondIconStem {
+                position: absolute;
+                width: 2px;
+                height: 8px;
+                background-color: #fff;
+                left: 3px;
+                top: 4px;
+            }
+            .secondIconKick {
+                position: absolute;
+                width: 5px;
+                height: 2px;
+                background-color: #fff;
+                left: 0;
+                top: 11px;
+            }
+        }
+
+        input[type="checkbox"]:checked+.firstIcon+.secondIcon {
+            display: block;
+        }
+        input[type="checkbox"]:checked+.firstIcon {
+            background: #1abc9c;
+        }
+    }
+}
