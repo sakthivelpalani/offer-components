@@ -8,31 +8,14 @@ import LoanAmount from "../domain/LoanAmount";
 import Tenure from "../domain/Tenure";
 import ReviewsSummary from "../domain/ReviewsSummary";
 
+import * as Domains from "../domain";
+
+import {omit} from "../../helpers/Utils";
+
 export default class OfferModel {
 
     constructor(offerData) {
-        const bankDomain = new Bank(offerData.bank);
-        const creditCardDomain = new CreditCard(offerData.creditCard);
-        const creditCardAnnualFeeDomain = new CreditCardAnnualFee(offerData.creditCardAnnualFee);
-        const rewardsDomain = new Rewards(offerData.rewards);
-        const reviewsSummaryDomain = new ReviewsSummary(offerData.reviewsSummary);
-        const interestRateDomain =  new InterestRate(offerData.interestRate);
-        const processingFeeDomain = new ProcessingFee(offerData.processingFee);
-        const loanAmountDomain = new LoanAmount(offerData.loanAmount);
-        const tenureDomain = new Tenure(offerData.tenure);
-
-        this.offer = {
-            "id": offerData.id,
-            [bankDomain.getType()]: bankDomain,
-            [creditCardDomain.getType()]: creditCardDomain,
-            [creditCardAnnualFeeDomain.getType()]: creditCardAnnualFeeDomain,
-            [rewardsDomain.getType()]: rewardsDomain,
-            [reviewsSummaryDomain.getType()]: reviewsSummaryDomain,
-            [interestRateDomain.getType()]: interestRateDomain,
-            [processingFeeDomain.getType()]: processingFeeDomain,
-            [loanAmountDomain.getType()]: loanAmountDomain,
-            [tenureDomain.getType()]: tenureDomain
-        };
+        this.offer = this.instantiateOffer(offerData);
     }
 
     get(type) {
@@ -41,5 +24,18 @@ export default class OfferModel {
 
     getId() {
         return this.offer.id;
+    }
+
+    instantiateOffer(offerData) {
+        const offer = {
+            "id": offerData.id
+        };
+
+        Object.entries(omit(offerData, "id")).forEach(function([key, value]) {
+            const domainType = key.charAt(0).toUpperCase() + key.slice(1);
+            offer[domainType] = new Domains[domainType](value);
+        });
+
+        return offer;
     }
 }
