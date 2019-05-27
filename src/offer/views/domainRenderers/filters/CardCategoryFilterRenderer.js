@@ -18,4 +18,8 @@ export default class CardCategoryFilterRenderer extends DropdownFilterRenderer {
     getTitle() {
         return "Card Categories";
     }
+
+    getImagePlaceholder() {
+        return "spriteCardCategories";
+    }
 }

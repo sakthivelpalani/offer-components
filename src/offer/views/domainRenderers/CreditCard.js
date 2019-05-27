@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {default as OfferModel} from "../../model/OfferModel";
+import Style from "./../layouts/OfferTableViewMobileLayout.scss";
 
 export class NameItemRenderer extends React.PureComponent {
     
@@ -18,10 +19,10 @@ export class NameItemRenderer extends React.PureComponent {
     render() {
         const cardName = this.cardName.getText();
         if (this.cardUrl == undefined) {
-            return <a>{cardName}</a>;
+            return <a className={Style.title}>{cardName}</a>;
         }
         const linkValue = "/credit-card/" + this.cardUrl.getText() + ".html"; 
-        return <a href={linkValue}> {cardName} </a>;
+        return <a className={Style.title} href={linkValue}> {cardName} </a>;
     }
 }
 

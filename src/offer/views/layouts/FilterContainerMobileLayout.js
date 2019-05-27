@@ -43,10 +43,15 @@ export default class FilterContainerMobileLayout extends React.PureComponent {
                 key: i
             });
         });
-        return <div>
-            {filterRendererComponents}
-            <button name="Filter" onClick={this.onFilterClick}>Filter</button>
-            <button name="Reset" onClick={this.onResetClick}>Reset</button>
+        return <div className="filterSection">
+            <div className="filterTitle"><span className="iconWidth filterSprite spriteGoBack"></span>Go Back</div>
+            <ul>
+                {filterRendererComponents}
+            </ul>
+            <div className="filterControl">
+                <a className="btn btnLeft" name="Reset" onClick={this.onResetClick}><span className="iconWidth filterSprite spriteClearFilter"></span>Clear Filter</a>
+                <a className="btn btnRight" name="Filter" onClick={this.onFilterClick}><span className="iconWidth filterSprite spriteApplyFilter"></span>Apply Filter</a>
+            </div>
         </div>;
     }
 

@@ -17,4 +17,8 @@ export default class BankFilterRenderer extends DropdownFilterRenderer {
     getTitle() {
         return "Bank";
     }
+
+    getImagePlaceholder() {
+        return "spriteBank";
+    }
 }

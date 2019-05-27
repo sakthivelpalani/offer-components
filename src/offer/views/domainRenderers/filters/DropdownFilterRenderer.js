@@ -27,14 +27,14 @@ export default class DropdownFilterRenderer extends React.PureComponent {
                 label: this.getLabel(option)
             };
         });
-        return <div>
-            <p>{this.getTitle()}</p>
+        return <li>
+            <div className="filterName"><span className={["iconWidth", "filterSprite", this.getImagePlaceholder()].join(" ")}></span>{this.getTitle()}</div>
             <Select
                 value={selectedOptionsForDropdown}
                 onChange={this.handleChange}
                 options={optionsForDropdown}
                 isMulti={true}/>
-        </div>;
+        </li>;
         
     }
     handleChange = (selectedOptions) => {

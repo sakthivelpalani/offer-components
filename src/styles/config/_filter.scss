@@ -1,0 +1,27 @@
+$filterSticky: (
+    filterSticky: (
+        textSize: 12px,
+        textColor: #34495e,
+    ),
+    offerCountInfo: (
+        bgColor: #f7f7f7,
+    ),
+    filterBtn: (
+        textColor: #006ca0
+    )
+);
+
+$filterModal: (
+    filterSticky: (
+        textSize: 12px,
+        textColor: #34495e,
+    )
+);
+
+$sprite-config:
+    ("spriteCardFee", 0, 1),
+    ("spriteBank", 0, 2),
+    ("spriteCardCategories", 0, 3),
+    ("spriteCardCategories", 0, 4),
+    ("spriteCardFee", 0, 5),
+    ("spriteNetworks", 0, 6);
