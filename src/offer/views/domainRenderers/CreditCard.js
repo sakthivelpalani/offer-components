@@ -2,19 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import CreditCard from "../../domain/CreditCard";
+import TextAndAdditionalInfo from "../../domain/TextAndAdditionalInfo";
 
 export class NameItemRenderer extends React.PureComponent {
     
     static props = {
-        domain: PropTypes.instanceOf(CreditCard)
+        domain: PropTypes.instanceOf(TextAndAdditionalInfo)
     }
 
     render() {
-        return <a href={"/credit-card/" + this.props.domain.getName()}> {this.props.domain.getDisplayName()} </a>;
+        return <a href={"/credit-card/" + this.props.domain.getText()}> {this.props.domain.getText()} </a>;
     }
 
     static requiredDomain() {
-        return "CreditCard";
+        return "CardName";
     }
 }
 

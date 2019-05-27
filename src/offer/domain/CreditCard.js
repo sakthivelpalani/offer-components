@@ -4,14 +4,6 @@ export default class CreditCard {
         this.card = card;
     }
 
-    getName() {
-        return this.card.name;
-    }
-
-    getDisplayName() {
-        return this.card.displayName;
-    }
-
     getId() {
         return this.card.id;
     }

@@ -9,6 +9,7 @@ import Tenure from "../domain/Tenure";
 import ReviewsSummary from "../domain/ReviewsSummary";
 
 import * as Domains from "../domain";
+import {mappings} from "./DomainMappings.js";
 
 import {omit} from "../../helpers/Utils";
 
@@ -33,7 +34,11 @@ export default class OfferModel {
 
         Object.entries(omit(offerData, "id")).forEach(function([key, value]) {
             const domainType = key.charAt(0).toUpperCase() + key.slice(1);
+            if (Domains[domainType] == undefined) {
+              offer[domainType] = new mappings[key](value);      
+            } else {
             offer[domainType] = new Domains[domainType](value);
+            }
         });
 
         return offer;
