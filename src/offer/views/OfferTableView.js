@@ -7,7 +7,7 @@ import {DeviceType} from "../../helpers/Constants.js";
 import {default as DesktopLayout} from "./layouts/OfferTableViewDesktopLayout";
 import {default as MobileLayout} from "./layouts/OfferTableViewMobileLayout";
 
-import {default as getViewConfiguration} from "./config";
+import {default as getViewConfiguration} from "./Config";
 
 export default class OfferTableView extends React.PureComponent {
 
