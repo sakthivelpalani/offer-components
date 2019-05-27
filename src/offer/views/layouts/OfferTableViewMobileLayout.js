@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import OffersModel from "../../model/OffersModel";
 import Context from "../../../helpers/Context.js";
-import {getItemRendererFor, reactElementForRendererViewKlass} from "../domainRenderers";
+import {reactElementForRendererViewKlass} from "../domainRenderers";
 import Style from "./OfferTableViewMobileLayout.scss";
 
 export default class OfferTableViewMobileLayout extends React.PureComponent  {

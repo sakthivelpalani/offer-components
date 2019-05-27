@@ -16,11 +16,8 @@ export function createOffersManager({offersData, context}) {
 }
 
 export function launchOfferTable(offersManager, renderIntoElementWithId) {
-    const columns = ["Bank", "InterestRate", "ProcessingFee", "LoanAmount", "Tenure"];
-    const columnHeadings = ["Bank", "Interest Rate", "Processing Fee", "Loan Amount", "Tenure"];
-
     ReactDOM.render(
-        <OfferTableView offersManager = {offersManager} columns = {columns} columnHeadings = {columnHeadings}/>,
+        <OfferTableView offersManager = {offersManager}/>,
         document.getElementById(renderIntoElementWithId)
     );
 }
