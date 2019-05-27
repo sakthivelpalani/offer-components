@@ -5,10 +5,10 @@ module.exports = {
   ],
   "rules": {
     "at-rule-no-unknown":[ true,{
-      "ignoreAtRules": ["/regex/", "extend", "include", "mixin", "content"]
+      "ignoreAtRules": ["/regex/", "extend", "include", "mixin", "if", "else", "for", "content", "each", "function", "return"]
     }],
     "at-rule-empty-line-before":[ "always", {
-      "except": "first-nested",
+      "except": ["first-nested", "after-same-name"],
       "ignore": "inside-block"
     }],
     "at-rule-name-case": "lower",
@@ -20,7 +20,7 @@ module.exports = {
     "block-closing-brace-empty-line-before": "never",
     "block-opening-brace-newline-after": "always",
     "block-opening-brace-space-before": "always",
-    "block-closing-brace-newline-after": "always",
+    "block-closing-brace-newline-after": ["always", {"ignoreAtRules": ["if", "else"]}],
     "block-closing-brace-newline-before": "always",
     "color-no-invalid-hex": true,
     "comment-no-empty": true,
@@ -42,7 +42,9 @@ module.exports = {
     "declaration-block-semicolon-newline-after": "always",
     "declaration-block-trailing-semicolon": "always",
     "declaration-block-single-line-max-declarations": 1,
-    "font-family-no-duplicate-names": true,
+    "font-family-no-duplicate-names": [true, {
+      "ignoreFontFamilyNames": ["/^My Font /", "monospace"]
+    }] ,
     "font-family-name-quotes": "always-where-recommended",
     "function-calc-no-unspaced-operator": true,
     "function-linear-gradient-no-nonstandard-direction": true,
@@ -103,9 +105,8 @@ module.exports = {
     "shorthand-property-no-redundant-values": true,
     "unit-case": "lower",
     "unit-no-unknown": true,
-    "value-keyword-case": "lower",
     "value-list-max-empty-lines": 0,
-    "value-list-comma-newline-after": "always",
+    "value-list-comma-newline-after": "never-multi-line",
     "value-list-comma-space-after": "always",
     "scss/at-import-no-partial-leading-underscore": true,
     "scss/at-mixin-argumentless-call-parentheses": "always",

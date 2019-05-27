@@ -1,0 +1,138 @@
+$text-color: (
+    title: (
+        textcolor: #354962,
+        textcase: uppercase,
+        textweight: bold,
+    ),
+    textvalue: (
+        textcolor: #4748b2,
+        textsize: 16px,
+    ),
+    textvaluescondary: (
+        textcolor: #999999,
+        textsize: 8px,
+        textcase: uppercase
+    ),
+    textrewards: (
+        textcolor: #ffffff,
+        textsize: 10px,
+        textweight: normal,
+        textlineheight: 10px,
+        texttransform: uppercase
+    ),
+    viewdetails: (
+        textcolor: #ffffff,
+        arrowcolor: #ffffff
+    ),
+    bottomsection: (
+        bgcolor: #6566e5
+    ),
+    paperlessbadge: (
+        textcolor: #ffffff,
+        textsize: 10px,
+        bgcolor: #1bbc9b,
+        paddingSize: 2px,
+        borderWidthBefore: 7px 0 0 7px,
+        borderWidthAfter: 7px 7px 0 0,
+        borderColor: #03967a transparent
+    ),
+    offerButton: (
+        textcolor: #6267e7,
+        textsize: 11px,
+        bordercolor: #6267e7
+    ),
+    offer: (
+        textsize: 12px,
+        textcolor: #77787d,
+        bgcolor: #ffffff,
+        bgsponsorcolor: #f3f2ff
+    )
+);
+
+$offer-details: (
+    offer-details: (
+        bgColor: #ffffff,
+        borderColor: #6566e5
+    ),
+    offer-details-title: (
+        bgColor: #fafafb,
+        textColor: #4748b2
+    ),
+    offer-details-title-li: (
+        textColor: #969696
+    ),
+    customer-review-sub-title: (
+        textColor: #4286F5
+    ),
+    customer-review-span: (
+        textColor: #344a5f
+    )
+);
+
+$sprite-config:
+    ("amazon", 0, 0),
+    ("user-rating:before", 0, 0),
+    ("rs-1:before", 0, 1),
+    ("rs-2:before", 0, 2),
+    ("ads:after", 0, 6, ".ad"),
+    ("view-details:after", 0, 3, ".offerBottomSection"),
+    ("view-details:after", 0, 4, ".offerBottomSection .viewDetails.view-less"),
+    ("download:before", 0, 8),
+    ("checkBox:before", 0, 9),
+    ("checkBox:checked:before", 0, 11),
+    ("filter:before", 0, 13),
+    ("fuel:before", 1, 0),
+    ("airline:before", 1, 1),
+    ("dining:before", 1, 2),
+    ("rewards:before", 1, 3),
+    ("premium:before", 1, 4),
+    ("freecard:before", 1, 5),
+    ("shopping:before", 1, 6),
+    ("cashback:before", 1, 7),
+    ("lowfee:before", 1, 8),
+    ("travel:before", 1, 9),
+    ("lifestyle:before", 1, 11),
+    ("fuel:before", 1, 12, ".compare-section"),
+    ("airline:before", 1, 13, ".compare-section"),
+    ("dining:before", 1, 14, ".compare-section"),
+    ("rewards:before", 1, 15, ".compare-section"),
+    ("premium:before", 1, 16, ".compare-section"),
+    ("freecard:before", 1, 17, ".compare-section"),
+    ("shopping:before", 1, 18, ".compare-section"),
+    ("cashback:before", 1, 19, ".compare-section"),
+    ("lowfee:before", 1, 20, ".compare-section"),
+    ("travel:before", 1, 21, ".compare-section"),
+    ("lifestyle:before", 1, 22, ".compare-section"),
+    ("experss-disbursal:before", 2, 0),
+    ("savings-fuel:before", 2, 2),
+    ("travel-card:before", 2, 3),
+    ("reward:before", 2, 4),
+    ("dining-privileges:before", 2, 5),
+    ("free-card:before", 2, 7),
+    ("cashbacks:before", 2, 9),
+    ("great-value-money:before", 2, 10),
+    ("movie-tickets:before", 2, 11),
+    ("privileges:before", 2, 12),
+    ("zero-annual-fee:before", 2, 13),
+    ("savings:before", 2, 14),
+    ("cash-rewards:before", 2, 15),
+    ("discounts:before", 2, 16),
+    ("foodies:before", 2, 17),
+    ("travel-dining:before", 2, 18),
+    ("domestic-international:before", 2, 19),
+    ("6-year-tenure:before", 6, 0),
+    ("zero-part-payment-fee:before", 6, 1),
+    ("part-payment:before", 6, 1),
+    ("zero-processing-fee:before", 6, 2),
+    ("top-up-loan-facility:before", 6, 3),
+    ("balance-transfer:before", 6, 4),
+    ("no-guarantor:before", 6, 5),
+    ("e-approval:before", 6, 7),
+    ("first-time-borrowers:before", 6, 8),
+    ("low-interest-rate:before", 6, 9),
+    ("zero-pre-closure-fee:before", 6, 10),
+    ("pre-closure:before", 6, 10),
+    ("low-pre-closure-fee:before", 6, 11),
+    ("loan-protect-insurance-facility:before", 6, 12),
+    ("low-processing-fee:before", 6, 13),
+    ("prepayment-option:before", 6, 14);

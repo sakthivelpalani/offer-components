@@ -1,0 +1,8 @@
+/*function used to get values from nested variables*/
+
+@function map-deep-get($parent-var, $child-var, $key) {
+    @return map-get(map-get($parent-var, $child-var), $key);
+}
+@function calc-round($number) {
+    @return round($number);
+}

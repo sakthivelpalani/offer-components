@@ -1,0 +1,23 @@
+@import "./../config/filter";
+
+.filterSticky {
+    position: relative;
+    box-shadow: 0 0 3px #a09c9c;
+    margin-bottom: 5px;
+    font-size: map-deep-get($filterSticky, filterSticky, textSize);
+    color: map-deep-get($filterSticky, filterSticky, textColor);
+    font-weight: bold;
+    .filterStickyContainer {
+        .offerCountInfo {
+            background: map-deep-get($filterSticky, offerCountInfo, bgColor);
+            padding: 6px;
+            line-height: 26px;
+        }
+    }
+    .filterBtn {
+        text-transform: uppercase;
+        float: right;
+        padding: 0 10px;
+        color: map-deep-get($filterSticky, filterBtn, textColor);
+    }
+}
