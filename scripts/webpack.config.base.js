@@ -15,7 +15,7 @@ const globalStylesDir = Path.resolve(appDir, "styles");
 const loaderRulesConfig = {
     "babelLoader_es2015": [
         {
-            test: /\.jsx?/,
+            test: /\.(js|jsx)$/,
             include: appDir,
             use: {
                 loader: "babel-loader",
@@ -31,7 +31,7 @@ const loaderRulesConfig = {
             use: "null-loader"
         },
         {
-            test: /\.jsx?/,
+            test: /\.(js|jsx)$/,
             include: appDir,
             use: {
                 loader: "babel-loader",

@@ -10,37 +10,24 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
 
     static propTypes = {
         offersModel: PropTypes.instanceOf(OffersModel).isRequired,
-        context: PropTypes.instanceOf(Context).isRequired
-    }
-
-    getConfiguration() {
-        return {
-            "CC"    : {
-                "logoType": "CreditCard_Image",
-                "rowsTypes": {
-                    1: ["CreditCard_Name"],
-                    2: ["AnnualFee_FirstYear"],
-                    3: ["Rewards_OneLiner"]
-                },
-                "ctaButtonRowPosition": "2"                
-            }
-        };
+        context: PropTypes.instanceOf(Context).isRequired,
+        viewConfiguration: PropTypes.object.isRequired
     }
 
     renderOfferRow(offer) {
-        const config = this.getConfiguration()[this.props.context.getProductType()];
+        const config = this.props.viewConfiguration["visibleItems"];
 
         function getLogoRenderer(){
-            return getItemRendererFor(config.logoType, offer);
+            return getItemRendererFor(config.logoRenderer, offer);
         }
 
         function getRatingsRenderer(){
-            return getItemRendererFor("ReviewsSummary_Rating", offer);
+            return getItemRendererFor(config.ratingsRenderer, offer);
         }
 
         function getRowsRenderer() {
             const rows = [];
-            Object.entries(config.rowsTypes).forEach(function([rowNumber, itemTypes]) {
+            Object.entries(config.rowRenderers).forEach(function([rowNumber, itemTypes]) {
                 const itemsDiv = itemTypes.map((itemType) => getItemRendererFor(itemType, offer));
                 rows.push((
                     <div className={`row-${rowNumber}`}>
