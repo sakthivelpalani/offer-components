@@ -7,13 +7,18 @@ export class NameItemRenderer extends React.PureComponent {
     
     static props = {
         domain: PropTypes.shape({
-            "CardName": PropTypes.instanceOf(TextAndAdditionalInfo),
+            "CardName": PropTypes.instanceOf(TextAndAdditionalInfo).isRequired,
             "CardUrl": PropTypes.instanceOf(SimpleString)
         })
     }
 
     render() {
-        return <a href={"/credit-card/" + this.props.domain["CardUrl"].getText() + ".html"}> {this.props.domain["CardName"].getText()} </a>;
+        const cardName = this.props.domain["CardName"].getText();
+        if (this.props.domain["CardUrl"] == undefined) {
+            return <a>{cardName}</a>
+        }
+        const linkValue = "/credit-card/" + this.props.domain["CardUrl"].getText() + ".html"; 
+        return <a href={linkValue}> {cardName} </a>;
     }
 
     static requiredDomain() {

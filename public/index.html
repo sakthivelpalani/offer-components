@@ -16,66 +16,13 @@
       var deviceType = deviceDetect.tablet() ? "tablet" : deviceDetect.mobile() ? "mobile" : "desktop";
 
       window.addEventListener("load", function(){
-        var offersData = [
-                    {
-                        "id": "6d11f7e2-9f29-4d1c-918b-efa4b0ee1ef1",
-                        "cardName" : {
-                          "text": "HDFC REGALIA CREDIT CARD"
-                        },
-                        "cardUrl": "hdfc-regalia-first-credit-cards",
-                        "firstYearFee": {
-                            "fees": {
-                              "value": 10000,
-                              "code": "INR"
-                            }
-                        },
-                        "usp": {
-                            "value": "Great savings on everyday spends",
-                            "type": "SAVINGS"
-                        }
-                    }, {
-                        "id": "40a217c7-b5e1-47e6-8081-e9cd07918f13",
-                        "cardName" : {
-                          "text": "ICICI Bank Platinum Identity Credit Card"
-                        },
-                        "cardUrl": "icici-ferrari-platinum-credit-card",
-                        "firstYearFee": {
-                            "fees": {
-                              "value": 1500,
-                              "code": "INR"
-                            },
-                            "conditions": "annual spends > Rs. 30,000"
-                        },
-                        "usp": {
-                          "value": "Lots of rewards on everyday spends  ",
-                          "type": "REWARD"
-                        }
-                    }, {
-                        "id": "40a217c7-b5e1-47e6-8081-e9cd07918f11",
-                        "cardName" : {
-                          "text": "Air India SBI Signature Card"
-                        },
-                        "cardUrl": "air-india-sbi-signature-card",
-                        "firstYearFee": {
-                            "fees": {
-                              "value": 1000,
-                              "code": "INR"
-                            },
-                            "conditions": "spends > Rs. 1 lakh in 90 days"
-                        },
-                        "usp": {
-                          "value": "71 L free fuel every year ",
-                          "type": "FUEL"
-                        }
-                    }];
-        
           var context = offercomponents.createContext({
             userContext: {isInternal: true},
             experimentContext: {},
             deviceType: deviceType.toUpperCase(),
             productType: "CC"
         });
-        var offersManager = offercomponents.createOffersManager({offersData, context});
+        var offersManager = offercomponents.createOffersManager(context);
         offercomponents.launchOfferTable(offersManager, "root");
 
       });

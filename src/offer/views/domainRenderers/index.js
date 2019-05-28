@@ -14,6 +14,7 @@ export function reactElementForRendererViewKlass(viewKlass, offer) {
     }
     if(!domain) {
         Logger.error("Unable to find domain for renderer " + viewKlass.name);
+        return null;
     }
 
     return React.createElement(viewKlass, { domain : domain });

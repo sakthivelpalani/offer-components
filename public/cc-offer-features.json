@@ -1,0 +1,186 @@
+[
+  {
+    "id": "123",
+    "cpId": 4057402,
+    "bank": {
+      "id": "4",
+      "name": "ICICI Bank"
+    },
+    "partner": true,
+    "oldFirstYearFee": {
+      "value": 300,
+      "code": "INR"
+    },
+    "secondYearFeeOnwards": {
+      "value": 1250,
+      "code": "INR"
+    },
+    "isSTPOnly": true,
+    "isPreApproved": false,
+    "productNotice": "dummy product notice from cp"
+  },
+  {
+    "id": "124",
+    "cpId": 403955,
+    "bank": {
+      "id": "12",
+      "name": "IndusInd bank"
+    },
+    "partner": true,
+    "oldFirstYearFee": {
+      "value": 200,
+      "code": "INR"
+    },
+    "secondYearFeeOnwards": {
+      "value": 3250,
+      "code": "INR"
+    },
+    "isSTPOnly": true,
+    "isPreApproved": false,
+    "productNotice": "${RUPEE} 15lac insurance"
+  },
+  {
+    "id": "125",
+    "cpId": 420002,
+    "bank": {
+      "id": "13",
+      "name": "HDFC bank"
+    },
+    "partner": true,
+    "oldFirstYearFee": {
+      "value": 1200,
+      "code": "INR"
+    },
+    "secondYearFeeOnwards": {
+      "value": 1250,
+      "code": "INR"
+    },
+    "isSTPOnly": true,
+    "isPreApproved": true,
+    "productNotice": "dummy product notice 2 from cp"
+  },
+  {
+    "feeWaiver": true,
+    "joiningPerks": [
+      {
+        "text": "e-Vouchers worth ${RUPEE} 15k",
+        "additionalInfo": ""
+      }
+    ],
+    "cardCategory": [
+      "LIFESTYLE",
+      "REWARDS",
+      "FUEL",
+      "TRAVEL"
+    ],
+    "croUSP": "USP: An entertainment Credit Card that offers great rewards and discounts*****Features:Get up to 25% discount on movies and shopping at select outlets.Up to 20% discount at select dining outlets.Plus, earn 10 points for every Rs. 150 spent on dining during weekdays***** Annual Fee:The joining fee for this card is Rs. 1,000.The annual fee charged is just Rs. 1,000 which will be waived if the yearly spends exceed Rs. 2.5 lakhs.",
+    "downloads": [
+      {
+        "text": "Most Important TnC",
+        "url": "https://cdn1-bb-image.bankbazaar.com/mp/credit_card/tnc/HDFC_TnC_updated_GST.pdf"
+      }
+    ],
+    "cardName": {
+      "text": "HDFC Bank Times Platinum",
+      "additionalInfo": ""
+    },
+    "cardFeeType": [
+      "FEE_WAIVER"
+    ],
+    "usp": {
+      "value": "Great deals on movies, shopping and dining",
+      "uspCategory": "DISCOUNTS"
+    },
+    "responseTime": "Within 30 minutes",
+    "loungeAccess": true,
+    "cons": [
+      {
+        "text": "No 1st year joining fee waiver",
+        "additionalInfo": ""
+      }
+    ],
+    "nittyGritty": [
+      {
+        "text": "Live GPS location-based online & offline offers on the Times Card app",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Fuel-surcharge waiver",
+        "additionalInfo": ""
+      }
+    ],
+    "apr": [
+      {
+        "value": 40.8,
+        "minValue": null,
+        "maxValue": null,
+        "cashless": false,
+        "interestRateTenure": "PER_ANNUM",
+        "conditions": null
+      }
+    ],
+    "feesAndCharges": [],
+    "documents": [
+      {
+        "text": "${isPreApproved==true?'One photograph':'KYC-PAN, Address proof and ID Proof'\r\n}",
+        "additionalInfo": ""
+      },
+      {
+        "text": "${isPreApproved==true?'No income, ID & address proof documents required':'One photograph, Salary slip/Form 16'}",
+        "additionalInfo": ""
+      }
+    ],
+    "rewards": [
+      {
+        "text": "10 points on dining during weekdays",
+        "additionalInfo": ""
+      },
+      {
+        "text": "3 points on all other spends",
+        "additionalInfo": ""
+      }
+    ],
+    "pros": [
+      {
+        "text": "${isPreApproved==true?'Instant approval and Express processing':'25% off on movie tickets at BookMyShow, Cinepolis & SPI Cinemas'}",
+        "additionalInfo": ""
+      },
+      {
+        "text": "${isSTPOnly==false?'Up to 20% off at select restaurants':'This offer is available only if all necessary documents are uploaded online'}",
+        "additionalInfo": ""
+      }
+    ],
+    "cardNetwork": [
+      "MASTER"
+    ],
+    "firstYearFee": {
+      "conditions": "",
+      "fees": {
+        "value": 1000.0,
+        "code": "INR"
+      },
+      "oldFees": null,
+      "bbExclusive": false
+    },
+    "lifetimeFree": false,
+    "secondYearOnwardsAnnualFee": {
+      "conditions": "Waived on annual spends >  2.5 lakhs",
+      "fees": {
+        "value": 1000.0,
+        "code": "INR"
+      },
+      "oldFees": null,
+      "bbExclusive": false
+    },
+    "fuelSurchargeWaiver": {
+      "text": "Fuel Surcharge Waiver capped at Rs. 500 every billing cycle",
+      "additionalInfo": ""
+    },
+    "paperlessOffer": true,
+    "paperlessLanding": true,
+    "bestDealEnabledMobile": true,
+    "bestDealEnabled": true,
+    "productTypeId": 4,
+    "cpId": 420002
+  }
+]

@@ -19,15 +19,17 @@ export default class OfferModel {
 
     instantiateOffer(offerData) {
         const offer = {
-            "id": offerData.id
+            "id": offerData.cpId
         };
 
         Object.entries(omit(offerData, "id")).forEach(function([key, value]) {
             const domainType = key.charAt(0).toUpperCase() + key.slice(1);
             if (Domains[domainType] == undefined) {
-              offer[domainType] = new mappings[key](value);      
+                if (mappings[key] != undefined) { //temporary, can be removed once all data is mapped to domains
+                    offer[domainType] = new mappings[key](value);      
+                }
             } else {
-            offer[domainType] = new Domains[domainType](value);
+                offer[domainType] = new Domains[domainType](value);
             }
         });
         //Temporary till reviews ajax call is done

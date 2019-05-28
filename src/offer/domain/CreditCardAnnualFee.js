@@ -5,7 +5,10 @@ export default class CreditCardAnnualFee {
     }
 
     getCurrentFee() {
-        return this.creditCardAnnualFee.fees.value;
+        if (this.creditCardAnnualFee.fees != undefined) {
+            return this.creditCardAnnualFee.fees.value;
+        } 
+        return "";
     }
 
     getConditionForFee() {
