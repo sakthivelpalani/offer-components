@@ -30,6 +30,14 @@ export default class OfferModel {
             offer[domainType] = new Domains[domainType](value);
             }
         });
+        //Temporary till reviews ajax call is done
+        offer["ReviewsSummary"] = new Domains["ReviewsSummary"]({
+            "avgRating":  {
+                "rating": 2.5,
+                "scale": 5.0
+            },
+            "count" : 6897
+        });
 
         return offer;
     }
