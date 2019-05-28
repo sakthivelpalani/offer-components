@@ -1,4 +1,4 @@
-import {CreditCard, ReviewsSummary, CreditCardAnnualFee, Rewards} from "./domainRenderers";
+import {CreditCard, ReviewsSummary, CreditCardAnnualFee, Usp} from "./domainRenderers";
 
 const configuration = {
     "CC": {
@@ -8,7 +8,7 @@ const configuration = {
             "rowRenderers": {
                 "1": [CreditCard.NameItemRenderer],
                 "2": [CreditCardAnnualFee.FirstYearFeeItemRenderer],
-                "3": [Rewards.OneLinerItemRenderer]
+                "3": [Usp.OneLinerItemRenderer]
             },
             "ctaRowPosition": "2"               
         }

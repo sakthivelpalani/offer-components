@@ -6,5 +6,5 @@ export {default as InterestRate} from "./InterestRate";
 export {default as LoanAmount} from "./LoanAmount";
 export {default as ProcessingFee} from "./ProcessingFee";
 export {default as ReviewsSummary} from "./ReviewsSummary";
-export {default as Rewards} from "./Rewards";
+export {default as Usp} from "./Usp";
 export {default as Tenure} from "./Tenure";

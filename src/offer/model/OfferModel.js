@@ -1,12 +1,3 @@
-import Bank from "../domain/Bank";
-import CreditCardAnnualFee from "../domain/CreditCardAnnualFee";
-import Rewards from "../domain/Rewards";
-import InterestRate from "../domain/InterestRate";
-import ProcessingFee from "../domain/ProcessingFee";
-import LoanAmount from "../domain/LoanAmount";
-import Tenure from "../domain/Tenure";
-import ReviewsSummary from "../domain/ReviewsSummary";
-
 import * as Domains from "../domain";
 import {mappings} from "./DomainMappings.js";
 

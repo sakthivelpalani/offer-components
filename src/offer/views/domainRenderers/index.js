@@ -22,9 +22,9 @@ export function reactElementForRendererViewKlass(viewKlass, offer) {
 import * as ReviewsSummary from "./ReviewsSummary";
 import * as CreditCard from "./CreditCard";
 import * as CreditCardAnnualFee from "./CreditCardAnnualFee";
-import * as Rewards from "./Rewards";
+import * as Usp from "./Usp";
 
 export {ReviewsSummary};
 export {CreditCard};
 export {CreditCardAnnualFee};
-export {Rewards};
+export {Usp};
