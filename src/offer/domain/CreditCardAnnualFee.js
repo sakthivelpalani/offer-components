@@ -1,23 +1,15 @@
 export default class CreditCardAnnualFee {
 
-    constructor(fee) {
-        this.fee = fee;
+    constructor(creditCardAnnualFee) {
+        this.creditCardAnnualFee = creditCardAnnualFee;
     }
 
-    getFirstYearFee() {
-        return this.fee.firstYearFee.value;
+    getCurrentFee() {
+        return this.creditCardAnnualFee.fees.value;
     }
 
-    getFirstYearReducedFee() {
-        return this.fee.firstYearFee.reducedValue;
-    }
-
-    getConditionForFirstYearReducedFee() {
-        return this.fee.firstYearFee.conditionsForReducedValue;
-    }
-
-    getSecondYearOnwardsFee() {
-        return this.fee.secondYearOnwardsFee;
+    getConditionForFee() {
+        return this.creditCardAnnualFee.conditions;
     }
 
     getType() {

@@ -11,12 +11,12 @@ export class FirstYearFeeItemRenderer extends React.PureComponent {
 
     render() {
         return <div>
-            ${this.props.domain.getFirstYearFee()} <br />
+            ${this.props.domain.getCurrentFee()} <br />
             1st YEAR FEE
             </div>;
     }
 
     static requiredDomain() {
-        return "CreditCardAnnualFee";
+        return "FirstYearFee";
     }
 }
