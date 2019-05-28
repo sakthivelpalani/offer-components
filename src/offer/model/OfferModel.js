@@ -1,5 +1,4 @@
 import Bank from "../domain/Bank";
-import CreditCard from "../domain/CreditCard";
 import CreditCardAnnualFee from "../domain/CreditCardAnnualFee";
 import Rewards from "../domain/Rewards";
 import InterestRate from "../domain/InterestRate";

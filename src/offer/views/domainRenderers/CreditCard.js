@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import CreditCard from "../../domain/CreditCard";
 import {TextAndAdditionalInfo, SimpleString} from "../../domain/index.js";
 
 export class NameItemRenderer extends React.PureComponent {
@@ -25,7 +24,7 @@ export class NameItemRenderer extends React.PureComponent {
 export class ImageItemRenderer extends React.PureComponent {
     
     static props = {
-        domain: PropTypes.instanceOf(CreditCard)
+        domain: PropTypes.instanceOf(TextAndAdditionalInfo)
     }
 
     render() {
@@ -34,6 +33,6 @@ export class ImageItemRenderer extends React.PureComponent {
     }
 
     static requiredDomain() {
-        return "CreditCard";
+        return "CardName";
     }
 }
