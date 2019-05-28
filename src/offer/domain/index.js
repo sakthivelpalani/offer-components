@@ -1,5 +1,6 @@
 export {default as Bank} from "./Bank";
 export {default as TextAndAdditionalInfo} from "./TextAndAdditionalInfo.js";
+export {default as SimpleString} from "./SimpleString.js";
 export {default as CreditCard} from "./CreditCard";
 export {default as CreditCardAnnualFee} from "./CreditCardAnnualFee";
 export {default as InterestRate} from "./InterestRate";
