@@ -1,22 +1,23 @@
-[{
-            "id": "123",
-            "cpId": 4057402,
-            "bank": {
-              "id": "4",
-              "name": "ICICI Bank"
-            },
-            "partner": true,
-            "oldFirstYearFee": {
-              "value":300,
-              "code":"INR"
-            },
-            "secondYearFeeOnwards": {
-              "value":1250,
-              "code":"INR"
-            },
-            "isSTPOnly":true,
-            "isPreApproved":false,
-            "productNotice": "dummy product notice from cp"
+[
+  {
+    "id": "123",
+    "cpId": 4057402,
+    "bank": {
+      "id": "4",
+      "name": "ICICI Bank"
+    },
+    "partner": true,
+    "oldFirstYearFee": {
+      "value": 300,
+      "code": "INR"
+    },
+    "secondYearFeeOnwards": {
+      "value": 1250,
+      "code": "INR"
+    },
+    "isSTPOnly": true,
+    "isPreApproved": false,
+    "productNotice": "dummy product notice from cp"
   },
   {
     "id": "124",
@@ -27,35 +28,35 @@
     },
     "partner": true,
     "oldFirstYearFee": {
-      "value":200,
-      "code":"INR"
+      "value": 200,
+      "code": "INR"
     },
     "secondYearFeeOnwards": {
-      "value":3250,
-      "code":"INR"
+      "value": 3250,
+      "code": "INR"
     },
-    "isSTPOnly":true,
-    "isPreApproved":false,
+    "isSTPOnly": true,
+    "isPreApproved": false,
     "productNotice": "${RUPEE} 15lac insurance"
-},
-{
-  "id": "125",
-  "cpId": 420002,
-  "bank": {
-    "id": "13",
-    "name": "HDFC bank"
   },
-  "partner": true,
-  "oldFirstYearFee": {
-    "value":1200,
-    "code":"INR"
-  },
-  "secondYearFeeOnwards": {
-    "value":1250,
-    "code":"INR"
-  },
-  "isSTPOnly":true,
-  "isPreApproved":true,
-  "productNotice": "dummy product notice 2 from cp"
-}
+  {
+    "id": "125",
+    "cpId": 420002,
+    "bank": {
+      "id": "13",
+      "name": "HDFC bank"
+    },
+    "partner": true,
+    "oldFirstYearFee": {
+      "value": 1200,
+      "code": "INR"
+    },
+    "secondYearFeeOnwards": {
+      "value": 1250,
+      "code": "INR"
+    },
+    "isSTPOnly": true,
+    "isPreApproved": true,
+    "productNotice": "dummy product notice 2 from cp"
+  }
 ]

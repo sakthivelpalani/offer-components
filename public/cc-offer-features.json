@@ -1,63 +1,292 @@
 [
   {
-    "id": "123",
-    "cpId": 4057402,
-    "bank": {
-      "id": "4",
-      "name": "ICICI Bank"
+    "feeWaiver": false,
+    "joiningPerks": [
+      {
+        "text": "Lenskart voucher",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Exclusive vouchers from GrabOn",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Spykar voucher",
+        "additionalInfo": ""
+      }
+    ],
+    "cardCategory": [
+      "TRAVEL",
+      "PREMIUM",
+      "REWARDS",
+      "LIFESTYLE",
+      "FUEL"
+    ],
+    "croUSP": "USP: This is a great Credit Card for frequent Jet Airways flyers*****Features:Get 5% discount on the base fare for all domestic and international revenue bookings made online on Jet Airways website. This is applicable across all fare choices in the economy cabin. Dedicated check-in at select airports and excess baggage allowance of 10 kgs in Premiere and 5 kgs in economy (terms and conditions apply). Unlimited complimentary lounge access per calendar year.*****Annual Fee:This card charges an annual fee of Rs. 5,000. If youre a JetPrivilege Platinum member, then you do not have pay this fee.*****Joining rewards:As a welcome gift, youll get 10,000 bonus JPMiles and a complimentary Jet Airways Economy Class base fee waived domestic ticket code.",
+    "cardName": {
+      "text": "Jet Airways ICICI Bank Sapphiro American Express Credit Card",
+      "additionalInfo": ""
     },
-    "partner": true,
-    "oldFirstYearFee": {
-      "value": 300,
-      "code": "INR"
+    "cardFeeType": [
+      "PREMIUM",
+      "FEE_WAIVER"
+    ],
+    "usp": {
+      "value": "Exclusive privileges for Jet Airways flyers",
+      "uspCategory": "TRAVEL"
     },
-    "secondYearFeeOnwards": {
-      "value": 1250,
-      "code": "INR"
+    "cardUrl": "icici-bank-sapphiro-amex-credit-card",
+    "responseTime": "",
+    "loungeAccess": true,
+    "nittyGritty": [
+      {
+        "text": "Minimum 15% savings on dining bills.",
+        "additionalInfo": ""
+      },
+      {
+        "text": "1% fuel surcharge waiver on fuel transactions at all fuel outlets.",
+        "additionalInfo": ""
+      },
+      {
+        "text": "24/7 premium concierge service with i-Assist.",
+        "additionalInfo": ""
+      },
+      {
+        "text": "5,000 JPMiles and a complimentary Jet Airways Economy Class domestic ticket code (base fare waived) on renewal. Valid only for travel in Deal Fare Choices in Economy Cabin.",
+        "additionalInfo": ""
+      },
+      {
+        "text": "1 complimentary round of golf every month if total retail spends exceed ${RUPEE}1,00,000 in a year.",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Vouchers from Lenskart, GrabOn and Spykar on submitting required documents",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Lenskart &#x96; ${RUPEE} 1,000 off on purchase of ${RUPEE} 4,000 & above. Valid till 30th Sep&apos;18",
+        "additionalInfo": ""
+      },
+      {
+        "text": "GrabOn &#x96; Exclusive vouchers from Swiggy, Puma, McDonalds, Ferns n Petals and more. Valid till 30th Sep&apos;18",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Spykar &#x96; ${RUPEE} 300 off at Spykar stores. Valid till 30th Sep&apos;18 on clothes purchased at Spykar stores only",
+        "additionalInfo": ""
+      }
+    ],
+    "apr": [],
+    "feesAndCharges": [],
+    "rewards": [
+      {
+        "text": "5 JPMiles/${RUPEE}100 on domestic spends",
+        "additionalInfo": ""
+      },
+      {
+        "text": "7 JPMiles/${RUPEE}100 on international spends",
+        "additionalInfo": ""
+      },
+      {
+        "text": "10 JPMiles/${RUPEE}100 spent on Jet Airways website",
+        "additionalInfo": ""
+      }
+    ],
+    "pros": [
+      {
+        "text": "5% discount on base fare for every domestic/international revenue bookings made online on Jet Airways website. Valid only for travel across all Fare Choices in Economy cabin.",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Dedicated check-in at applicable airports (Mumbai, Delhi, Chennai, Kolkata, Hyderabad and Bengaluru) for primary cardholders",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Excess baggage allowance of 10 kg in Première and 5 kg in Economy. Conditions apply.",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Unlimited complimentary lounge access per calendar year.",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Complimentary Priority Pass for over 600 VIP lounges across the world.",
+        "additionalInfo": ""
+      },
+      {
+        "text": "'Buy 1 Get 1' offer on BookMyShow through the week. Up to 2 free tickets per month, valued at up to ${RUPEE}400 per ticket.",
+        "additionalInfo": ""
+      }
+    ],
+    "cardNetwork": [
+      "AMEX"
+    ],
+    "firstYearFee": {
+      "conditions": "Waived for Jet Privilege Platinum members",
+      "fees": {
+        "value": 5000.0,
+        "code": "INR"
+      },
+      "oldFees": {
+        "value": 0.0,
+        "code": "INR"
+      },
+      "bbExclusive": false
     },
-    "isSTPOnly": true,
-    "isPreApproved": false,
-    "productNotice": "dummy product notice from cp"
+    "lifetimeFree": false,
+    "secondYearOnwardsAnnualFee": {
+      "conditions": null,
+      "fees": {
+        "value": 5000.0,
+        "code": "INR"
+      },
+      "oldFees": null,
+      "bbExclusive": false
+    },
+    "fuelSurchargeWaiver": {
+      "text": "NA",
+      "additionalInfo": ""
+    },
+    "paperlessOffer": true,
+    "paperlessLanding": true,
+    "productTypeId": 4,
+    "cpId": 4057402
   },
   {
-    "id": "124",
+    "feeWaiver": false,
+    "joiningPerks": [],
+    "cardCategory": [
+      "FUEL",
+      "REWARDS",
+      "LIFESTYLE"
+    ],
+    "croUSP": "USP: One of the best fuel Credit Cards in the market*****Features:Get 4 Turbo Points/ Rs. 150 spent on fuel at authorised IndianOil outlets and 2 Turbo Points/Rs. 150 on groceries and supermarket spends.Enjoy waiver up to 1% on fuel purchases at authorised IndianOil outlets.Up to 15% savings on dining bills at participating restaurants*****Annual fee:As an annual fee, you have to pay nothing if your annual spends exceed Rs. 30,000 in the membership year. Otherwise, you will need to pay an amount of Rs. 1000*****Joining rewards:If you apply for this card before 30th June18, you can enjoy activation benefits worth Rs. 250.",
+    "downloads": [
+      {
+        "text": "Rewards TnC",
+        "url": "https://bb-image.s3.amazonaws.com/mp/credit_card/tnc/CITI-rewards-IO-Tnc.pdf"
+      },
+      {
+        "text": "Most Important TnC",
+        "url": "https://bb-image.s3.amazonaws.com/mp/credit_card/tnc/CITI-biz-gold-IO-Card.pdf"
+      }
+    ],
+    "cardName": {
+      "text": "IndianOil Citi Platinum Card",
+      "additionalInfo": ""
+    },
+    "cardFeeType": [
+      "FEE_WAIVER"
+    ],
+    "usp": {
+      "value": "71 L free fuel every year",
+      "uspCategory": "SAVINGS_FUEL"
+    },
+    "cardUrl": "indianoil-citibank-platinum-card",
+    "responseTime": "Within 30 minutes",
+    "loungeAccess": false,
+    "nittyGritty": [
+      {
+        "text": "Up to 71 litres of free fuel annually on redemption of your turbo points for fuel at 1,200+ authorised IndianOil outlets",
+        "additionalInfo": ""
+      },
+      {
+        "text": "No expiry date for turbo points. 1 Turbo point = ${RUPEE}1",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Up to 15% savings at participating restaurants",
+        "additionalInfo": ""
+      },
+      {
+        "text": "<a href=\"https://www.online.citibank.co.in/products-services/online-services/pdfs/soe-tnc.pdf\" target=\"_blank\" style=\"color:#34495e;\" rel=\"nofollow\">Terms & conditions apply</a>",
+        "additionalInfo": ""
+      }
+    ],
+    "apr": [
+      {
+        "value": 39.0,
+        "minValue": null,
+        "maxValue": null,
+        "cashless": false,
+        "interestRateTenure": "PER_ANNUM",
+        "conditions": null
+      }
+    ],
+    "feesAndCharges": [],
+    "documents": [
+      {
+        "text": "KYC-PAN, Address proof and ID Proof",
+        "additionalInfo": null
+      },
+      {
+        "text": "One photograph, Salary slip/Form 16",
+        "additionalInfo": null
+      }
+    ],
+    "rewards": [
+      {
+        "text": "4 turbo points/${RUPEE}150 spent on fuel at authorised IndianOil outlets",
+        "additionalInfo": ""
+      },
+      {
+        "text": "2 turbo points/${RUPEE}150 spent on groceries and at supermarkets",
+        "additionalInfo": ""
+      }
+    ],
+    "pros": [
+      {
+        "text": "Complete waiver of the 1% fuel surcharge at authorised IndianOil outlets",
+        "additionalInfo": ""
+      },
+      {
+        "text": "Contactless card - Just tap your card at accepting POS terminals for transactions up to ${RUPEE}2,000. No PIN required.",
+        "additionalInfo": ""
+      }
+    ],
+    "cardNetwork": [
+      "VISA"
+    ],
+    "firstYearFee": {
+      "conditions": "",
+      "fees": {
+        "value": 1000.0,
+        "code": "INR"
+      },
+      "oldFees": {
+        "value": 0.0,
+        "code": "INR"
+      },
+      "bbExclusive": false
+    },
+    "lifetimeFree": false,
+    "secondYearOnwardsAnnualFee": {
+      "conditions": null,
+      "fees": {
+        "value": 1000.0,
+        "code": "INR"
+      },
+      "oldFees": null,
+      "bbExclusive": false
+    },
+    "fuelSurchargeWaiver": {
+      "text": "5.00%",
+      "additionalInfo": ""
+    },
+    "paperlessOffer": false,
+    "bestFitEnabled": true,
+    "bestFitEnabledMobile": true,
+    "productTypeId": 4,
     "cpId": 403955,
-    "bank": {
-      "id": "12",
-      "name": "IndusInd bank"
-    },
-    "partner": true,
-    "oldFirstYearFee": {
-      "value": 200,
-      "code": "INR"
-    },
-    "secondYearFeeOnwards": {
-      "value": 3250,
-      "code": "INR"
-    },
-    "isSTPOnly": true,
-    "isPreApproved": false,
-    "productNotice": "${RUPEE} 15lac insurance"
-  },
-  {
-    "id": "125",
-    "cpId": 420002,
-    "bank": {
-      "id": "13",
-      "name": "HDFC bank"
-    },
-    "partner": true,
-    "oldFirstYearFee": {
-      "value": 1200,
-      "code": "INR"
-    },
-    "secondYearFeeOnwards": {
-      "value": 1250,
-      "code": "INR"
-    },
-    "isSTPOnly": true,
-    "isPreApproved": true,
-    "productNotice": "dummy product notice 2 from cp"
+    "reducedFee": {
+      "conditions": "If annual spends > ${RUPEE} 30,000",
+      "fees": {
+        "value": 0.0,
+        "code": "INR"
+      },
+      "oldFees": null,
+      "bbExclusive": false
+    }
   },
   {
     "feeWaiver": true,
