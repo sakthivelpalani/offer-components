@@ -7,4 +7,5 @@ export {default as LoanAmount} from "./LoanAmount";
 export {default as ProcessingFee} from "./ProcessingFee";
 export {default as ReviewsSummary} from "./ReviewsSummary";
 export {default as Usp} from "./Usp";
+export {default as CardCategory} from "./CardCategory";
 export {default as Tenure} from "./Tenure";
