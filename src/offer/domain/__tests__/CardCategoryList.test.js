@@ -16,5 +16,5 @@ describe("Card category list domain", function() {
     it("should return top categories when asked for", function() {
         const cardCategoryDomain = new CardCategoryList(["LIFESTYLE", "REWARDS", "FUEL", "TRAVEL"]);
         expect(cardCategoryDomain.getTop()).toEqual(["LIFESTYLE", "REWARDS", "FUEL"]);
-    })
+    });
 });

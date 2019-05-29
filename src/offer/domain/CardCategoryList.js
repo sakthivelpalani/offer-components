@@ -1,5 +1,5 @@
 //@flow
-import {compact} from "lodash";
+import {compact, filter} from "lodash";
 
 const cardCategoryTypes = {
     LIFESTYLE: "LIFESTYLE",
@@ -13,13 +13,13 @@ const cardCategoryTypes = {
 export type CardCategoryValueType = $Keys<typeof cardCategoryTypes>;
 
 export default class CardCategoryList {
-    values: Array<CardCategory>
+    domains: Array<CardCategory>
 
     constructor(values: Array<string>) {
         if(values == undefined) {
-            this.values = [];
+            this.domains = [];
         } else {
-            this.values = values.map((value) => {
+            this.domains = values.map((value) => {
                return new CardCategory(value);
             });
         }
@@ -29,9 +29,13 @@ export default class CardCategoryList {
     }
 
     getValues(): Array<CardCategoryValueType> {
-        return compact(this.values.map((cardCategoryDomain)=> {
+        return compact(this.domains.map((cardCategoryDomain)=> {
             return cardCategoryDomain.getValue();
         }));
+    }
+
+    getDomains(): Array<CardCategory> {
+        return filter(this.domains, (domain)=> domain.getValue() != undefined);
     }
 
     getTop(): Array<CardCategoryValueType> {
@@ -40,7 +44,7 @@ export default class CardCategoryList {
 }
 
 
-class CardCategory {
+export class CardCategory {
     value: CardCategoryValueType
     constructor(value: string) {
         this.value = cardCategoryTypes[value];
