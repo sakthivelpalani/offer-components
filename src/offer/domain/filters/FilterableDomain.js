@@ -1,8 +1,8 @@
 // @flow
 export default class FilterableDomain<DT, FT> {
-    selectedValues: Array<DT>
+    filterCriteria: Array<DT>
     constructor(selectedValues: Array<DT>) {
-        this.selectedValues = selectedValues;
+        this.filterCriteria = selectedValues;
     }
     getFilterOptions(filterableData: FT): Array<DT> {
         //the domain will decide whether it returns options or ranges
@@ -15,7 +15,7 @@ export default class FilterableDomain<DT, FT> {
     }
 
     setSelectedValues(selectedValues: Array<DT>) {
-        this.selectedValues = selectedValues;
+        this.filterCriteria = selectedValues;
     }
 
 }

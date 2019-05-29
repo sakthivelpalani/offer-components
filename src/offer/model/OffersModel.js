@@ -11,6 +11,12 @@ export default class OffersModel {
         return this.offersMap;
     }
 
+    copy(offersMap) {
+        const offersModel = new OffersModel([], this.context);
+        offersModel.offersMap = offersMap;
+        return offersModel;
+    }
+
     getContext() {
         return this.context;
     }
