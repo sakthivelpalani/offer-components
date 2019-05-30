@@ -1,6 +1,6 @@
 //@flow
 
-import {uniqWith, filter, isEmpty, intersectionWith} from "lodash";
+import {uniqWith, filter, isEmpty} from "lodash";
 
 import FilterableDomain from "./FilterableDomain.js";
 import OffersModel from "../../model/OffersModel.js";
@@ -8,7 +8,7 @@ import BankDomain from "../Bank.js";
 import OfferModel from "../../model/OfferModel.js";
 
 //TODO: type should be made static?
-const bankType =  new BankDomain({}).getType()
+const bankType =  new BankDomain({}).getType();
 
 export default class BankFilter extends FilterableDomain<BankDomain, OffersModel> {
     getFilterOptions(offersModel: OffersModel): Array<BankDomain> {
@@ -20,7 +20,7 @@ export default class BankFilter extends FilterableDomain<BankDomain, OffersModel
     }
 
     filter(offersModel: OffersModel): Promise<OffersModel> {
-        if(isEmpty(this.filterCriteria)) {
+        if (isEmpty(this.filterCriteria)) {
             return Promise.resolve(offersModel);
         }
         const offers = offersModel.getOffersMap();

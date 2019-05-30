@@ -5,17 +5,17 @@ import {TextAndAdditionalInfo, SimpleString} from "../../domain/index.js";
 
 export class NameItemRenderer extends React.PureComponent {
     
-    static props = {
+    static propTypes = {
         domain: PropTypes.shape({
-            "CardName": PropTypes.instanceOf(TextAndAdditionalInfo).isRequired,
-            "CardUrl": PropTypes.instanceOf(SimpleString)
-        })
+            CardName: PropTypes.instanceOf(TextAndAdditionalInfo).isRequired,
+            CardUrl: PropTypes.instanceOf(SimpleString)
+        }).isRequired
     }
 
     render() {
         const cardName = this.props.domain["CardName"].getText();
-        if (this.props.domain["CardUrl"] == undefined) {
-            return <a>{cardName}</a>
+        if (this.props.domain.CardUrl == undefined) {
+            return <a>{cardName}</a>;
         }
         const linkValue = "/credit-card/" + this.props.domain["CardUrl"].getText() + ".html"; 
         return <a href={linkValue}> {cardName} </a>;
@@ -28,7 +28,7 @@ export class NameItemRenderer extends React.PureComponent {
 
 export class ImageItemRenderer extends React.PureComponent {
     
-    static props = {
+    static propTypes = {
         domain: PropTypes.instanceOf(TextAndAdditionalInfo)
     }
 

@@ -5,18 +5,18 @@ import Tenure from "../../domain/Tenure";
 
 export class TenureColumnRenderer extends React.PureComponent {
 
-     static props = {
-        domain: PropTypes.instanceOf(Tenure)
-    }
+     static propTypes = {
+         domain: PropTypes.instanceOf(Tenure)
+     }
 
-    render() {
-        let displayText = "";
-        if (this.props.domain.getMinYears() !== undefined) {
-            displayText = this.props.domain.getMinYears() + " - " + this.props.domain.getMaxYears() + " " + "years";
-        } else {
-            displayText = this.props.domain.getMaxYears() + " " + "years";
-        }
+     render() {
+         let displayText = "";
+         if (this.props.domain.getMinYears() !== undefined) {
+             displayText = this.props.domain.getMinYears() + " - " + this.props.domain.getMaxYears() + " " + "years";
+         } else {
+             displayText = this.props.domain.getMaxYears() + " " + "years";
+         }
 
          return <div>{displayText}</div>;
-    }
+     }
 } 

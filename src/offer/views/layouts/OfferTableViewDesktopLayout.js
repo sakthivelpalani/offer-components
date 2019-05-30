@@ -4,10 +4,6 @@ import PropTypes from "prop-types";
 import OffersModel from "../../model/OffersModel";
 import Context from "../../../helpers/Context.js";
 
-import Style from "./OfferTableViewDesktopLayout.scss";
-
-import {reactElementForRendererViewKlass} from "../domainRenderers";
-
 export default class OfferTableViewDesktopLayout extends React.PureComponent {
 
     static propTypes = {
@@ -17,6 +13,6 @@ export default class OfferTableViewDesktopLayout extends React.PureComponent {
     }
 
     render() {
-        return <div>Hello world!</div>
+        return <div>Hello world!</div>;
     }
 } 

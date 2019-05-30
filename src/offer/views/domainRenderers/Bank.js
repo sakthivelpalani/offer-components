@@ -5,7 +5,7 @@ import Bank from "../../domain/Bank";
 
 export class BankColumnRenderer extends React.PureComponent {
 
-    static props = {
+    static propTypes = {
         domain: PropTypes.instanceOf(Bank)
     }
 

@@ -5,7 +5,7 @@ import Usp from "../../domain/Usp";
 
 export class OneLinerItemRenderer extends React.PureComponent {
     
-    static props = {
+    static propTypes = {
         domain: PropTypes.instanceOf(Usp)
     }
 

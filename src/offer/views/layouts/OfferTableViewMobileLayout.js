@@ -17,11 +17,11 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
     renderOfferRow(offer) {
         const config = this.props.viewConfiguration["visibleItems"];
 
-        function getLogoRenderer(){
+        function getLogoRenderer() {
             return reactElementForRendererViewKlass(config.logoRenderer, offer);
         }
 
-        function getRatingsRenderer(){
+        function getRatingsRenderer() {
             return reactElementForRendererViewKlass(config.ratingsRenderer, offer);
         }
 
@@ -34,7 +34,7 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
                         {itemsDiv}
                     </div>
                 ));
-            })
+            });
 
             return rows;
         }
@@ -64,9 +64,9 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
 
     renderCTAButton() {
         return (
-                <a onClick={this.applyNowHandler}>
+            <a onClick={this.applyNowHandler}>
                     APPLY NOW
-                </a>
+            </a>
         );
     }
 

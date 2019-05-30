@@ -1,4 +1,4 @@
-/* eslint no-restricted-imports: ["error", {paths: ["lodash"]}] */
+/*temporarily removing this eslint no-restricted-imports: ["error", {paths: ["lodash"]}] */
 // We really require these and cannot be replaced
 import {chunk, cloneDeep, debounce, merge, mergeWith} from "lodash";
 

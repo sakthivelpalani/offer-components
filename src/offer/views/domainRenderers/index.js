@@ -1,18 +1,18 @@
-import React from 'react';
+import React from "react";
 import Logger from "../../../helpers/Logger";
 
 export function reactElementForRendererViewKlass(viewKlass, offer) {
     const domainType = viewKlass.requiredDomain && viewKlass.requiredDomain();
     let domain;
-    if(Array.isArray(domainType)) {
-        domain = domainType.reduce((aggr, domainType)=> {
+    if (Array.isArray(domainType)) {
+        domain = domainType.reduce((aggr, domainType) => {
             aggr[domainType] = offer.get(domainType);
             return aggr;
-        }, {})
+        }, {});
     } else {
         domain = domainType && offer.get(domainType);
     }
-    if(!domain) {
+    if (!domain) {
         Logger.error("Unable to find domain for renderer " + viewKlass.name);
         return null;
     }

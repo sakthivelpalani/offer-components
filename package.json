@@ -16,6 +16,12 @@
     "start.prod": "NODE_ENV=production webpack-dev-server --config scripts/webpack.config.server.js --mode production",
     "prepublishOnly": "node scripts/prepublish.js"
   },
+  "pre-commit": [
+    "flow",
+    "eslint",
+    "stylelint",
+    "test"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

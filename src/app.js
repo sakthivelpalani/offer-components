@@ -11,7 +11,7 @@ export function createContext(data) {
 }
 
 export function createOffersManager(context) {
-  return new OffersManager(context);
+    return new OffersManager(context);
 }
 
 export function launchOfferTable(offersManager, renderIntoElementWithId) {

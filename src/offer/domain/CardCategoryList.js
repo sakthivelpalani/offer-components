@@ -16,11 +16,11 @@ export default class CardCategoryList {
     domains: Array<CardCategory>
 
     constructor(values: Array<string>) {
-        if(values == undefined) {
+        if (values == undefined) {
             this.domains = [];
         } else {
             this.domains = values.map((value) => {
-               return new CardCategory(value);
+                return new CardCategory(value);
             });
         }
     }
@@ -29,13 +29,13 @@ export default class CardCategoryList {
     }
 
     getValues(): Array<CardCategoryValueType> {
-        return compact(this.domains.map((cardCategoryDomain)=> {
+        return compact(this.domains.map((cardCategoryDomain) => {
             return cardCategoryDomain.getValue();
         }));
     }
 
     getDomains(): Array<CardCategory> {
-        return filter(this.domains, (domain)=> domain.getValue() != undefined);
+        return filter(this.domains, (domain) => domain.getValue() != undefined);
     }
 
     getTop(): Array<CardCategoryValueType> {

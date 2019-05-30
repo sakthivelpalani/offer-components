@@ -5,7 +5,7 @@ import ReviewsSummary from "../../domain/ReviewsSummary";
 
 export class RatingItemRenderer extends React.PureComponent {
 
-    static props = {
+    static propTypes = {
         domain: PropTypes.instanceOf(ReviewsSummary)
     }
 

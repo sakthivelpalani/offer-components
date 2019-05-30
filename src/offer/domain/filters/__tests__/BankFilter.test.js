@@ -22,7 +22,7 @@ describe("Bank filter", function () {
             }
         ];
         const offersModel = new OffersModel(offerData, {});
-        expect(bankFilter.getFilterOptions(offersModel).map((filterOption) => filterOption.getId())).toEqual([1,2]);
+        expect(bankFilter.getFilterOptions(offersModel).map((filterOption) => filterOption.getId())).toEqual([1, 2]);
     });
 
     it("should filter given criteria",  () => {
@@ -55,10 +55,10 @@ describe("Bank filter", function () {
             }
         ];
         const offersModel = new OffersModel(offerData, {});
-        bankFilter.filter(offersModel)
+        return bankFilter.filter(offersModel)
             .then((filteredOffersModel) => 
                 expect(filteredOffersModel.getOffersMap().map((offer) => 
-                    offer.getId())).toEqual([10,20]));
+                    offer.getId())).toEqual([10, 20]));
     });
 
     it("should get empty offers if filter criteria not matching", () => {
@@ -76,7 +76,7 @@ describe("Bank filter", function () {
             }
         ];
         const offersModel = new OffersModel(offerData, {});
-        bankFilter.filter(offersModel)
+        return bankFilter.filter(offersModel)
             .then((filteredOffersModel) => 
                 expect(filteredOffersModel.getOffersMap().length).toBe(0));
     });
@@ -95,7 +95,7 @@ describe("Bank filter", function () {
             }
         ];
         const offersModel = new OffersModel(offerData, {});
-        bankFilter.filter(offersModel)
+        return bankFilter.filter(offersModel)
             .then((filteredOffersModel) => 
                 expect(filteredOffersModel).toBe(offersModel));
     });

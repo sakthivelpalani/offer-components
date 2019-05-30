@@ -1,5 +1,4 @@
 //@flow
-import type {CardCategoryValueType} from "../CardCategoryList.js";
 import {uniqWith, filter, isEmpty, intersectionWith} from "lodash";
 import FilterableDomain from "./FilterableDomain.js";
 import OffersModel from "../../model/OffersModel.js";
@@ -7,7 +6,7 @@ import OfferModel from "../../model/OfferModel.js";
 import CardCategoryList, {CardCategory} from "../CardCategoryList.js";
 
 //TODO: type should be made static?
-const cardCategoryListType =  new CardCategoryList([]).getType()
+const cardCategoryListType =  new CardCategoryList([]).getType();
 
 export default class CardCategoryFilter extends FilterableDomain<CardCategory, OffersModel> {
     
@@ -20,7 +19,7 @@ export default class CardCategoryFilter extends FilterableDomain<CardCategory, O
     }
 
     filter(offersModel: OffersModel): Promise<OffersModel> {
-        if(isEmpty(this.filterCriteria)) {
+        if (isEmpty(this.filterCriteria)) {
             return Promise.resolve(offersModel);
         }
         const offers = offersModel.getOffersMap();

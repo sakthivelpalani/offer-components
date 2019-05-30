@@ -64,7 +64,7 @@ describe("Card category filter", function() {
             then((offersModel) => {
                 return expect(offersModel.getOffersMap().length).toBe(0);
             });
-    })
+    });
 
     it("should get same offers model if no filter criteria present", () => {
         expect.assertions(1);
@@ -80,5 +80,5 @@ describe("Card category filter", function() {
             then((filteredOffersModel) => {
                 return expect(filteredOffersModel).toBe(offersModel);
             });
-    })
+    });
 });
