@@ -10,5 +10,4 @@ export default class OffersManager {
         this.offersModel = new OffersModel(offersData, context);
         this.context = context;
     }
-
 }

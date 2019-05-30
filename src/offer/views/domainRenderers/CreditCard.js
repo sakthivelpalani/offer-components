@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {TextAndAdditionalInfo, SimpleString} from "../../domain/index.js";
+import TextAndAdditionalInfo from "../../domain/TextAndAdditionalInfo";
+import SimpleString from "../../domain/SimpleString";
 
 export class NameItemRenderer extends React.PureComponent {
     

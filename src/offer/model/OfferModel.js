@@ -1,12 +1,15 @@
-import * as Domains from "../domain";
-import {mappings} from "./DomainMappings.js";
+import {getDomainKlass} from "../domain";
 
 import {omit} from "../../helpers/Utils";
+import Logger from "../../helpers/Logger";
+
 
 export default class OfferModel {
 
-    constructor(offerData) {
-        this.offer = this.instantiateOffer(offerData);
+    constructor({offerData, context}) {
+        this.offerData = offerData;
+        this.context = context;
+        this.offer = this._instantiateOffer();
     }
 
     get(type) {
@@ -17,28 +20,35 @@ export default class OfferModel {
         return this.offer.id;
     }
 
-    instantiateOffer(offerData) {
+    _instantiateOffer() {
+
         const offer = {
-            "id": offerData.cpId
+            "id": this.offerData.cpId
         };
 
-        Object.entries(omit(offerData, "id")).forEach(function([key, value]) {
-            const domainType = key.charAt(0).toUpperCase() + key.slice(1);
-            if (Domains[domainType] == undefined) {
-                if (mappings[key] != undefined) { //temporary, can be removed once all data is mapped to domains
-                    offer[domainType] = new mappings[key](value);      
-                }
+        const constructDomain = (domainType, defaultValue) => {
+            const domainKlass = getDomainKlass(domainType);
+            if (!domainKlass) { //temporary check till all the domain classes are coded.
+                Logger.error("Unable to find a domain for domainType: " + domainType);
             } else {
-                offer[domainType] = new Domains[domainType](value);
+                const args = domainKlass.requiredValue ? this.offerData[domainKlass.requiredValue(this.context)] : defaultValue;
+                const domain = new domainKlass(args);
+                Object.assign(offer, {[domainType]: domain});
             }
+        };
+
+        Object.entries(omit(this.offerData, "cpId")).forEach(function([key, value]) {
+            const capitalizeFirstLetter = (str) => {
+                return str.charAt(0).toUpperCase() + str.slice(1);
+            };
+
+            const domainType = capitalizeFirstLetter(key);
+            constructDomain(domainType, value);
         });
-        //Temporary till reviews ajax call is done
-        offer["ReviewsSummary"] = new Domains["ReviewsSummary"]({
-            "avgRating":  {
-                "rating": 2.5,
-                "scale": 5.0
-            },
-            "count" : 6897
+
+        const additionalDomainTypesToBeConsidered = ["ReviewsSummary"]; //temp change. Will move out of this file.
+        additionalDomainTypesToBeConsidered.map((domainType) => {
+            constructDomain(domainType, {});
         });
 
         return offer;
