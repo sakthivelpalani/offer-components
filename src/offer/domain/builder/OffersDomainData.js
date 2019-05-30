@@ -15,6 +15,7 @@ export const massage = function(personalizedOfferListString, offerFeaturesListSt
     return Object.keys(offerFeaturesMap).map((cpId) => {
         const offer = personalizedOfferMap[cpId];
         const offerDomainData = Object.assign({}, offerFeaturesMap[cpId]);
+        copyValues(offerDomainData, offer, ["cardId"]);
         overWriteFee(offerDomainData, offer, "secondYearFeeOnwards", "secondYearFee");
         overWriteFee(offerDomainData, offer, "oldFirstYearFee", "firstYearFee");
         substituteProductNoticeInPros(offerDomainData, offer);
@@ -23,6 +24,13 @@ export const massage = function(personalizedOfferListString, offerFeaturesListSt
         return offerDomainData;
     });
 };
+
+const copyValues = function(offerDomainData, personalizedOffer, keys) {
+    keys.forEach((key) => {
+        offerDomainData[key] = personalizedOffer[key];
+    });
+};
+
 const overWriteFee = function(offerDomainData, personalizedOffer, sourceFee, destinationFee) {
     if (isEmpty(offerDomainData[destinationFee])) {
         offerDomainData[destinationFee] = {};

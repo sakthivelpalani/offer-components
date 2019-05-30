@@ -6,6 +6,7 @@
       "id": "4",
       "name": "ICICI Bank"
     },
+    "cardId": 10234,
     "partner": true,
     "oldFirstYearFee": {
       "value": 300,
@@ -26,6 +27,7 @@
       "id": "12",
       "name": "IndusInd bank"
     },
+    "cardId": 10235,
     "partner": true,
     "oldFirstYearFee": {
       "value": 200,
@@ -46,6 +48,7 @@
       "id": "13",
       "name": "HDFC bank"
     },
+    "cardId": 10236,
     "partner": true,
     "oldFirstYearFee": {
       "value": 1200,
