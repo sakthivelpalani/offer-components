@@ -1,6 +1,15 @@
 import CardCategoryFilter from "../CardCategoryFilter.js";
 import {CardCategory} from "../../../domain/CardCategoryList.js";
 import OffersModel from "../../../model/OffersModel";
+import Context from "../../../../helpers/Context";
+
+const createContext = (productType, deviceType = "DESKTOP") => {
+    const data = {
+        deviceType: deviceType,
+        productType: productType
+    };
+    return new Context(data);
+};
 
 describe("Card category filter", function() {
     it("should get filter options given offers model", function() {
@@ -15,7 +24,8 @@ describe("Card category filter", function() {
                 cardCategoryList: ["REWARDS", "LIFESTYLE", "FUEL"]
             }
         ];
-        const offersModel = new OffersModel(offerData, {});
+        const context = createContext("CC");
+        const offersModel = new OffersModel(offerData, context);
         const filterOptions = cardCategoryFilter.getFilterOptions(offersModel);
         expect(filterOptions.map((filterOption) => filterOption.getValue())).toEqual(["REWARDS", "LIFESTYLE", "FUEL"]);
     });
@@ -39,7 +49,8 @@ describe("Card category filter", function() {
                 cardCategoryList: ["PREMIUM"]
             }
         ];
-        const offersModel = new OffersModel(offerData, {});
+        const context = createContext("CC");
+        const offersModel = new OffersModel(offerData, context);
         return cardCategoryFilter.filter(offersModel).
             then((offersModel) => {
                 expect(offersModel.getOffersMap()[0].getId()).toBe(1);
@@ -59,7 +70,8 @@ describe("Card category filter", function() {
                 cardCategoryList: ["REWARDS"]
             }
         ];
-        const offersModel = new OffersModel(offerData, {});
+        const context = createContext("CC");
+        const offersModel = new OffersModel(offerData, context);
         return cardCategoryFilter.filter(offersModel).
             then((offersModel) => {
                 return expect(offersModel.getOffersMap().length).toBe(0);
@@ -75,7 +87,8 @@ describe("Card category filter", function() {
                 cardCategoryList: ["REWARDS"]
             }
         ];
-        const offersModel = new OffersModel(offerData, {});
+        const context = createContext("CC");
+        const offersModel = new OffersModel(offerData, context);
         return cardCategoryFilter.filter(offersModel).
             then((filteredOffersModel) => {
                 return expect(filteredOffersModel).toBe(offersModel);

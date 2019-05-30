@@ -2,6 +2,16 @@ import BankFilter from "../BankFilter.js";
 import OffersModel from "../../../model/OffersModel";
 import BankDomain from "../../../domain/Bank.js";
 
+import Context from "../../../../helpers/Context";
+
+const createContext = (productType, deviceType = "DESKTOP") => {
+    const data = {
+        deviceType: deviceType,
+        productType: productType
+    };
+    return new Context(data);
+};
+
 describe("Bank filter", function () {
     it("should get filter options", function () {
         const bankFilter = new BankFilter();
@@ -21,7 +31,8 @@ describe("Bank filter", function () {
                 }
             }
         ];
-        const offersModel = new OffersModel(offerData, {});
+        const context = createContext("CC");
+        const offersModel = new OffersModel(offerData, context);
         expect(bankFilter.getFilterOptions(offersModel).map((filterOption) => filterOption.getId())).toEqual([1, 2]);
     });
 
@@ -54,7 +65,9 @@ describe("Bank filter", function () {
                 }
             }
         ];
-        const offersModel = new OffersModel(offerData, {});
+        const context = createContext("CC");
+
+        const offersModel = new OffersModel(offerData, context);
         return bankFilter.filter(offersModel)
             .then((filteredOffersModel) => 
                 expect(filteredOffersModel.getOffersMap().map((offer) => 
@@ -75,7 +88,9 @@ describe("Bank filter", function () {
                 }
             }
         ];
-        const offersModel = new OffersModel(offerData, {});
+        const context = createContext("CC");
+
+        const offersModel = new OffersModel(offerData, context);
         return bankFilter.filter(offersModel)
             .then((filteredOffersModel) => 
                 expect(filteredOffersModel.getOffersMap().length).toBe(0));
@@ -94,7 +109,9 @@ describe("Bank filter", function () {
                 }
             }
         ];
-        const offersModel = new OffersModel(offerData, {});
+        const context = createContext("CC");
+
+        const offersModel = new OffersModel(offerData, context);
         return bankFilter.filter(offersModel)
             .then((filteredOffersModel) => 
                 expect(filteredOffersModel).toBe(offersModel));
