@@ -2,12 +2,8 @@ import Bank from "./Bank";
 import TextAndAdditionalInfo from "./TextAndAdditionalInfo.js";
 import SimpleString from "./SimpleString.js";
 import CreditCardAnnualFee from "./CreditCardAnnualFee";
-import InterestRate from "./InterestRate";
-import LoanAmount from "./LoanAmount";
-import ProcessingFee from "./ProcessingFee";
 import ReviewsSummary from "./ReviewsSummary";
 import Usp from "./Usp";
-import Tenure from "./Tenure";
 import CardCategoryList from "./CardCategoryList";
 
 import Logger from "../../helpers/Logger";
@@ -17,12 +13,8 @@ const domains = {
     TextAndAdditionalInfo,
     SimpleString,
     CreditCardAnnualFee,
-    InterestRate,
-    LoanAmount,
-    ProcessingFee,
     ReviewsSummary,
     Usp,
-    Tenure,
     CardCategoryList
 };
 
