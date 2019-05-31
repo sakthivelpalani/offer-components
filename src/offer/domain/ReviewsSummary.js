@@ -1,5 +1,3 @@
-import {ProductType} from "../../helpers/Constants.js";
-
 export default class ReviewsSummary {
     static reviewsSummaryForAllCardsOrBanks = { //temp change. Will have make han ajax call and retrieve this data.
         "10234": {
@@ -25,8 +23,8 @@ export default class ReviewsSummary {
         }
     };
 
-    constructor(id) {
-        this.reviewsSummary = ReviewsSummary.reviewsSummaryForAllCardsOrBanks[id];
+    constructor(id, bankId) {
+        this.reviewsSummary = ReviewsSummary.reviewsSummaryForAllCardsOrBanks[id || bankId];
     }
 
     getAvgRating() {
@@ -40,13 +38,4 @@ export default class ReviewsSummary {
     getCount() {
         return this.reviewsSummary.count;
     }
-
-    getType() {
-        return "ReviewsSummary";
-    }
-
-    static requiredValue(context) {
-        return ProductType.CC.is(context.getProductType()) ? "cardId": "bankId";
-    }
-
 }

@@ -3,10 +3,7 @@ import {uniqWith, filter, isEmpty, intersectionWith} from "lodash";
 import FilterableDomain from "./FilterableDomain.js";
 import OffersModel from "../../model/OffersModel.js";
 import OfferModel from "../../model/OfferModel.js";
-import CardCategoryList, {CardCategory} from "../CardCategoryList.js";
-
-//TODO: type should be made static?
-const cardCategoryListType =  new CardCategoryList([]).getType();
+import {CardCategory} from "../CardCategoryList.js";
 
 export default class CardCategoryFilter extends FilterableDomain<CardCategory, OffersModel> {
     
@@ -34,7 +31,7 @@ export default class CardCategoryFilter extends FilterableDomain<CardCategory, O
 }
 
 const getCardCategoryDomainsFromOffer = function(offerModel: OfferModel): Array<CardCategory> {
-    const cardCategoryList = (offerModel.get(cardCategoryListType)).getDomains();
+    const cardCategoryList = (offerModel.getCardCategoryList()).getDomains();
     return cardCategoryList;
 };
 

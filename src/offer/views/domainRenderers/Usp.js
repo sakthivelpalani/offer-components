@@ -1,19 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Usp from "../../domain/Usp";
+import {default as OfferModel} from "../../model/OfferModel";
 
 export class OneLinerItemRenderer extends React.PureComponent {
     
     static propTypes = {
-        domain: PropTypes.instanceOf(Usp)
+        offer: PropTypes.instanceOf(OfferModel).isRequired
+    }
+
+    constructor(props) {
+        super(props);
+        this.usp = this.props.offer.getUsp();
     }
 
     render() {
-        return <span>{this.props.domain.getUSPText()} </span>;
-    }
-
-    static requiredDomain() {
-        return "Usp";
+        return <span>{this.usp.getUSPText()} </span>;
     }
 }

@@ -1,8 +1,4 @@
-import {getDomainKlass} from "../domain";
-
-import {omit} from "../../helpers/Utils";
-import Logger from "../../helpers/Logger";
-
+import * as Domains from "../domain";
 
 export default class OfferModel {
 
@@ -12,45 +8,48 @@ export default class OfferModel {
         this.offer = this._instantiateOffer();
     }
 
-    get(type) {
-        return this.offer[type];
+    _instantiateOffer() {
+        return  {
+            id: this.offerData.cpId,
+            bank: new Domains.Bank(this.offerData.bank),
+            cardName: new Domains.TextAndAdditionalInfo(this.offerData.cardName),
+            cardUrl: new Domains.SimpleString(this.offerData.cardUrl),
+            firstYearFee: new Domains.CreditCardAnnualFee(this.offerData.firstYearFee),
+            usp: new Domains.Usp(this.offerData.usp),
+            reviewsSummary: new Domains.ReviewsSummary(this.offerData.cardId, this.offerData.bank && this.offerData.bank.id),
+            cardCategoryList: new Domains.CardCategoryList(this.offerData.cardCategoryList)
+        };
     }
 
     getId() {
         return this.offer.id;
     }
 
-    _instantiateOffer() {
+    getBank() {
+        return this.offer.bank;
+    }
 
-        const offer = {
-            "id": this.offerData.cpId
-        };
+    getCardName() {
+        return this.offer.cardName;
+    }
 
-        const constructDomain = (domainType, defaultValue) => {
-            const domainKlass = getDomainKlass(domainType);
-            if (!domainKlass) { //temporary check till all the domain classes are coded.
-                Logger.error("Unable to find a domain for domainType: " + domainType);
-            } else {
-                const args = domainKlass.requiredValue ? this.offerData[domainKlass.requiredValue(this.context)] : defaultValue;
-                const domain = new domainKlass(args);
-                Object.assign(offer, {[domainType]: domain});
-            }
-        };
+    getCardUrl() {
+        return this.offer.cardUrl;
+    }
 
-        Object.entries(omit(this.offerData, "cpId")).forEach(function([key, value]) {
-            const capitalizeFirstLetter = (str) => {
-                return str.charAt(0).toUpperCase() + str.slice(1);
-            };
+    getFirstYearFee() {
+        return this.offer.firstYearFee;
+    }
 
-            const domainType = capitalizeFirstLetter(key);
-            constructDomain(domainType, value);
-        });
+    getUsp() {
+        return this.offer.usp;
+    }
 
-        const additionalDomainTypesToBeConsidered = ["ReviewsSummary"]; //temp change. Will move out of this file.
-        additionalDomainTypesToBeConsidered.map((domainType) => {
-            constructDomain(domainType, {});
-        });
+    getReviewsSummary() {
+        return this.offer.reviewsSummary;
+    }
 
-        return offer;
+    getCardCategoryList() {
+        return this.offer.cardCategoryList;
     }
 }

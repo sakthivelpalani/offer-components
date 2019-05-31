@@ -7,9 +7,6 @@ import OffersModel from "../../model/OffersModel.js";
 import BankDomain from "../Bank.js";
 import OfferModel from "../../model/OfferModel.js";
 
-//TODO: type should be made static?
-const bankType =  new BankDomain({}).getType();
-
 export default class BankFilter extends FilterableDomain<BankDomain, OffersModel> {
     getFilterOptions(offersModel: OffersModel): Array<BankDomain> {
         const filterOptions = offersModel.getOffersMap().reduce((aggr, offerModel) => {
@@ -35,7 +32,7 @@ export default class BankFilter extends FilterableDomain<BankDomain, OffersModel
 }
 
 const getBankDomainFromOffer = function(offerModel: OfferModel): BankDomain {
-    const bank = (offerModel.get(bankType));
+    const bank = (offerModel.getBank());
     return bank;
 };
 

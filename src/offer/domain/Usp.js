@@ -11,8 +11,4 @@ export default class Usp {
     getUSPCategory() {
         return this.usp && this.usp.type;
     }
-    
-    getType() {
-        return "USP";
-    } 
 }

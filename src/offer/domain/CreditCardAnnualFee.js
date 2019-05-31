@@ -15,8 +15,4 @@ export default class CreditCardAnnualFee {
         return this.creditCardAnnualFee.conditions;
     }
 
-    getType() {
-        return "CreditCardAnnualFee";
-    }
-
 }

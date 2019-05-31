@@ -1,44 +1,38 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import TextAndAdditionalInfo from "../../domain/TextAndAdditionalInfo";
-import SimpleString from "../../domain/SimpleString";
+import {default as OfferModel} from "../../model/OfferModel";
 
 export class NameItemRenderer extends React.PureComponent {
     
     static propTypes = {
-        domain: PropTypes.shape({
-            CardName: PropTypes.instanceOf(TextAndAdditionalInfo).isRequired,
-            CardUrl: PropTypes.instanceOf(SimpleString)
-        }).isRequired
+        offer: PropTypes.instanceOf(OfferModel).isRequired
+    }
+
+    constructor(props) {
+        super(props);
+        this.cardName = this.props.offer.getCardName();
+        this.cardUrl = this.props.offer.getCardUrl();
     }
 
     render() {
-        const cardName = this.props.domain["CardName"].getText();
-        if (this.props.domain.CardUrl == undefined) {
+        const cardName = this.cardName.getText();
+        if (this.cardUrl == undefined) {
             return <a>{cardName}</a>;
         }
-        const linkValue = "/credit-card/" + this.props.domain["CardUrl"].getText() + ".html"; 
+        const linkValue = "/credit-card/" + this.cardUrl.getText() + ".html"; 
         return <a href={linkValue}> {cardName} </a>;
-    }
-
-    static requiredDomain() {
-        return ["CardName", "CardUrl"];
     }
 }
 
 export class ImageItemRenderer extends React.PureComponent {
     
     static propTypes = {
-        domain: PropTypes.instanceOf(TextAndAdditionalInfo)
+        offer: PropTypes.instanceOf(OfferModel).isRequired
     }
 
     render() {
         //Return image.
         return <img src="https://bankbazaar.com/images/india/cc-images/small/indusind-bank-jet-airways-voyage-visa-credit-card.png"/>;
-    }
-
-    static requiredDomain() {
-        return "CardName";
     }
 }

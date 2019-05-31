@@ -11,9 +11,4 @@ export default class Bank {
     getId() {
         return this.bank.id;
     }
-
-    getType() {
-        return "Bank";
-    }
-
 }

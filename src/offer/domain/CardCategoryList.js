@@ -24,9 +24,6 @@ export default class CardCategoryList {
             });
         }
     }
-    getType(): string {
-        return "CardCategoryList";
-    }
 
     getValues(): Array<CardCategoryValueType> {
         return compact(this.domains.map((cardCategoryDomain) => {
