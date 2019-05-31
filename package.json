@@ -41,6 +41,8 @@
     "chalk": "^2.4.2",
     "compression-webpack-plugin": "^1.1.11",
     "css-loader": "1.0.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.2",
     "eslint": "5.13.0",
     "eslint-plugin-flowtype": "^3.9.1",
     "eslint-plugin-jasmine": "^2.10.1",
@@ -72,5 +74,19 @@
     "react": "16.5.2",
     "react-dom": "16.5.2",
     "stacktrace-js": "^2.0.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "//": "Configuration learnt from https://facebook.github.io/jest/docs/webpack.html",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tst/__mocks__/fileMock.js"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "setupTestFrameworkScriptFile": "./scripts/setupTests.js",
+    "testRegex": ".*test.js",
+    "roots": [
+      "<rootDir>/src/"
+    ]
   }
 }
