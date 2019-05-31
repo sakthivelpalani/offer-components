@@ -28,7 +28,7 @@ export default class Checkbox extends React.PureComponent {
 
     onChangeHandler = (e) => {
         if (this.props.onChange) {
-            this.props.onChange(e, {checked: this.instance.checked, value: this.props.value});
+            this.props.onChange(e, {checked: e.target.checked, value: this.props.value});
         }
     }
 }
