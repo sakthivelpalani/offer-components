@@ -28,7 +28,7 @@ export default class FilterContainerMobileLayout extends React.PureComponent {
     render() {
         
         const filterRendererClasses = getViewConfiguration(this.props.offersModel.context.getProductType())["filters"];
-        const filterRendererComponents = filterRendererClasses.map((filterRendererClass) => {
+        const filterRendererComponents = filterRendererClasses.map((filterRendererClass, i) => {
             const filterableDomain = find(this.state.filterableDomains, 
                 (filterableDomain) => {
                     return filterableDomain instanceof filterDomainMappings[filterRendererClass.name];
@@ -38,7 +38,9 @@ export default class FilterContainerMobileLayout extends React.PureComponent {
             };
             return React.createElement(filterRendererClass, {
                 options: filterableDomain.getFilterOptions(this.props.offersModel),
-                onChange: onFilterChange
+                onChange: onFilterChange,
+                selectedOptions: filterableDomain.filterCriteria,
+                key: i
             });
         });
         return <div>

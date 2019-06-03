@@ -62,7 +62,9 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
             offerRows.push(this.renderOfferRow(offer));
         });
         const offerRowsComponent =  <div className={Style.offerSection}>{offerRows}</div>;
-        const filterContainer = <FilterContainerMobileLayout offersModel={this.state.filteredOffersModel} onFilter={this.onFilter}/>;
+        const filterContainer = <FilterContainerMobileLayout 
+            offersModel={this.props.offersModel}
+            onFilter={this.onFilter}/>;
         return (
             <div>
                 {filterContainer}
