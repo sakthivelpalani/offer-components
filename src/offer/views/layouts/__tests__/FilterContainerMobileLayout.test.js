@@ -10,6 +10,8 @@ import CardCategoryFilter from "../../../domain/filters/CardCategoryFilter.js";
 import BankFilter from "../../../domain/filters/BankFilter.js";
 import FilterChain from "../../../domain/filters/FilterChain.js";
 
+//TODO: this test is not really a unit test, it is having integration with the filter renderers and filter domains
+//need to clean this up with better mocking
 describe("Filter container mobile", function () {
     const offerData = [
         {
