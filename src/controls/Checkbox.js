@@ -12,11 +12,13 @@ export default class Checkbox extends React.PureComponent {
     render() {
         return (
             <span className="checkboxBtnStyle">
-                <input type="checkbox" value={this.props.value}
+                <label><input type="checkbox" value={this.props.value}
                     name={this.props.name} 
                     onChange={this.onChangeHandler} 
                     checked={this.props.checked}
                     ref={(i) => this.instance = i}/>
+                {this.props.name}
+                </label>
                 <span className="firstIcon"></span>
                 <span className="secondIcon">
                     <span className="secondIconStem"></span>
