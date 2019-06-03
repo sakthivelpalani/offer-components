@@ -61,6 +61,6 @@ describe("Offer table view mobile layout", function() {
         const filteredOffersModel = new OffersModel(offerData, context);
         filterContainer.prop("onFilter")(filteredOffersModel);
         expect(setStateSpy.called).toBe(true);
-        expect(setStateSpy.args[0][0]).toEqual({filteredOffersModel});
+        expect(setStateSpy.args[0][0]).toEqual({filteredOffersModel, filterShown: false});
     });
 });

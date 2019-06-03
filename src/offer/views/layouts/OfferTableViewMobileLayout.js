@@ -15,8 +15,12 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
         viewConfiguration: PropTypes.object.isRequired
     }
 
-    state = {
-        filteredOffersModel: this.props.offersModel
+    constructor(props) {
+        super(props);
+        this.state = {
+            filteredOffersModel: this.props.offersModel,
+            filterShown: false
+        };
     }
 
     renderOfferRow(offer) {
@@ -69,14 +73,23 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
             onFilter={this.onFilter}/>;
         return (
             <div>
-                {filterContainer}
-                {offerRowsComponent}
+                <button onClick={this.showFilter}>Filter</button>
+                <div style={!this.state.filterShown ? {display: "none"}: {}}>
+                    {filterContainer}
+                </div>
+                <div style={this.state.filterShown ? {display: "none"}: {}}>
+                    {offerRowsComponent}
+                </div>
             </div>
         );
     }
 
     onFilter = (filteredOffersModel) => {
-        this.setState({filteredOffersModel});
+        this.setState({filteredOffersModel, filterShown: false});
+    }
+
+    showFilter = () => {
+        this.setState({filterShown: true});
     }
 
     renderCTAButton() {
