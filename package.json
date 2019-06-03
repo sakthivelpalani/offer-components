@@ -7,7 +7,7 @@
     "flow": "flow",
     "eslint": "eslint src --cache --ignore-pattern .gitignore",
     "stylelint": "stylelint 'src/**/*.scss' --cache",
-    "test": "jest --onlyChanged",
+    "test": "jest",
     "test-all": "jest --coverage",
     "test-debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "compile": "node scripts/compile-for-library.js",
