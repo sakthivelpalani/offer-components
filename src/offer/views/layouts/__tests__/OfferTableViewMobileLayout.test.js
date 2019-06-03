@@ -39,6 +39,7 @@ describe("Offer table view mobile layout", function() {
         setStateSpy.restore();
 
     });
+
     it("should have filters container", function() { 
         const wrapper = shallow(React.createElement(OffersTableViewMobileLayout, {
             offersModel,

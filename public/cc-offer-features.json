@@ -15,7 +15,7 @@
         "additionalInfo": ""
       }
     ],
-    "cardCategory": [
+    "cardCategoryList": [
       "TRAVEL",
       "PREMIUM",
       "REWARDS",
@@ -155,7 +155,7 @@
   {
     "feeWaiver": false,
     "joiningPerks": [],
-    "cardCategory": [
+    "cardCategoryList": [
       "FUEL",
       "REWARDS",
       "LIFESTYLE"
@@ -296,7 +296,7 @@
         "additionalInfo": ""
       }
     ],
-    "cardCategory": [
+    "cardCategoryList": [
       "LIFESTYLE",
       "REWARDS",
       "FUEL",
