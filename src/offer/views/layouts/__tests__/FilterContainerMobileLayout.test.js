@@ -45,7 +45,8 @@ describe("Filter container mobile", function () {
 
     it("should render all the filter renderers", function() {             
         const wrapper = shallow(React.createElement(FilterContainer, {
-            offersModel 
+            offersModel,
+            onFilter: sinon.stub()
         }));
         expect(wrapper.find("BankFilterRenderer").length).toBeDefined();
         expect(wrapper.find("CardCategoryFilterRenderer").length).toBeDefined();
@@ -53,7 +54,8 @@ describe("Filter container mobile", function () {
 
     it("should update state with selected values when sub components are changed", function() {
         const wrapper = shallow(React.createElement(FilterContainer, {
-            offersModel 
+            offersModel,
+            onFilter: sinon.stub()
         }));
         const selectedFilterCriteria = new CardCategory("REWARDS");
         const cardCategoryFilterRenderer = wrapper.find("CardCategoryFilterRenderer");
@@ -66,7 +68,8 @@ describe("Filter container mobile", function () {
     it("should call filter chain with filterable domains when filter is clicked",  () => {
         const filterChainStub = sinon.stub(FilterChain.prototype, "doFilter").callsFake((filteredOffersModel) => Promise.resolve(filteredOffersModel));
         const wrapper = shallow(React.createElement(FilterContainer, {
-            offersModel
+            offersModel,
+            onFilter: sinon.stub()
         }));
         const filterableDomainsInState = {filterableDomains: [new BankFilter(), new CardCategoryFilter([new CardCategory("REWARDS")])]};
         wrapper.setState(filterableDomainsInState);
@@ -78,7 +81,8 @@ describe("Filter container mobile", function () {
     it("should call filter chain with cleared filterable domains when reset is clicked",  () => {
         const filterChainStub = sinon.stub(FilterChain.prototype, "doFilter").callsFake((filteredOffersModel) => Promise.resolve(filteredOffersModel));
         const wrapper = shallow(React.createElement(FilterContainer, {
-            offersModel
+            offersModel,
+            onFilter: sinon.stub()
         }));
         const filterableDomainsInState = {filterableDomains: [new BankFilter(), new CardCategoryFilter([new CardCategory("REWARDS")])]};
         wrapper.setState({filterableDomains: [new BankFilter(), new CardCategoryFilter([new CardCategory("REWARDS")])]});

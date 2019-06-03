@@ -33,9 +33,11 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
         function getRowsRenderer() {
             const rows = [];
             Object.entries(config.rowRenderers).forEach(function([rowNumber, itemTypes]) {
-                const itemsDiv = itemTypes.map((itemType) => reactElementForRendererViewKlass(itemType, offer));
+                const itemsDiv = itemTypes.map((itemType) => {
+                    return (<div key={rowNumber}>{reactElementForRendererViewKlass(itemType, offer)}</div>);
+                });
                 rows.push((
-                    <div className={`row-${rowNumber}`}>
+                    <div className={`row-${rowNumber}`} key={rowNumber}>
                         {itemsDiv}
                     </div>
                 ));

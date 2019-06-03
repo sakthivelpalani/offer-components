@@ -85,7 +85,7 @@
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/"
     ],
-    "setupTestFrameworkScriptFile": "./scripts/setupTests.js",
+    "setupFilesAfterEnv": ["./scripts/setupTests.js"],
     "testRegex": ".*test.js",
     "roots": [
       "<rootDir>/src/"
