@@ -1,4 +1,5 @@
 import {CreditCard, ReviewsSummary, CreditCardAnnualFee, Usp} from "./domainRenderers";
+import {BankFilterRenderer, CardCategoryFilterRenderer} from "./domainRenderers/filters";
 
 const configuration = {
     "CC": {
@@ -11,7 +12,8 @@ const configuration = {
                 "3": [Usp.OneLinerItemRenderer]
             },
             "ctaRowPosition": "2"               
-        }
+        },
+        "filters": [BankFilterRenderer, CardCategoryFilterRenderer]
     }
 };
 
