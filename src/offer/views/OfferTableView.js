@@ -10,9 +10,7 @@ import {default as getViewConfiguration} from "./Config";
 export default class OfferTableView extends React.PureComponent {
 
     static propTypes = {
-        offersManager: PropTypes.instanceOf(OffersManager).isRequired,
-        columns: PropTypes.array.isRequired,
-        columnHeadings: PropTypes.array.isRequired
+        offersManager: PropTypes.instanceOf(OffersManager).isRequired
     }
 
     render() {
