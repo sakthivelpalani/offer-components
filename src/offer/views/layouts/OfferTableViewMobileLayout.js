@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import OffersModel from "../../model/OffersModel";
 import Context from "../../../helpers/Context.js";
+import FilterContainerMobileLayout from "./FilterContainerMobileLayout.js";
 import {reactElementForRendererViewKlass} from "../domainRenderers";
 import Style from "./OfferTableViewMobileLayout.scss";
 
@@ -12,6 +13,10 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
         offersModel: PropTypes.instanceOf(OffersModel).isRequired,
         context: PropTypes.instanceOf(Context).isRequired,
         viewConfiguration: PropTypes.object.isRequired
+    }
+
+    state = {
+        filteredOffersModel: this.props.offersModel
     }
 
     renderOfferRow(offer) {
@@ -53,13 +58,21 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
 
     render() {
         const offerRows = [];
-        this.props.offersModel.getOffersMap().forEach((offer) => {
+        this.state.filteredOffersModel.getOffersMap().forEach((offer) => {
             offerRows.push(this.renderOfferRow(offer));
         });
-
+        const offerRowsComponent =  <div className={Style.offerSection}>{offerRows}</div>;
+        const filterContainer = <FilterContainerMobileLayout offersModel={this.state.filteredOffersModel} onFilter={this.onFilter}/>;
         return (
-            <div className={Style.offerSection}>{offerRows}</div>
+            <div>
+                {filterContainer}
+                {offerRowsComponent}
+            </div>
         );
+    }
+
+    onFilter = (filteredOffersModel) => {
+        this.setState({filteredOffersModel});
     }
 
     renderCTAButton() {
