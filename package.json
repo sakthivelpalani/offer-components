@@ -50,6 +50,7 @@
     "eslint-plugin-react": "^7.13.0",
     "flow-bin": "^0.92.1",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.8.3",
@@ -78,7 +79,8 @@
   "jest": {
     "moduleNameMapper": {
       "//": "Configuration learnt from https://facebook.github.io/jest/docs/webpack.html",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tst/__mocks__/fileMock.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tst/__mocks__/fileMock.js",
+      "\\.(css||scss|less)$": "identity-obj-proxy"
     },
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/"
