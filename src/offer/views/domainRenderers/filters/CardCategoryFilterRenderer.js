@@ -7,11 +7,15 @@ export default class CardCategoryFilterRenderer extends DropdownFilterRenderer {
         return domain.getValue();
     }
 
-    getName(domain: CardCategory) {
+    getLabel(domain: CardCategory) {
         return domain.getValue();
     }
 
     getFilterType() {
         return "cardCategoryFilter";
+    }
+
+    getTitle() {
+        return "Card Categories";
     }
 }

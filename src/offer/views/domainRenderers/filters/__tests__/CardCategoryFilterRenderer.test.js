@@ -7,6 +7,6 @@ describe("Card category filter renderer", function () {
         const cardCategory1 = new CardCategoryDomain();
         sinon.stub(cardCategory1, "getValue").returns("REWARDS");
         expect(new CardCategoryFilterRenderer().getValue(cardCategory1)).toBe("REWARDS");
-        expect(new CardCategoryFilterRenderer().getName(cardCategory1)).toBe("REWARDS");
+        expect(new CardCategoryFilterRenderer().getLabel(cardCategory1)).toBe("REWARDS");
     });
 });
