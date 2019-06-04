@@ -40,6 +40,7 @@ export default class DropdownFilterRenderer extends React.PureComponent {
     handleChange = (selectedOptions) => {
         if (isEmpty(selectedOptions)) {
             this.props.onChange([]);    
+            return;
         }
         const selectedDomains = selectedOptions.reduce((aggr, selectedOption) => {
             const domainOfSelectedOption = find(this.props.options, (option) => this.getValue(option) == selectedOption.value);
