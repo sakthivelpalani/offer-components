@@ -1,5 +1,5 @@
 //@flow
-import {compact, filter} from "lodash";
+import List from "./List.js";
 
 const cardCategoryTypes = {
     LIFESTYLE: "LIFESTYLE",
@@ -12,27 +12,17 @@ const cardCategoryTypes = {
 };
 export type CardCategoryValueType = $Keys<typeof cardCategoryTypes>;
 
-export class CardCategoryList {
-    domains: Array<CardCategory>
+export class CardCategoryList extends List<CardCategory, CardCategoryValueType> {
 
-    constructor(values: Array<string>) {
-        if (values == undefined) {
-            this.domains = [];
-        } else {
-            this.domains = values.map((value) => {
-                return new CardCategory(value);
-            });
+    initDomain(value: string) {
+        return new CardCategory(value);
+    }
+
+    getItemValue(domain: ?CardCategory): ?CardCategoryValueType {
+        if (domain == undefined) {
+            return undefined;
         }
-    }
-
-    getValues(): Array<CardCategoryValueType> {
-        return compact(this.domains.map((cardCategoryDomain) => {
-            return cardCategoryDomain.getValue();
-        }));
-    }
-
-    getDomains(): Array<CardCategory> {
-        return filter(this.domains, (domain) => domain.getValue() != undefined);
+        return domain.getValue();
     }
 
     getTop(): Array<CardCategoryValueType> {
