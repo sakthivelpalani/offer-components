@@ -17,7 +17,9 @@ export default class OfferModel {
             firstYearFee: new Domains.CreditCardAnnualFee(this.offerData.firstYearFee),
             usp: new Domains.Usp(this.offerData.usp),
             reviewsSummary: new Domains.ReviewsSummary(this.offerData.cardId, this.offerData.bank && this.offerData.bank.id),
-            cardCategoryList: new Domains.CardCategoryList(this.offerData.cardCategoryList)
+            cardCategoryList: new Domains.CardCategoryList(this.offerData.cardCategoryList),
+            cardNetworkList: new Domains.CardNetworkList(this.offerData.cardNetworkList),
+            cardFeeTypeList: new Domains.CardFeeTypeList(this.offerData.cardFeeTypeList)
         };
     }
 
@@ -51,5 +53,13 @@ export default class OfferModel {
 
     getCardCategoryList() {
         return this.offer.cardCategoryList;
+    }
+
+    getCardNetworkList() {
+        return this.offer.cardNetworkList;
+    }
+
+    getCardFeeTypeList() {
+        return this.offer.cardFeeTypeList;
     }
 }

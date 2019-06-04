@@ -1,7 +1,7 @@
 //@flow
 import {compact, filter} from "lodash";
 
-export default class List<DT, VT> {
+class List<DT, VT> {
     domains: Array<?DT>
 
     constructor(values: Array<string>) {
@@ -31,6 +31,30 @@ export default class List<DT, VT> {
     getItemValue(domain: ?DT): ?VT {
         return undefined;
     }
-
-
 }
+
+export class EnumList<VT> extends List<EnumDomain<VT>, VT> {
+
+    getItemValue(domain: ?EnumDomain<VT>): ?VT {
+        if (domain == undefined) {
+            return undefined;
+        }
+        return domain.getValue();
+    }
+}
+
+export class EnumDomain<VT> {
+    value: VT
+    constructor(value: string) {
+        this.value = this.getTypes()[value];
+    }
+
+    getValue(): VT {
+        return this.value;
+    }
+
+    getTypes(): any {
+        return undefined;
+    }
+}
+

@@ -1,6 +1,5 @@
 //@flow
-import List from "./List.js";
-
+import {EnumDomain, EnumList} from "./Enum.js";
 const cardCategoryTypes = {
     LIFESTYLE: "LIFESTYLE",
     FUEL: "FUEL",
@@ -12,17 +11,10 @@ const cardCategoryTypes = {
 };
 export type CardCategoryValueType = $Keys<typeof cardCategoryTypes>;
 
-export class CardCategoryList extends List<CardCategory, CardCategoryValueType> {
+export class CardCategoryList extends EnumList<CardCategoryValueType> {
 
     initDomain(value: string) {
         return new CardCategory(value);
-    }
-
-    getItemValue(domain: ?CardCategory): ?CardCategoryValueType {
-        if (domain == undefined) {
-            return undefined;
-        }
-        return domain.getValue();
     }
 
     getTop(): Array<CardCategoryValueType> {
@@ -31,13 +23,8 @@ export class CardCategoryList extends List<CardCategory, CardCategoryValueType> 
 }
 
 
-export class CardCategory {
-    value: CardCategoryValueType
-    constructor(value: string) {
-        this.value = cardCategoryTypes[value];
-    }
-
-    getValue(): CardCategoryValueType {
-        return this.value;
+export class CardCategory extends EnumDomain<CardCategoryValueType> {
+    getTypes(): any {
+        return cardCategoryTypes;
     }
 }
