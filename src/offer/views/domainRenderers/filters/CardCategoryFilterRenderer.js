@@ -1,8 +1,8 @@
 //@flow
-import CheckboxFilterRenderer from "./CheckboxFilterRenderer.js";
+import DropdownFilterRenderer from "./DropdownFilterRenderer.js";
 import {CardCategory} from "../../../domain/CardCategoryList.js";
 
-export default class CardCategoryFilterRenderer extends CheckboxFilterRenderer {
+export default class CardCategoryFilterRenderer extends DropdownFilterRenderer {
     getValue(domain: CardCategory) {
         return domain.getValue();
     }
