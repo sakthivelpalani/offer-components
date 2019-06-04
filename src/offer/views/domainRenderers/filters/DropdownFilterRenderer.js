@@ -18,21 +18,22 @@ export default class DropdownFilterRenderer extends React.PureComponent {
         const optionsForDropdown = this.props.options.map((option) => {
             return {
                 value: this.getValue(option),
-                label: this.getName(option)
+                label: this.getLabel(option)
             };
         });
         const selectedOptionsForDropdown = this.props.selectedOptions.map((option) => {
             return {
                 value: this.getValue(option),
-                label: this.getName(option)
+                label: this.getLabel(option)
             };
         });
-        return <div><Select
-            value={selectedOptionsForDropdown}
-            onChange={this.handleChange}
-            options={optionsForDropdown}
-            isMulti={true}
-        />
+        return <div>
+            <p>{this.getTitle()}</p>
+            <Select
+                value={selectedOptionsForDropdown}
+                onChange={this.handleChange}
+                options={optionsForDropdown}
+                isMulti={true}/>
         </div>;
         
     }
@@ -48,5 +49,17 @@ export default class DropdownFilterRenderer extends React.PureComponent {
             return aggr;
         }, []);
         this.props.onChange(selectedDomains);
+    }
+
+    getTitle() {
+        return undefined;
+    }
+
+    getValue(domain) {
+        return undefined;
+    }
+
+    getLabel(domain) {
+        return undefined;
     }
 }
