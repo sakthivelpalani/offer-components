@@ -1,6 +1,6 @@
 //@flow
 import DropdownFilterRenderer from "./DropdownFilterRenderer.js";
-import {CardCategory} from "../../../domain/CardCategoryList.js";
+import {CardCategory} from "../../../domain/CardCategory.js";
 
 export default class CardCategoryFilterRenderer extends DropdownFilterRenderer {
     getValue(domain: CardCategory) {

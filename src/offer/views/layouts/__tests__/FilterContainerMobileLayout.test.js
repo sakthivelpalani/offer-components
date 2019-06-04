@@ -5,7 +5,7 @@ import sinon from "sinon";
 import FilterContainer from "../FilterContainerMobileLayout.js";
 import OffersModel from "../../../model/OffersModel.js";
 import {createCCContext} from "../../../../helpers/__tests__/TestUtils.js";
-import {CardCategory} from "../../../domain/CardCategoryList.js";
+import {CardCategory} from "../../../domain/CardCategory.js";
 import CardCategoryFilter from "../../../domain/filters/CardCategoryFilter.js";
 import BankFilter from "../../../domain/filters/BankFilter.js";
 import FilterChain from "../../../domain/filters/FilterChain.js";

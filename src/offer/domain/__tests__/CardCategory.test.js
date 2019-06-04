@@ -1,4 +1,4 @@
-import CardCategoryList from "../CardCategoryList.js";
+import {CardCategoryList} from "../CardCategory.js";
 
 describe("Card category list domain", function() {
     it("should set value as one of enums", function() {
