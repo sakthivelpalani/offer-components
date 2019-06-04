@@ -27,7 +27,7 @@
       "text": "Jet Airways ICICI Bank Sapphiro American Express Credit Card",
       "additionalInfo": ""
     },
-    "cardFeeType": [
+    "cardFeeTypeList": [
       "PREMIUM",
       "FEE_WAIVER"
     ],
@@ -118,7 +118,7 @@
         "additionalInfo": ""
       }
     ],
-    "cardNetwork": [
+    "cardNetworkList": [
       "AMEX"
     ],
     "firstYearFee": {
@@ -175,7 +175,7 @@
       "text": "IndianOil Citi Platinum Card",
       "additionalInfo": ""
     },
-    "cardFeeType": [
+    "cardFeeTypeList": [
       "FEE_WAIVER"
     ],
     "usp": {
@@ -244,7 +244,7 @@
         "additionalInfo": ""
       }
     ],
-    "cardNetwork": [
+    "cardNetworkList": [
       "VISA"
     ],
     "firstYearFee": {
@@ -313,7 +313,7 @@
       "text": "HDFC Bank Times Platinum",
       "additionalInfo": ""
     },
-    "cardFeeType": [
+    "cardFeeTypeList": [
       "FEE_WAIVER"
     ],
     "usp": {
@@ -379,7 +379,7 @@
         "additionalInfo": ""
       }
     ],
-    "cardNetwork": [
+    "cardNetworkList": [
       "MASTER"
     ],
     "firstYearFee": {
