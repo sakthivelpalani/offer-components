@@ -1,6 +1,6 @@
 import sinon from "sinon";
 import CardCategoryFilterRenderer from "../CardCategoryFilterRenderer.js";
-import {CardCategory as CardCategoryDomain} from "../../../../domain/CardCategoryList.js";
+import {CardCategory as CardCategoryDomain} from "../../../../domain/CardCategory.js";
 
 describe("Card category filter renderer", function () {
     it("should get value from domain", function() {

@@ -3,7 +3,7 @@ import {uniqWith, filter, isEmpty, intersectionWith} from "lodash";
 import FilterableDomain from "./FilterableDomain.js";
 import OffersModel from "../../model/OffersModel.js";
 import OfferModel from "../../model/OfferModel.js";
-import {CardCategory} from "../CardCategoryList.js";
+import {CardCategory} from "../CardCategory.js";
 
 export default class CardCategoryFilter extends FilterableDomain<CardCategory, OffersModel> {
     

@@ -1,5 +1,5 @@
 import CardCategoryFilter from "../CardCategoryFilter.js";
-import {CardCategory} from "../../../domain/CardCategoryList.js";
+import {CardCategory} from "../../../domain/CardCategory.js";
 import OffersModel from "../../../model/OffersModel";
 import Context from "../../../../helpers/Context";
 

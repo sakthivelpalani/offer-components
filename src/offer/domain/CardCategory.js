@@ -12,7 +12,7 @@ const cardCategoryTypes = {
 };
 export type CardCategoryValueType = $Keys<typeof cardCategoryTypes>;
 
-export default class CardCategoryList {
+export class CardCategoryList {
     domains: Array<CardCategory>
 
     constructor(values: Array<string>) {
