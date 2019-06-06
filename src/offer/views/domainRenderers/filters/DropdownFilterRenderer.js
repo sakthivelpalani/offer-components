@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {find, isEmpty} from "lodash";
 import Select from "react-select";
 
+import Checkbox from "../../../../controls/Checkbox.js";
 export default class DropdownFilterRenderer extends React.PureComponent {
     static propTypes = {
         options: PropTypes.arrayOf(PropTypes.any).isRequired,
@@ -27,16 +28,29 @@ export default class DropdownFilterRenderer extends React.PureComponent {
                 label: this.getLabel(option)
             };
         });
+        const Option = (props) => {
+            return (
+                <div ref={props.innerRef} onClick={props.innerProps.onClick}>
+                    <Checkbox name={props.data.label} value={props.data.value} 
+                        checked={props.isSelected} />
+                </div>
+            );
+        };
         return <div>
             <p>{this.getTitle()}</p>
             <Select
                 value={selectedOptionsForDropdown}
                 onChange={this.handleChange}
                 options={optionsForDropdown}
+                components={{Option}}
+                blurInputOnSelect={false}
+                closeMenuOnSelect={false}
+                hideSelectedOptions={false}
                 isMulti={true}/>
         </div>;
         
     }
+
     handleChange = (selectedOptions) => {
         if (isEmpty(selectedOptions)) {
             this.props.onChange([]);    
