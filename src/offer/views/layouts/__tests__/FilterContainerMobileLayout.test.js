@@ -9,6 +9,7 @@ import {CardCategory} from "../../../domain/CardCategory.js";
 import CardCategoryFilter from "../../../domain/filters/CardCategoryFilter.js";
 import BankFilter from "../../../domain/filters/BankFilter.js";
 import CardFeeTypeFilter from "../../../domain/filters/CardFeeTypeFilter.js";
+import CardNetworkFilter from "../../../domain/filters/CardNetworkFilter.js";
 import FilterChain from "../../../domain/filters/FilterChain.js";
 
 //TODO: this test is not really a unit test, it is having integration with the filter renderers and filter domains
@@ -34,7 +35,7 @@ describe("Filter container mobile", function () {
     ];
     const offersModel = new OffersModel(offerData, createCCContext());
     const selectedFilterCriteria = new CardCategory("REWARDS");
-    const filterableDomainsInState = {filterableDomains: [new BankFilter([]), new CardCategoryFilter([selectedFilterCriteria]), new CardFeeTypeFilter([])]};
+    const filterableDomainsInState = {filterableDomains: [new BankFilter([]), new CardCategoryFilter([selectedFilterCriteria]), new CardFeeTypeFilter([]), new CardNetworkFilter([])]};
 
     let setStateSpy;
     beforeEach(() => {
@@ -55,6 +56,7 @@ describe("Filter container mobile", function () {
         expect(wrapper.find("BankFilterRenderer").length).toBeDefined();
         expect(wrapper.find("CardCategoryFilterRenderer").length).toBeDefined();
         expect(wrapper.find("CardFeeTypeFilterRenderer").length).toBeDefined();
+        expect(wrapper.find("CardNetworkFilterRenderer").length).toBeDefined();
     });
 
     it("should update state with selected values when sub components are changed", function() {
@@ -90,7 +92,7 @@ describe("Filter container mobile", function () {
         wrapper.find("button[name=\"Reset\"]").simulate("click");
         wrapper.setState(filterableDomainsInState);
         expect(filterChainStub.called).toBe(true);
-        expect(setStateSpy.args[0][0]).toEqual({filterableDomains: [new BankFilter([]), new CardCategoryFilter([]), new CardFeeTypeFilter([])]});
+        expect(setStateSpy.args[0][0]).toEqual({filterableDomains: [new BankFilter([]), new CardCategoryFilter([]), new CardFeeTypeFilter([]), new CardNetworkFilter([])]});
         FilterChain.prototype.doFilter.restore();
     });
 });
