@@ -8,7 +8,7 @@ const buildDir = Path.resolve(projectDir, "build");
 
 const devServerConfig = {
     host: "0.0.0.0",
-    port: 8080,
+    port: 8082,
     disableHostCheck: true,
     publicPath: "/",
     contentBase: "public",

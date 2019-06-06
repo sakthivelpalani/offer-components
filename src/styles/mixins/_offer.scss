@@ -1,0 +1,180 @@
+@mixin offerRow($number-of-column, $column-config: null, $before-after-text: null, $text-config: null) {
+    $offer-row-width: 100;
+    $remaining-row-width: 0;
+    $remaining-column: 0;
+
+    .offer {
+        font-size: map-deep-get($text-color, offer, textsize);
+        color: map-deep-get($text-color, offer, textcolor);
+        background-color: map-deep-get($text-color, offer, bgcolor);
+        box-shadow: 0 1px 4px #a09c9c;
+        position: relative;
+        line-height: 14px;
+        margin-bottom: 5px;
+        span {
+            display: inline-block;
+        }
+    }
+    .row {
+        display: table;
+        width: 100%;
+        padding: 5px 0;
+
+        @if $column-config != null {
+            @each $column-number, $column-width in $column-config {
+                .column.column-#{$column-number} {
+                    width: $column-width * 1%;
+                }
+                $remaining-row-width: $column-width + $remaining-row-width;
+                $remaining-column: $remaining-column + 1;
+            }
+        }
+
+        .column {
+            display: table-cell;
+            vertical-align: middle;
+            width: (($offer-row-width - $remaining-row-width)/($number-of-column - $remaining-column) * 1%);
+        }
+    }
+
+    .offerImageSection, img {
+        width: 78px;
+        max-width: 78px;
+    }
+    .textWithIcon:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        width: 15px;
+        height: 15px;
+        margin-right: 3px;
+    }
+    .textWithIconSmall:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        width: 8px;
+        height: 11px;
+    }
+    @if $text-config != null {
+        .title {
+            font-weight: map-deep-get($text-config, title, textweight);
+            text-transform: map-deep-get($text-config, title, textcase);
+            color: map-deep-get($text-config, title, textcolor);
+        }
+        .textValue {
+            color: map-deep-get($text-config, textvalue, textcolor);
+            font-size: map-deep-get($text-config, textvalue, textsize);
+            line-height: 12px;
+            &-scondary {
+                color: map-deep-get($text-config, textvaluescondary, textcolor);
+                font-size: map-deep-get($text-config, textvaluescondary, textsize);
+                text-transform: map-deep-get($text-config, textvaluescondary, textcase);
+            }
+        }
+    }
+}
+@mixin checkbox($checkbox-width: 20px, $checkbox-height: 20px, $checkbox-position: null, $checkbox-top: null, $checkbox-radius: null, $checkbox-before: null, $checkbox-after: null) {
+    .checkbox {
+        position: $checkbox-position;
+        width: $checkbox-width;
+        height: $checkbox-height;
+        border-radius: $checkbox-radius;
+
+        @if $checkbox-top != null {
+            @include RepeatProperty($checkbox-top);
+        }
+        @if $checkbox-before != null {
+            &:before {
+                @include RepeatProperty($checkbox-before);
+            }
+        }
+        @if $checkbox-after != null {
+            &:after {
+                @include RepeatProperty($checkbox-before);
+            }
+        }
+    }
+}
+@mixin RepeatProperty($checkbox-prop) {
+    @each $prop-name, $prop-value in $checkbox-prop {
+        #{$prop-name}: $prop-value;
+    }
+}
+@mixin badges($color-config, $font-size: null, $line-height: null, $text-align: null, $text-transform: null, $enable-rounded: null, $other-config: null, $extends: null) {
+    .badges {
+        font-size: $font-size;
+        background-color: map-deep-get($color-config, paperlessbadge, bgcolor);
+        color: map-deep-get($color-config, paperlessbadge, textcolor);
+        padding: map-deep-get($color-config, paperlessbadge, paddingSize);
+
+        @if ($line-height) {
+            line-height: $line-height;
+        }
+
+        @if ($text-align) {
+            text-align: $text-align;
+        }
+
+        @if ($text-transform) {
+            text-transform: $text-transform;
+        }
+
+        @if $enable-rounded {
+            border-radius: $border-radius;
+        }
+
+        @if $other-config != null {
+            @include RepeatProperty($other-config);
+        }
+        &:before, &:after {
+            position: absolute;
+            content: "";
+            border-style: solid;
+            border-color: map-deep-get($color-config, paperlessbadge, borderColor);
+            bottom: -7px;
+        }
+
+        &:before {
+            border-width: map-deep-get($color-config, paperlessbadge, borderWidthBefore);
+            left: 0;
+        }
+        &:after {
+            border-width: map-deep-get($color-config, paperlessbadge, borderWidthAfter);
+            right: 0;
+        }
+    }
+}
+@mixin SlidingAnimation($slide-width, $slide-height, $other-config: null) {
+    .sliding {
+        width: $slide-width;
+        height: $slide-height;
+
+        @if $other-config != null {
+            @include RepeatProperty($other-config);
+        }
+
+        @include translate(rotate(20deg));
+        background: -moz-linear-gradient(right, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 1%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+        background: -webkit-linear-gradient(right, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0) 100%);
+        background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0) 1%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0) 100%);
+        @include animate($name: slide, $duration: 2s , $iteration: infinite, $direction: linear);
+        @include keyframes(slide) {
+            from {
+                margin-left: -10px;
+            }
+            to {
+                margin-left: 90px;
+            }
+        }
+    }
+}
+@mixin sprite-offer($name, $column-number: null, $row-number: null, $parent: null) {
+    @each $name, $column-number, $row-number, $parent in $sprite-config {
+        $column-width: 20px;
+        $column-height: 20px;
+        #{$parent} .bbicons-#{$name} {
+            background-position: (-$column-width * $column-number) (-$column-height * $row-number);
+        }
+    }
+}

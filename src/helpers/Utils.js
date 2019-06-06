@@ -1,9 +1,9 @@
-/* eslint no-restricted-imports: ["error", {paths: ["lodash"]}] */
+/*temporarily removing this eslint no-restricted-imports: ["error", {paths: ["lodash"]}] */
 // We really require these and cannot be replaced
-import {chunk, cloneDeep, debounce, merge, mergeWith} from "lodash-es";
+import {chunk, cloneDeep, debounce, merge, mergeWith} from "lodash";
 
 // We should aim to avoid these if possible
-import {concat, differenceWith, intersectionWith, isBoolean, isUndefined, last, union, unionWith, values, inRange, isObject, isPlainObject, isEqual, isMatch, isEmpty, isFunction, omit, omitBy, pickBy, uniqBy, sortBy, get, set, startsWith, upperFirst, startCase, camelCase} from "lodash-es";
+import {concat, differenceWith, intersectionWith, isBoolean, isUndefined, last, union, unionWith, values, inRange, isObject, isPlainObject, isEqual, isMatch, isEmpty, isFunction, omit, omitBy, pickBy, uniqBy, sortBy, get, set, startsWith, upperFirst, startCase, camelCase} from "lodash";
 
 export {chunk, cloneDeep, debounce, merge, mergeWith};
 export {concat, differenceWith, intersectionWith, isBoolean, isUndefined, last, union, unionWith, values, inRange, isObject, isPlainObject, isEqual, isMatch, isEmpty, isFunction, omit, omitBy, pickBy, uniqBy, sortBy, get, set, startsWith, upperFirst, startCase, camelCase};

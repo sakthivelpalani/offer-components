@@ -1,35 +1,39 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import CreditCard from "../../domain/CreditCard";
+import {default as OfferModel} from "../../model/OfferModel";
+import Style from "./../layouts/OfferTableViewMobileLayout.scss";
 
 export class NameItemRenderer extends React.PureComponent {
     
-    static props = {
-        domain: PropTypes.instanceOf(CreditCard)
+    static propTypes = {
+        offer: PropTypes.instanceOf(OfferModel).isRequired
+    }
+
+    constructor(props) {
+        super(props);
+        this.cardName = this.props.offer.getCardName();
+        this.cardUrl = this.props.offer.getCardUrl();
     }
 
     render() {
-        return <a href={"/credit-card/" + this.props.domain.getName()}> {this.props.domain.getDisplayName()} </a>;
-    }
-
-    static requiredDomain() {
-        return "CreditCard";
+        const cardName = this.cardName.getText();
+        if (this.cardUrl == undefined) {
+            return <a className={Style.title}>{cardName}</a>;
+        }
+        const linkValue = "/credit-card/" + this.cardUrl.getText() + ".html"; 
+        return <a className={Style.title} href={linkValue}> {cardName} </a>;
     }
 }
 
 export class ImageItemRenderer extends React.PureComponent {
     
-    static props = {
-        domain: PropTypes.instanceOf(CreditCard)
+    static propTypes = {
+        offer: PropTypes.instanceOf(OfferModel).isRequired
     }
 
     render() {
         //Return image.
         return <img src="https://bankbazaar.com/images/india/cc-images/small/indusind-bank-jet-airways-voyage-visa-credit-card.png"/>;
-    }
-
-    static requiredDomain() {
-        return "CreditCard";
     }
 }

@@ -1,45 +1,55 @@
-import Bank from "../domain/Bank";
-import CreditCard from "../domain/CreditCard";
-import CreditCardAnnualFee from "../domain/CreditCardAnnualFee";
-import Rewards from "../domain/Rewards";
-import InterestRate from "../domain/InterestRate";
-import ProcessingFee from "../domain/ProcessingFee";
-import LoanAmount from "../domain/LoanAmount";
-import Tenure from "../domain/Tenure";
-import ReviewsSummary from "../domain/ReviewsSummary";
+import * as Domains from "../domain";
 
 export default class OfferModel {
 
-    constructor(offerData) {
-        const bankDomain = new Bank(offerData.bank);
-        const creditCardDomain = new CreditCard(offerData.creditCard);
-        const creditCardAnnualFeeDomain = new CreditCardAnnualFee(offerData.creditCardAnnualFee);
-        const rewardsDomain = new Rewards(offerData.rewards);
-        const reviewsSummaryDomain = new ReviewsSummary(offerData.reviewsSummary);
-        const interestRateDomain =  new InterestRate(offerData.interestRate);
-        const processingFeeDomain = new ProcessingFee(offerData.processingFee);
-        const loanAmountDomain = new LoanAmount(offerData.loanAmount);
-        const tenureDomain = new Tenure(offerData.tenure);
-
-        this.offer = {
-            "id": offerData.id,
-            [bankDomain.getType()]: bankDomain,
-            [creditCardDomain.getType()]: creditCardDomain,
-            [creditCardAnnualFeeDomain.getType()]: creditCardAnnualFeeDomain,
-            [rewardsDomain.getType()]: rewardsDomain,
-            [reviewsSummaryDomain.getType()]: reviewsSummaryDomain,
-            [interestRateDomain.getType()]: interestRateDomain,
-            [processingFeeDomain.getType()]: processingFeeDomain,
-            [loanAmountDomain.getType()]: loanAmountDomain,
-            [tenureDomain.getType()]: tenureDomain
-        };
+    constructor({offerData, context}) {
+        this.offerData = offerData;
+        this.context = context;
+        this.offer = this._instantiateOffer();
     }
 
-    get(type) {
-        return this.offer[type];
+    _instantiateOffer() {
+        return  {
+            id: this.offerData.cpId,
+            bank: new Domains.Bank(this.offerData.bank),
+            cardName: new Domains.TextAndAdditionalInfo(this.offerData.cardName),
+            cardUrl: new Domains.SimpleString(this.offerData.cardUrl),
+            firstYearFee: new Domains.CreditCardAnnualFee(this.offerData.firstYearFee),
+            usp: new Domains.Usp(this.offerData.usp),
+            reviewsSummary: new Domains.ReviewsSummary(this.offerData.cardId, this.offerData.bank && this.offerData.bank.id),
+            cardCategoryList: new Domains.CardCategoryList(this.offerData.cardCategoryList)
+        };
     }
 
     getId() {
         return this.offer.id;
+    }
+
+    getBank() {
+        return this.offer.bank;
+    }
+
+    getCardName() {
+        return this.offer.cardName;
+    }
+
+    getCardUrl() {
+        return this.offer.cardUrl;
+    }
+
+    getFirstYearFee() {
+        return this.offer.firstYearFee;
+    }
+
+    getUsp() {
+        return this.offer.usp;
+    }
+
+    getReviewsSummary() {
+        return this.offer.reviewsSummary;
+    }
+
+    getCardCategoryList() {
+        return this.offer.cardCategoryList;
     }
 }

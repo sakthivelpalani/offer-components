@@ -7,14 +7,21 @@
     "flow": "flow",
     "eslint": "eslint src --cache --ignore-pattern .gitignore",
     "stylelint": "stylelint 'src/**/*.scss' --cache",
-    "test": "jest --onlyChanged",
+    "test": "jest",
     "test-all": "jest --coverage",
+    "test-debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "compile": "node scripts/compile-for-library.js",
     "build": "node scripts/generate-bundles.js",
     "start": "webpack-dev-server --config scripts/webpack.config.server.js --hot --inline --mode development",
     "start.prod": "NODE_ENV=production webpack-dev-server --config scripts/webpack.config.server.js --mode production",
     "prepublishOnly": "node scripts/prepublish.js"
   },
+  "pre-commit": [
+    "flow",
+    "eslint",
+    "stylelint",
+    "test"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -27,21 +34,35 @@
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-env": "7.1.0",
     "@babel/preset-react": "7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "8.0.2",
     "babel-plugin-module-resolver": "^3.2.0",
     "brotli-webpack-plugin": "^1.0.0",
     "chalk": "^2.4.2",
     "compression-webpack-plugin": "^1.1.11",
     "css-loader": "1.0.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.2",
     "eslint": "5.13.0",
+    "eslint-plugin-flowtype": "^3.9.1",
+    "eslint-plugin-jasmine": "^2.10.1",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-react": "^7.13.0",
     "flow-bin": "^0.92.1",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.8.3",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
+    "pre-commit": "^1.2.2",
     "sass-loader": "^7.0.1",
     "shelljs": "^0.8.1",
+    "sinon": "^7.3.2",
     "style-loader": "0.23.0",
+    "stylelint": "^10.0.1",
+    "stylelint-images": "^2.0.0",
+    "stylelint-scss": "^3.6.1",
     "uglifyjs-webpack-plugin": "^1.3.0",
     "webpack": "4.19.1",
     "webpack-cli": "3.1.1",
@@ -53,6 +74,24 @@
     "lodash-es": "^4.17.5",
     "react": "16.5.2",
     "react-dom": "16.5.2",
+    "react-select": "^3.0.4",
     "stacktrace-js": "^2.0.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "//": "Configuration learnt from https://facebook.github.io/jest/docs/webpack.html",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tst/__mocks__/fileMock.js",
+      "\\.(css||scss|less)$": "identity-obj-proxy"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "setupFilesAfterEnv": [
+      "./scripts/setupTests.js"
+    ],
+    "testRegex": ".*test.js",
+    "roots": [
+      "<rootDir>/src/"
+    ]
   }
 }

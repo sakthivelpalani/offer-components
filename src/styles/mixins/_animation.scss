@@ -1,0 +1,50 @@
+@mixin prefixed-properties($key, $value) {
+    $browser-prefixes: "-webkit-" "-moz-" "-ms-" "-o-";
+    @each $prefix in $browser-prefixes {
+        #{$prefix}#{$key}: #{$value};
+    }
+    #{$key}: #{$value};
+}
+
+@function handle-multi-properties($properties: all, $duration: 200ms, $method: ease, $delay: 0ms) {
+    $output: ();
+    @each $property in $properties {
+        @if length($output) > 0 {
+            $output: append($output, unquote(",") #{$property} $duration $method $delay);
+        }
+        @else {
+            $output: append($output, #{$property} $duration $method $delay);
+        }
+    }
+    @return $output;
+}
+
+@mixin transition($properties: all, $duration: 200ms, $method: ease, $delay: 0ms) {
+    $exploded-properties: handle-multi-properties($properties, $duration, $method, $delay);
+
+    @include prefixed-properties("transition", $exploded-properties);
+}
+@mixin translate($property) {
+    @include prefixed-properties("transform", $property);
+}
+@mixin keyframes( $animationName ) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-ms-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+@mixin animate($name, $duration: null, $timing-function: null, $delay: null, $direction: null, $iteration: null) {
+    $value: $name $duration $timing-function $delay $direction $iteration;
+    @include prefixed-properties(animation, $value);
+}
