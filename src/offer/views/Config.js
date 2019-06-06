@@ -1,5 +1,5 @@
 import {CreditCard, ReviewsSummary, CreditCardAnnualFee, Usp} from "./domainRenderers";
-import {BankFilterRenderer, CardCategoryFilterRenderer, CardFeeTypeFilterRenderer} from "./domainRenderers/filters";
+import {BankFilterRenderer, CardCategoryFilterRenderer, CardFeeTypeFilterRenderer, CardNetworkFilterRenderer} from "./domainRenderers/filters";
 
 const configuration = {
     "CC": {
@@ -13,7 +13,7 @@ const configuration = {
             },
             "ctaRowPosition": "2"               
         },
-        "filters": [BankFilterRenderer, CardCategoryFilterRenderer, CardFeeTypeFilterRenderer]
+        "filters": [BankFilterRenderer, CardCategoryFilterRenderer, CardFeeTypeFilterRenderer, CardNetworkFilterRenderer]
     }
 };
 
