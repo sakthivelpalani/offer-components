@@ -78,7 +78,7 @@ describe("Filter container mobile", function () {
             onFilter: sinon.stub()
         }));
         wrapper.setState(filterableDomainsInState);
-        wrapper.find("button[name=\"Filter\"]").simulate("click");
+        wrapper.find("a[name=\"Filter\"]").simulate("click");
         expect(filterChainStub.called).toBe(true);
         FilterChain.prototype.doFilter.restore();
     });
@@ -89,7 +89,7 @@ describe("Filter container mobile", function () {
             offersModel,
             onFilter: sinon.stub()
         }));
-        wrapper.find("button[name=\"Reset\"]").simulate("click");
+        wrapper.find("a[name=\"Reset\"]").simulate("click");
         wrapper.setState(filterableDomainsInState);
         expect(filterChainStub.called).toBe(true);
         expect(setStateSpy.args[0][0]).toEqual({filterableDomains: [new BankFilter([]), new CardCategoryFilter([]), new CardFeeTypeFilter([]), new CardNetworkFilter([])]});

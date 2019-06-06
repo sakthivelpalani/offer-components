@@ -34,13 +34,15 @@
             display: table-cell;
             vertical-align: middle;
             width: (($offer-row-width - $remaining-row-width)/($number-of-column - $remaining-column) * 1%);
+            position: relative;
         }
     }
 
-    .offerImageSection, img {
+    .offerImageSection {
         width: 78px;
-        max-width: 78px;
+        height: 50px;
     }
+
     .textWithIcon:before {
         content: "";
         display: inline-block;
@@ -55,23 +57,6 @@
         vertical-align: middle;
         width: 8px;
         height: 11px;
-    }
-    @if $text-config != null {
-        .title {
-            font-weight: map-deep-get($text-config, title, textweight);
-            text-transform: map-deep-get($text-config, title, textcase);
-            color: map-deep-get($text-config, title, textcolor);
-        }
-        .textValue {
-            color: map-deep-get($text-config, textvalue, textcolor);
-            font-size: map-deep-get($text-config, textvalue, textsize);
-            line-height: 12px;
-            &-scondary {
-                color: map-deep-get($text-config, textvaluescondary, textcolor);
-                font-size: map-deep-get($text-config, textvaluescondary, textsize);
-                text-transform: map-deep-get($text-config, textvaluescondary, textcase);
-            }
-        }
     }
 }
 @mixin checkbox($checkbox-width: 20px, $checkbox-height: 20px, $checkbox-position: null, $checkbox-top: null, $checkbox-radius: null, $checkbox-before: null, $checkbox-after: null) {
@@ -169,12 +154,37 @@
         }
     }
 }
-@mixin sprite-offer($name, $column-number: null, $row-number: null, $parent: null) {
+@mixin sprite-offer($name, $column-number: null, $row-number: null, $parent: null, $col: 0, $row: 0, $width: 20px, $height: 20px) {
     @each $name, $column-number, $row-number, $parent in $sprite-config {
-        $column-width: 20px;
-        $column-height: 20px;
-        #{$parent} .bbicons-#{$name} {
-            background-position: (-$column-width * $column-number) (-$column-height * $row-number);
+        $column-width: $width;
+        $column-height: $height;
+
+        $index: index($sprite-config, $name);
+        @if nth($sprite-config, 1) == "Vertical" {
+            $column-number: $index - 1;
+            $row-number: 0;
+        }
+        @else if nth($sprite-config, 1) == "Horizontal" {
+            $column-number: 0;
+            $row-number: $index - 1;
+        }
+        @else if str-slice(nth($sprite-config, 1), 1, 2) == "VH" {
+            @if $index != 1 {
+                @if "#{$col}" == str-slice(nth($sprite-config, 1), 3) {
+                    $row: $row + 1;
+                    $col: 1;
+                }
+                @else {
+                    $col: $col + 1;
+                }
+            }
+            $row-number: $row;
+            $column-number: $col;
+        }
+        @if $index != 1 {
+            #{$parent} .bbicons#{$name} {
+                background-position: (-$column-width * $column-number) (-$column-height * $row-number);
+            }
         }
     }
 }

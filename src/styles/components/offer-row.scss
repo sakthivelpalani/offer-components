@@ -52,16 +52,6 @@
         margin: -10px 0 0;
     }
 
-    .bbicons-user-rating {
-        position: absolute;
-        bottom: -14px;
-        left: 50%;
-        margin-left: -15px;
-        &:before {
-            width: 12px;
-        }
-    }
-
     .offerButton {
         color: map-deep-get($text-color, offerButton, textcolor);
         float: right;
@@ -72,11 +62,8 @@
         font-size: map-deep-get($text-color, offerButton, textsize);
     }
 
-    .usp, .giftVoucher {
-        margin: 3px 0;
-    }
-
     .giftVoucher {
+        margin: 3px 0;
         padding-left: 16px;
     }
 
@@ -86,7 +73,7 @@
         }
     }
 
-    .offersCompare {
+    &.offersCompare {
         .offerTopSection {
             padding: 5px 5px 5px 120px;
         }

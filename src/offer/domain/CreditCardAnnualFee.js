@@ -11,6 +11,13 @@ export default class CreditCardAnnualFee {
         return "";
     }
 
+    getOldFees() {
+        if (this.creditCardAnnualFee.oldFees != undefined) {
+            return this.creditCardAnnualFee.oldFees.value;
+        }
+        return "";
+    }
+
     getConditionForFee() {
         return this.creditCardAnnualFee.conditions;
     }

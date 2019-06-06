@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import CreditCardAnnualFee from "../../domain/CreditCardAnnualFee.js";
+import Style from "./../../../styles/Offer-A/CreditCardAnnualFee.scss";
 
 export class FirstYearFeeItemRenderer extends React.PureComponent {
     
@@ -13,10 +14,11 @@ export class FirstYearFeeItemRenderer extends React.PureComponent {
     }
 
     render() {
-        return <div>
-            ${this.props.domain.firstYearFee.getCurrentFee()} <br />
-            1st YEAR FEE
-        </div>;
+        return <React.Fragment>
+            <span className={[Style.feeStrike, Style.textWithIcon, Style.offerSprite, Style.bbiconsRsTwo].join(" ")}>{this.props.domain.firstYearFee.getOldFees()}<span className={Style.nonStrikeLoading}></span></span>
+            <strong className={[Style.textValue, Style.textWithIcon, Style.offerSprite, Style.bbiconsRsOne].join(" ")}>{this.props.domain.firstYearFee.getCurrentFee()}</strong>
+            <div className={Style.textValueScondary}>1<sup>st</sup> Year Fee</div>
+        </React.Fragment>;
     }
 }
 

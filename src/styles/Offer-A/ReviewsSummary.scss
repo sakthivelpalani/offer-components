@@ -1,0 +1,11 @@
+@import "./../mixins/offer";
+
+.UserRating {
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    margin-left: -15px;
+    &:before {
+        width: 12px;
+    }
+}

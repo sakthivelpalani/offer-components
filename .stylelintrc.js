@@ -42,9 +42,7 @@ module.exports = {
     "declaration-block-semicolon-newline-after": "always",
     "declaration-block-trailing-semicolon": "always",
     "declaration-block-single-line-max-declarations": 1,
-    "font-family-no-duplicate-names": [true, {
-      "ignoreFontFamilyNames": ["/^My Font /", "monospace"]
-    }] ,
+    "font-family-no-duplicate-names": true,
     "font-family-name-quotes": "always-where-recommended",
     "function-calc-no-unspaced-operator": true,
     "function-linear-gradient-no-nonstandard-direction": true,
@@ -105,6 +103,7 @@ module.exports = {
     "shorthand-property-no-redundant-values": true,
     "unit-case": "lower",
     "unit-no-unknown": true,
+    "value-keyword-case": "lower",
     "value-list-max-empty-lines": 0,
     "value-list-comma-newline-after": "never-multi-line",
     "value-list-comma-space-after": "always",

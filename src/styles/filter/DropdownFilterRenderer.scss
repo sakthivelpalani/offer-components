@@ -1,0 +1,67 @@
+@import "./../mixins/functions";
+@import "config/filter";
+
+.filterName {
+    line-height: 20px;
+    margin: 8px 0;
+    padding-left: 25px;
+}
+
+.menuListItem {
+    padding: 6px 10px 6px 27px;
+    margin: 0 0 1px;
+    position: relative;
+    &.checked {
+        background-color: #edeeef;
+        color: #000;
+    }
+    &:last-child {
+        margin: 0;
+    }
+}
+
+:global {
+    .css-2b097c-container {
+        font-size: 12px;
+    }
+    .css-1wa3eu0-placeholder {
+        color: #000 !important;
+    }
+    .css-1pahdxg-control + .css-26l3qy-menu {
+        position: relative;
+        box-shadow: 0 0 2px #d4d4d4;
+    }
+    .css-1pahdxg-control {
+        border-color: hsl(0,0%,80%) !important;
+        box-shadow: none !important;
+    }
+    .css-26l3qy-menu {
+        margin-bottom: 0;
+        &:after, &:before {
+            content: "";
+            display: inline-block;
+            position: absolute;
+        }
+        &:before {
+            border-bottom: 7px solid rgba(0,0,0,0.2);
+            border-left: 6px solid transparent;
+            border-right: 7px solid transparent;
+            left: 13px;
+            top: -7px;
+        }
+        &:after {
+            border-bottom: 6px solid #fff;
+            border-left: 5px solid transparent;
+            border-right: 6px solid transparent;
+            left: 14px;
+            top: -6px;
+        }
+    }
+    .css-1ml51p6-MenuList {
+        padding: 0 !important;
+    }
+    .css-w8afj7-Input input[type="text"] {
+        height: 15px;
+        box-shadow: none;
+    }
+}

@@ -1,0 +1,119 @@
+@import "./../mixins/animation";
+@import "./../mixins/functions";
+@import "./../mixins/offer";
+@import "./../config/offer";
+
+.textValue {
+    color: map-deep-get($text-color, textvalue, textcolor);
+    font-size: map-deep-get($text-color, textvalue, textsize);
+    line-height: 12px;
+    &Scondary {
+        color: map-deep-get($text-color, textvaluescondary, textcolor);
+        font-size: map-deep-get($text-color, textvaluescondary, textsize);
+        text-transform: map-deep-get($text-color, textvaluescondary, textcase);
+    }
+}
+
+.feeStrike {
+    color: #999;
+    font-size: 14px;
+    text-decoration: line-through;
+    padding: 0 7px;
+}
+
+.nonStrikeLoading {
+    background-image: url(/images/bb-progress.gif);
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 10px;
+}
+//hideAndShow Animation - First year fee animations for reduced fee
+
+.reducedTo .textValue {
+    margin-left: 5px;
+}
+
+.annualFee {
+    position: absolute;
+    left: 0;
+    @include animate($name: annualFee, $duration: 6s , $iteration: infinite, $direction: linear);
+}
+
+.annualSpend {
+    font-size: 11px;
+}
+
+.reducedFee {
+    position: relative;
+    max-width: 140px;
+    @include animate($name: reducedFee, $duration: 6s , $iteration: infinite, $direction: linear);
+    &:before {
+        background: #7af8bd;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        @include animate($name: reducedFeeBg, $duration: 6s , $iteration: infinite, $direction: linear);
+    }
+}
+
+@include keyframes(annualFee) {
+    0% {
+        opacity: 1;
+    }
+    35% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@include keyframes(reducedFee) {
+    0% {
+        opacity: 0;
+    }
+    35% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+@include keyframes(reducedFeeBg) {
+    0% {
+        opacity: 1;
+    }
+    43% {
+        opacity: 0.9;
+    }
+    46% {
+        opacity: 0.6;
+    }
+    49% {
+        opacity: 0.3;
+    }
+    55% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,12 @@
+@import "./../mixins/functions";
+@import "./../config/offer";
+
+.title {
+    font-weight: map-deep-get($text-color, title, textweight);
+    text-transform: map-deep-get($text-color, title, textcase);
+    color: map-deep-get($text-color, title, textcolor);
+}
+
+img {
+    max-width: 78px;
+}

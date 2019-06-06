@@ -5,6 +5,7 @@ import {find} from "lodash";
 import getViewConfiguration from "../Config.js";
 import OffersModel from "../../model/OffersModel.js";
 import FilterChain from "../../domain/filters/FilterChain.js";
+import "./../../../styles/filter/FilterContainerMobileLayout.scss";
 
 export default class FilterContainerMobileLayout extends React.PureComponent {
     static propTypes = {
@@ -43,10 +44,15 @@ export default class FilterContainerMobileLayout extends React.PureComponent {
                 ...filterRendererConfig.props
             });
         });
-        return <div>
-            {filterRendererComponents}
-            <button name="Filter" onClick={this.onFilterClick}>Filter</button>
-            <button name="Reset" onClick={this.onResetClick}>Reset</button>
+        return <div className="filterSection">
+            <div className="filterTitle filterSpriteTextWithIcon bbiconsGoBack">Go Back</div>
+            <ul>
+                {filterRendererComponents}
+            </ul>
+            <div className="filterControl">
+                <a className="btn btnLeft filterSpriteTextWithIcon bbiconsClearFilter" name="Reset" onClick={this.onResetClick}>Clear Filter</a>
+                <a className="btn btnRight filterSpriteTextWithIcon bbiconsApplyFilter" name="Filter" onClick={this.onFilterClick}>Apply Filter</a>
+            </div>
         </div>;
     }
 

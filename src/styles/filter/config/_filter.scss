@@ -1,0 +1,43 @@
+$filterSticky: (
+    filterSticky: (
+        textSize: 12px,
+        textColor: #34495e,
+    ),
+    offerCountInfo: (
+        bgColor: #f7f7f7,
+    ),
+    filterBtn: (
+        textColor: #006ca0
+    )
+);
+
+$filterModal: (
+    filterModal: (
+        bgColor: #ecf0f1
+    ),
+    filterTitle: (
+        textSize: 12px,
+        textColor: #fff,
+        bgColor: #2980b9
+    ),
+    filterControl: (
+        borderColor: #999
+    ),
+    filterControlBtnLeft: (
+        textColor: #000,
+        bgColor: #fff
+    ),
+    filterControlBtnRight: (
+        bgColor: #1abc9c
+    )
+);
+
+$sprite-config:
+    ("Horizontal"),
+    ("GoBack:before"),
+    ("ClearFilter:before"),
+    ("ApplyFilter:before"),
+    ("Bank"),
+    ("CardCategories"),
+    ("CardFeeType"),
+    ("CardNetwork");

@@ -128,7 +128,7 @@
         "code": "INR"
       },
       "oldFees": {
-        "value": 0.0,
+        "value": 10000.0,
         "code": "INR"
       },
       "bbExclusive": false

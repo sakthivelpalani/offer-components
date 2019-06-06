@@ -4,6 +4,8 @@ import {find, isEmpty} from "lodash";
 import Select from "react-select";
 
 import Checkbox from "../../../../controls/Checkbox.js";
+import  "./../../../../styles/filter/DropdownFilterRenderer.scss";
+
 export default class DropdownFilterRenderer extends React.PureComponent {
     static propTypes = {
         options: PropTypes.arrayOf(PropTypes.any).isRequired,
@@ -31,14 +33,14 @@ export default class DropdownFilterRenderer extends React.PureComponent {
         });
         const Option = (props) => {
             return (
-                <div ref={props.innerRef} onClick={props.innerProps.onClick}>
-                    <Checkbox name={props.data.label} value={props.data.value} 
+                <div className={["menuListItem", [props.isSelected ? "checked":""]].join(" ")} ref={props.innerRef} onClick={props.innerProps.onClick}>
+                    <Checkbox name={props.data.label} value={props.data.value}
                         checked={props.isSelected} />
                 </div>
             );
         };
-        return <div>
-            <p>{this.props.title}</p>
+        return <li>
+            <div className={["filterName", "iconWidth", "filterSprite", "bbicons"+[this.props.title.replace(/ /g, "")]].join(" ")}>{this.props.title}</div>
             <Select
                 value={selectedOptionsForDropdown}
                 onChange={this.handleChange}
@@ -48,7 +50,7 @@ export default class DropdownFilterRenderer extends React.PureComponent {
                 closeMenuOnSelect={false}
                 hideSelectedOptions={false}
                 isMulti={true}/>
-        </div>;
+        </li>;
         
     }
 

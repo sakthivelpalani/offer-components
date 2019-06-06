@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./Checkbox.scss";
 
 export default class Checkbox extends React.PureComponent {
     static propTypes = {
@@ -11,20 +12,14 @@ export default class Checkbox extends React.PureComponent {
 
     render() {
         return (
-            <span className="checkboxBtnStyle">
-                <label><input type="checkbox" value={this.props.value}
-                    name={this.props.name} 
-                    onChange={this.onChangeHandler} 
+            <React.Fragment>
+                <input className="checkcontainer" type="checkbox" value={this.props.value}
+                    name={this.props.name}
+                    onChange={this.onChangeHandler}
                     checked={this.props.checked}
                     ref={(i) => this.instance = i}/>
                 {this.props.name}
-                </label>
-                <span className="firstIcon"></span>
-                <span className="secondIcon">
-                    <span className="secondIconStem"></span>
-                    <span className="secondIconKick"></span>
-                </span>
-            </span>
+            </React.Fragment>
         );
     }
 

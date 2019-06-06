@@ -1,0 +1,62 @@
+@import "./../mixins/functions";
+@import "./../mixins/offer";
+@import "config/filter";
+
+.filterModal {
+    background-color: map-deep-get($filterModal, filterModal, bgColor);
+    padding: 0 0 50px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .filterTitle {
+        background-color: map-deep-get($filterModal, filterTitle, bgColor);
+        color: map-deep-get($filterModal, filterTitle, textColor);
+        font-size: map-deep-get($filterModal, filterTitle, textSize);
+        padding: 10px;
+        text-transform: uppercase;
+    }
+    ul {
+        padding: 0 10px;
+    }
+}
+
+.filterSpriteTextWithIcon:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    float: left;
+    @extend .filterSprite;
+}
+
+.filterSprite {
+    background-image: url(/images/offerflow/sprite-filter-mob.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+//Filter Footer Button Sticky
+
+.filterControl {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid map-deep-get($filterModal, filterControl, borderColor);
+    border-bottom: 1px solid map-deep-get($filterModal, filterControl, borderColor);
+    .btn {
+        width: 50%;
+        border-radius: 0;
+        padding: 12px 10px;
+        &.btnLeft {
+            color: map-deep-get($filterModal, filterControlBtnLeft, textColor);
+            background-color: map-deep-get($filterModal, filterControlBtnLeft, bgColor);
+        }
+        &.btnRight {
+            background-color: map-deep-get($filterModal, filterControlBtnRight, bgColor);
+        }
+    }
+}
+
+@include sprite-offer($sprite-config);
