@@ -8,6 +8,7 @@ import {createCCContext} from "../../../../helpers/__tests__/TestUtils.js";
 import {CardCategory} from "../../../domain/CardCategory.js";
 import CardCategoryFilter from "../../../domain/filters/CardCategoryFilter.js";
 import BankFilter from "../../../domain/filters/BankFilter.js";
+import CardFeeTypeFilter from "../../../domain/filters/CardFeeTypeFilter.js";
 import FilterChain from "../../../domain/filters/FilterChain.js";
 
 //TODO: this test is not really a unit test, it is having integration with the filter renderers and filter domains
@@ -32,6 +33,9 @@ describe("Filter container mobile", function () {
         }
     ];
     const offersModel = new OffersModel(offerData, createCCContext());
+    const selectedFilterCriteria = new CardCategory("REWARDS");
+    const filterableDomainsInState = {filterableDomains: [new BankFilter([]), new CardCategoryFilter([selectedFilterCriteria]), new CardFeeTypeFilter([])]};
+
     let setStateSpy;
     beforeEach(() => {
         setStateSpy = sinon.spy(FilterContainer.prototype, "setState");        
@@ -50,6 +54,7 @@ describe("Filter container mobile", function () {
         }));
         expect(wrapper.find("BankFilterRenderer").length).toBeDefined();
         expect(wrapper.find("CardCategoryFilterRenderer").length).toBeDefined();
+        expect(wrapper.find("CardFeeTypeFilterRenderer").length).toBeDefined();
     });
 
     it("should update state with selected values when sub components are changed", function() {
@@ -57,12 +62,11 @@ describe("Filter container mobile", function () {
             offersModel,
             onFilter: sinon.stub()
         }));
-        const selectedFilterCriteria = new CardCategory("REWARDS");
         const cardCategoryFilterRenderer = wrapper.find("CardCategoryFilterRenderer");
         expect(cardCategoryFilterRenderer).toBeDefined();
         cardCategoryFilterRenderer.prop("onChange")([selectedFilterCriteria]);
         
-        expect(setStateSpy.args[0][0]).toEqual({filterableDomains: [new BankFilter([]), new CardCategoryFilter([selectedFilterCriteria])]});
+        expect(setStateSpy.args[0][0]).toEqual(filterableDomainsInState);
     });
 
     it("should call filter chain with filterable domains when filter is clicked",  () => {
@@ -71,7 +75,6 @@ describe("Filter container mobile", function () {
             offersModel,
             onFilter: sinon.stub()
         }));
-        const filterableDomainsInState = {filterableDomains: [new BankFilter(), new CardCategoryFilter([new CardCategory("REWARDS")])]};
         wrapper.setState(filterableDomainsInState);
         wrapper.find("button[name=\"Filter\"]").simulate("click");
         expect(filterChainStub.called).toBe(true);
@@ -84,12 +87,10 @@ describe("Filter container mobile", function () {
             offersModel,
             onFilter: sinon.stub()
         }));
-        const filterableDomainsInState = {filterableDomains: [new BankFilter(), new CardCategoryFilter([new CardCategory("REWARDS")])]};
-        wrapper.setState({filterableDomains: [new BankFilter(), new CardCategoryFilter([new CardCategory("REWARDS")])]});
         wrapper.find("button[name=\"Reset\"]").simulate("click");
         wrapper.setState(filterableDomainsInState);
         expect(filterChainStub.called).toBe(true);
-        expect(setStateSpy.args[0][0]).toEqual({filterableDomains: [new BankFilter([]), new CardCategoryFilter([])]});
+        expect(setStateSpy.args[0][0]).toEqual({filterableDomains: [new BankFilter([]), new CardCategoryFilter([]), new CardFeeTypeFilter([])]});
         FilterChain.prototype.doFilter.restore();
     });
 });
