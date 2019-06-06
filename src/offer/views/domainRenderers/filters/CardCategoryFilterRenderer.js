@@ -1,20 +1,6 @@
-//@flow
-import DropdownFilterRenderer from "./DropdownFilterRenderer.js";
-import {CardCategory} from "../../../domain/CardCategory.js";
+import EnumBasedDropdownFilterRenderer from "./EnumBasedDropdownFilterRenderer.js";
 
-export default class CardCategoryFilterRenderer extends DropdownFilterRenderer {
-    getValue(domain: CardCategory) {
-        return domain.getValue();
-    }
-
-    getLabel(domain: CardCategory) {
-        return domain.getValue();
-    }
-
-    getFilterType() {
-        return "cardCategoryFilter";
-    }
-
+export default class CardCategoryFilterRenderer extends EnumBasedDropdownFilterRenderer {
     getTitle() {
         return "Card Categories";
     }

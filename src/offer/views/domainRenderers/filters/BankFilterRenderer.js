@@ -10,9 +10,6 @@ export default class BankFilterRenderer extends DropdownFilterRenderer {
     getLabel(domain: Bank) {
         return domain.getName();
     }
-    getFilterType() {
-        return "bankFilter";
-    }
 
     getTitle() {
         return "Bank";

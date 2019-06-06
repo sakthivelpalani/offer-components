@@ -5,9 +5,9 @@ import Select from "react-select";
 
 export default class DropdownFilterRenderer extends React.PureComponent {
     static propTypes = {
-        options: PropTypes.arrayOf(PropTypes.object).isRequired,
+        options: PropTypes.arrayOf(PropTypes.any).isRequired,
         onChange: PropTypes.func.isRequired,
-        selectedOptions: PropTypes.arrayOf(PropTypes.object)
+        selectedOptions: PropTypes.arrayOf(PropTypes.any)
     }
 
     static defaultProps = {
