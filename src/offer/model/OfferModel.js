@@ -15,6 +15,8 @@ export default class OfferModel {
             cardName: new Domains.TextAndAdditionalInfo(this.offerData.cardName),
             cardUrl: new Domains.SimpleString(this.offerData.cardUrl),
             firstYearFee: new Domains.CreditCardAnnualFee(this.offerData.firstYearFee),
+            secondYearOnwards: new Domains.CreditCardAnnualFee(this.offerData.secondYearOnwardsAnnualFee),
+            reducedFee: new Domains.CreditCardAnnualFee(this.offerData.reducedFee),
             usp: new Domains.Usp(this.offerData.usp),
             reviewsSummary: new Domains.ReviewsSummary(this.offerData.cardId, this.offerData.bank && this.offerData.bank.id),
             cardCategoryList: new Domains.CardCategoryList(this.offerData.cardCategoryList),
@@ -43,6 +45,10 @@ export default class OfferModel {
         return this.offer.firstYearFee;
     }
 
+    getSecondYearOnwards() {
+        return this.offer.secondYearOnwards;
+    }
+
     getUsp() {
         return this.offer.usp;
     }
@@ -61,5 +67,9 @@ export default class OfferModel {
 
     getCardFeeTypeList() {
         return this.offer.cardFeeTypeList;
+    }
+
+    getReducedFee() {
+        return this.offer.reducedFee;
     }
 }

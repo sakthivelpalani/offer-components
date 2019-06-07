@@ -1,26 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {default as OfferModel} from "../../model/OfferModel";
+import TextAndAdditionalInfo from "../../domain/TextAndAdditionalInfo.js";
+import SimpleString from "../../domain/SimpleString.js";
 
 export class NameItemRenderer extends React.PureComponent {
     
     static propTypes = {
-        offer: PropTypes.instanceOf(OfferModel).isRequired
-    }
-
-    constructor(props) {
-        super(props);
-        this.cardName = this.props.offer.getCardName();
-        this.cardUrl = this.props.offer.getCardUrl();
+        domain: PropTypes.shape({
+            cardName: PropTypes.instanceOf(TextAndAdditionalInfo).isRequired,
+            cardUrl: PropTypes.instanceOf(SimpleString)
+        })
     }
 
     render() {
-        const cardName = this.cardName.getText();
-        if (this.cardUrl == undefined) {
+        const cardName = this.props.domain.cardName.getText();
+        if (this.props.domain.cardUrl == undefined) {
             return <a>{cardName}</a>;
         }
-        const linkValue = "/credit-card/" + this.cardUrl.getText() + ".html"; 
+        const linkValue = "/credit-card/" + this.props.domain.cardUrl.getText() + ".html"; 
         return <a href={linkValue}> {cardName} </a>;
     }
 }
@@ -28,7 +26,7 @@ export class NameItemRenderer extends React.PureComponent {
 export class ImageItemRenderer extends React.PureComponent {
     
     static propTypes = {
-        offer: PropTypes.instanceOf(OfferModel).isRequired
+        domain: PropTypes.instanceOf(SimpleString)
     }
 
     render() {
