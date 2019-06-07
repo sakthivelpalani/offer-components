@@ -21,7 +21,8 @@ describe("Dropdown filter renderer", function () {
         const wrapper = mount(React.createElement(DropdownFilterRendererStub, {
             options: [domain1, domain2],
             selectedOptions: [domain2],
-            onChange: stubbedOnChange
+            onChange: stubbedOnChange,
+            title: "someTitle"
         }));
         expect(wrapper.find("Select").prop("options")).toEqual([{value: domain1, label: domain1}, {value: domain2, label: domain2}]);
         expect(wrapper.find("Select").prop("value")).toEqual([{value: domain2, label: domain2}]);
@@ -33,7 +34,8 @@ describe("Dropdown filter renderer", function () {
         const domain2 = "VALUE2";
         const wrapper = mount(React.createElement(DropdownFilterRendererStub, {
             options: [domain1, domain2],
-            onChange: stubbedOnChange
+            onChange: stubbedOnChange,
+            title: "someTitle"
         }));
         wrapper.find("Select").prop("onChange")([{value: domain1, label: domain1}]);
         sinon.assert.calledWith(stubbedOnChange, sinon.match((domains) => {
