@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import {filter, concat} from "lodash";
 
 import OffersModel from "../../model/OffersModel";
 import Context from "../../../helpers/Context.js";
 import FilterContainerMobileLayout from "./FilterContainerMobileLayout.js";
 import {reactElementForRendererViewConfig} from "../domainRenderers";
+import Checkbox from "../../../controls/Checkbox.js";
 import Style from "./OfferTableViewMobileLayout.scss";
 
 export default class OfferTableViewMobileLayout extends React.PureComponent  {
@@ -19,42 +21,22 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
         super(props);
         this.state = {
             filteredOffersModel: this.props.offersModel,
-            filterShown: false
+            filterShown: false,
+            offerIdsToBeCompared: []
         };
     }
 
     renderOfferRow(offer) {
         const config = this.props.viewConfiguration["visibleItems"];
-
-        function getLogoRenderer() {
-            return reactElementForRendererViewConfig(config.logoRenderer, offer);
-        }
-
-        function getRatingsRenderer() {
-            return reactElementForRendererViewConfig(config.ratingsRenderer, offer);
-        }
-
-        function getRowsRenderer() {
-            const rows = [];
-            Object.entries(config.rowRenderers).forEach(function([rowNumber, itemTypes]) {
-                const itemsDiv = itemTypes.map((itemType) => {
-                    return (<div key={rowNumber}>{reactElementForRendererViewConfig(itemType, offer)}</div>);
-                });
-                rows.push((
-                    <div className={`row-${rowNumber}`} key={rowNumber}>
-                        {itemsDiv}
-                    </div>
-                ));
-            });
-
-            return rows;
-        }
-
+        const compareCheckHandler = (e, data) => {
+            this.onCompareCheckChange(offer, data.checked);
+        };
         return (
             <div key={`row-${offer.getId()}`}>
-                {getLogoRenderer()}
-                {getRatingsRenderer()}
-                {getRowsRenderer()}
+                <Checkbox value={offer.getId()} onChange={compareCheckHandler} />
+                {getLogoRenderer(config, offer)}
+                {getRatingsRenderer(config, offer)}
+                {getRowsRenderer(config, offer)}
                 <div> 
                     {this.renderCTAButton()}
                 </div>
@@ -88,6 +70,16 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
         this.setState({filteredOffersModel, filterShown: false});
     }
 
+    onCompareCheckChange = (offer, checked) => {
+        let newOfferIdsToBeCompared;
+        if (checked) {
+            newOfferIdsToBeCompared  = concat(this.state.offerIdsToBeCompared, offer.getId());
+        } else {
+            newOfferIdsToBeCompared  = filter(this.state.offerIdsToBeCompared, (offerId) => offer.getId() != offerId);
+        }
+        this.setState({offerIdsToBeCompared: newOfferIdsToBeCompared});
+    }
+
     showFilter = () => {
         this.setState({filterShown: true});
     }
@@ -106,3 +98,27 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
     }
 
 } 
+
+const getLogoRenderer = function(config, offer) {
+    return reactElementForRendererViewConfig(config.logoRenderer, offer);
+};
+
+const getRatingsRenderer = function(config, offer) {
+    return reactElementForRendererViewConfig(config.ratingsRenderer, offer);
+};
+
+const getRowsRenderer = function(config, offer) {
+    const rows = [];
+    Object.entries(config.rowRenderers).forEach(function([rowNumber, itemTypes]) {
+        const itemsDiv = itemTypes.map((itemType) => {
+            return (<div key={rowNumber}>{reactElementForRendererViewConfig(itemType, offer)}</div>);
+        });
+        rows.push((
+            <div className={`row-${rowNumber}`} key={rowNumber}>
+                {itemsDiv}
+            </div>
+        ));
+    });
+
+    return rows;
+};
