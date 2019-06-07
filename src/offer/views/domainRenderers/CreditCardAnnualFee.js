@@ -1,27 +1,33 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {default as OfferModel} from "../../model/OfferModel";
+import CreditCardAnnualFee from "../../domain/CreditCardAnnualFee.js";
 
 export class FirstYearFeeItemRenderer extends React.PureComponent {
     
     static propTypes = {
-        offer: PropTypes.instanceOf(OfferModel).isRequired
-    }
-
-    constructor(props) {
-        super(props);
-        this.firstYearFee = this.props.offer.getFirstYearFee();
+        domain: PropTypes.shape({
+            firstYearFee: PropTypes.instanceOf(CreditCardAnnualFee).isRequired,
+            reducedFee: PropTypes.instanceOf(CreditCardAnnualFee)
+        }).isRequired
     }
 
     render() {
         return <div>
-            ${this.firstYearFee.getCurrentFee()} <br />
+            ${this.props.domain.firstYearFee.getCurrentFee()} <br />
             1st YEAR FEE
         </div>;
     }
+}
 
-    static requiredDomain() {
-        return "firstYearFee";
+export class GenericFeeRenderer extends React.PureComponent {
+    static propTypes = {
+        domain: PropTypes.instanceOf(CreditCardAnnualFee).isRequired
+    }
+
+    render() {
+        return <div>
+            ${this.props.domain.getCurrentFee()} <br />
+        </div>;
     }
 }

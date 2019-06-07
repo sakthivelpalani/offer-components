@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import OffersModel from "../../model/OffersModel";
 import Context from "../../../helpers/Context.js";
 import FilterContainerMobileLayout from "./FilterContainerMobileLayout.js";
-import {reactElementForRendererViewKlass} from "../domainRenderers";
+import {reactElementForRendererViewConfig} from "../domainRenderers";
 import Style from "./OfferTableViewMobileLayout.scss";
 
 export default class OfferTableViewMobileLayout extends React.PureComponent  {
@@ -27,18 +27,18 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
         const config = this.props.viewConfiguration["visibleItems"];
 
         function getLogoRenderer() {
-            return reactElementForRendererViewKlass(config.logoRenderer, offer);
+            return reactElementForRendererViewConfig(config.logoRenderer, offer);
         }
 
         function getRatingsRenderer() {
-            return reactElementForRendererViewKlass(config.ratingsRenderer, offer);
+            return reactElementForRendererViewConfig(config.ratingsRenderer, offer);
         }
 
         function getRowsRenderer() {
             const rows = [];
             Object.entries(config.rowRenderers).forEach(function([rowNumber, itemTypes]) {
                 const itemsDiv = itemTypes.map((itemType) => {
-                    return (<div key={rowNumber}>{reactElementForRendererViewKlass(itemType, offer)}</div>);
+                    return (<div key={rowNumber}>{reactElementForRendererViewConfig(itemType, offer)}</div>);
                 });
                 rows.push((
                     <div className={`row-${rowNumber}`} key={rowNumber}>

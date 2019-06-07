@@ -1,15 +1,15 @@
-import {CreditCard, ReviewsSummary, CreditCardAnnualFee, Usp} from "./domainRenderers";
+import * as DomainRenderers from "./domainRenderers";
 import {BankFilterRenderer, CardCategoryFilterRenderer, CardFeeTypeFilterRenderer, CardNetworkFilterRenderer} from "./domainRenderers/filters/index.js";
 
 const layoutConfiguration = {
     "CC": {
         "visibleItems": {
-            "logoRenderer": CreditCard.ImageItemRenderer,
-            "ratingsRenderer": ReviewsSummary.RatingItemRenderer,
+            "logoRenderer": DomainRenderers.CreditCardImageItemRenderer,
+            "ratingsRenderer": DomainRenderers.RatingItemRenderer,
             "rowRenderers": {
-                "1": [CreditCard.NameItemRenderer],
-                "2": [CreditCardAnnualFee.FirstYearFeeItemRenderer],
-                "3": [Usp.OneLinerItemRenderer]
+                "1": [DomainRenderers.CreditCardNameItemRenderer],
+                "2": [DomainRenderers.CreditCardFirstYearAndReducedFeeItemRenderer],
+                "3": [DomainRenderers.UspOneLineRenderer]
             },
             "ctaRowPosition": "2"               
         },

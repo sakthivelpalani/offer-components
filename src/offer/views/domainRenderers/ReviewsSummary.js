@@ -1,23 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {default as OfferModel} from "../../model/OfferModel";
+import ReviewsSummary from "../../domain/ReviewsSummary.js";
 
 export class RatingItemRenderer extends React.PureComponent {
 
     static propTypes = {
-        offer: PropTypes.instanceOf(OfferModel).isRequired
-    }
-
-    constructor(props) {
-        super(props);
-        this.reviewsSummary = this.props.offer.getReviewsSummary();
+        domain: PropTypes.instanceOf(ReviewsSummary).isRequired
     }
 
     render() {
         return (
             <span>
-                {this.reviewsSummary.getAvgRating()}
+                {this.props.domain.getAvgRating()}
             </span>
         );
     }
