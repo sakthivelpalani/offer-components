@@ -39,6 +39,10 @@ export const CreditCardSecondYearFeeItemRenderer = {
     renderer: CreditCardAnnualFee.GenericFeeRenderer,
     getDomain: (offerModel) => offerModel.getSecondYearOnwards()
 };
+export const CreditCardFirstYearFeeItemRenderer = {
+    renderer: CreditCardAnnualFee.GenericFeeRenderer,
+    getDomain: (offerModel) => offerModel.getFirstYearFee()
+};
 export const UspOneLineRenderer = {
     renderer: Usp.OneLinerItemRenderer,
     getDomain: (offerModel) => offerModel.getUsp()

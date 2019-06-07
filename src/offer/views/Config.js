@@ -13,7 +13,15 @@ const layoutConfiguration = {
             },
             "ctaRowPosition": "2"               
         },
-        "filters": [BankFilterRenderer, CardCategoryFilterRenderer, CardFeeTypeFilterRenderer, CardNetworkFilterRenderer]
+        "filters": [BankFilterRenderer, CardCategoryFilterRenderer, 
+            CardFeeTypeFilterRenderer, CardNetworkFilterRenderer],
+        "compare": {
+            "header": DomainRenderers.CreditCardNameItemRenderer,
+            "rows": [
+                DomainRenderers.CreditCardFirstYearFeeItemRenderer,
+                DomainRenderers.CreditCardSecondYearFeeItemRenderer
+            ]
+        }
     }
 };
 
