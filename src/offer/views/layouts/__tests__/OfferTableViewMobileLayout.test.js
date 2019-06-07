@@ -63,4 +63,20 @@ describe("Offer table view mobile layout", function() {
         expect(setStateSpy.called).toBe(true);
         expect(setStateSpy.args[0][0]).toEqual({filteredOffersModel, filterShown: false});
     });
+
+    it("should have checkbox for each row and update selected offers into state", function() {
+        const wrapper = shallow(React.createElement(OffersTableViewMobileLayout, {
+            offersModel,
+            context,
+            viewConfiguration
+        }));
+        const checkBoxes = wrapper.find("Checkbox");
+        expect(checkBoxes.length).toBe(offerData.length);
+        checkBoxes.at(0).prop("onChange")(null, {checked: true});
+        expect(setStateSpy.called).toBe(true);
+        expect(setStateSpy.args[0][0]).toEqual({offerIdsToBeCompared: [offerData[0].cpId]});
+        checkBoxes.at(0).prop("onChange")(null, {checked: false});
+        expect(setStateSpy.args[1][0]).toEqual({offerIdsToBeCompared: []});
+
+    });
 });
