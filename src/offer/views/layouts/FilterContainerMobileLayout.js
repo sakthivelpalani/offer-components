@@ -4,7 +4,6 @@ import {find} from "lodash";
 
 import getViewConfiguration from "../Config.js";
 import OffersModel from "../../model/OffersModel.js";
-import {filterDomainMappings} from "../domainRenderers/filters/index.js";
 import FilterChain from "../../domain/filters/FilterChain.js";
 
 export default class FilterContainerMobileLayout extends React.PureComponent {
@@ -15,9 +14,9 @@ export default class FilterContainerMobileLayout extends React.PureComponent {
 
     constructor(props) {
         super(props);
-        const filterRendererClasses = getViewConfiguration(this.props.offersModel.context.getProductType())["filters"];
-        const filterableDomains = filterRendererClasses.map((filterRendererClass) => {
-            return new filterDomainMappings[filterRendererClass.name]([]);
+        const filterRendererConfigs = getViewConfiguration(this.props.offersModel.context.getProductType())["filters"];
+        const filterableDomains = filterRendererConfigs.map((filterRendererConfig) => {
+            return new filterRendererConfig.domain([]);
         });
         
         this.state = {
@@ -27,20 +26,21 @@ export default class FilterContainerMobileLayout extends React.PureComponent {
     
     render() {
         
-        const filterRendererClasses = getViewConfiguration(this.props.offersModel.context.getProductType())["filters"];
-        const filterRendererComponents = filterRendererClasses.map((filterRendererClass, i) => {
+        const filterRendererConfigs = getViewConfiguration(this.props.offersModel.context.getProductType())["filters"];
+        const filterRendererComponents = filterRendererConfigs.map((filterRendererConfig, i) => {
             const filterableDomain = find(this.state.filterableDomains, 
                 (filterableDomain) => {
-                    return filterableDomain instanceof filterDomainMappings[filterRendererClass.name];
+                    return filterableDomain instanceof filterRendererConfig.domain;
                 });
             const onFilterChange = (selectedValues) => {
                 this.updateSelectionOfFilterableDomain(filterableDomain, selectedValues);
             };
-            return React.createElement(filterRendererClass, {
+            return React.createElement(filterRendererConfig.renderer, {
                 options: filterableDomain.getFilterOptions(this.props.offersModel),
                 onChange: onFilterChange,
                 selectedOptions: filterableDomain.filterCriteria,
-                key: i
+                key: i,
+                ...filterRendererConfig.props
             });
         });
         return <div>

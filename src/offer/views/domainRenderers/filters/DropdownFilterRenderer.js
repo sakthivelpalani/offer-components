@@ -8,7 +8,8 @@ export default class DropdownFilterRenderer extends React.PureComponent {
     static propTypes = {
         options: PropTypes.arrayOf(PropTypes.any).isRequired,
         onChange: PropTypes.func.isRequired,
-        selectedOptions: PropTypes.arrayOf(PropTypes.any)
+        selectedOptions: PropTypes.arrayOf(PropTypes.any),
+        title: PropTypes.string.isRequired
     }
 
     static defaultProps = {
@@ -37,7 +38,7 @@ export default class DropdownFilterRenderer extends React.PureComponent {
             );
         };
         return <div>
-            <p>{this.getTitle()}</p>
+            <p>{this.props.title}</p>
             <Select
                 value={selectedOptionsForDropdown}
                 onChange={this.handleChange}

@@ -5,7 +5,7 @@ import sinon from "sinon";
 import FilterContainer from "../FilterContainerMobileLayout.js";
 import OffersModel from "../../../model/OffersModel.js";
 import {createCCContext} from "../../../../helpers/__tests__/TestUtils.js";
-import {CardCategory} from "../../../domain/CardCategory.js";
+import Bank from "../../../domain/Bank.js";
 import CardCategoryFilter from "../../../domain/filters/CardCategoryFilter.js";
 import BankFilter from "../../../domain/filters/BankFilter.js";
 import CardFeeTypeFilter from "../../../domain/filters/CardFeeTypeFilter.js";
@@ -34,8 +34,8 @@ describe("Filter container mobile", function () {
         }
     ];
     const offersModel = new OffersModel(offerData, createCCContext());
-    const selectedFilterCriteria = new CardCategory("REWARDS");
-    const filterableDomainsInState = {filterableDomains: [new BankFilter([]), new CardCategoryFilter([selectedFilterCriteria]), new CardFeeTypeFilter([]), new CardNetworkFilter([])]};
+    const selectedFilterCriteria = new Bank({name: "HDFC", id: 1});
+    const filterableDomainsInState = {filterableDomains: [new BankFilter([selectedFilterCriteria]), new CardCategoryFilter([]), new CardFeeTypeFilter([]), new CardNetworkFilter([])]};
 
     let setStateSpy;
     beforeEach(() => {
@@ -64,7 +64,7 @@ describe("Filter container mobile", function () {
             offersModel,
             onFilter: sinon.stub()
         }));
-        const cardCategoryFilterRenderer = wrapper.find("CardCategoryFilterRenderer");
+        const cardCategoryFilterRenderer = wrapper.find("BankFilterRenderer");
         expect(cardCategoryFilterRenderer).toBeDefined();
         cardCategoryFilterRenderer.prop("onChange")([selectedFilterCriteria]);
         

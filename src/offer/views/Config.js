@@ -1,7 +1,7 @@
 import {CreditCard, ReviewsSummary, CreditCardAnnualFee, Usp} from "./domainRenderers";
-import {BankFilterRenderer, CardCategoryFilterRenderer, CardFeeTypeFilterRenderer, CardNetworkFilterRenderer} from "./domainRenderers/filters";
+import {BankFilterRenderer, CardCategoryFilterRenderer, CardFeeTypeFilterRenderer, CardNetworkFilterRenderer} from "./domainRenderers/filters/index.js";
 
-const configuration = {
+const layoutConfiguration = {
     "CC": {
         "visibleItems": {
             "logoRenderer": CreditCard.ImageItemRenderer,
@@ -18,6 +18,6 @@ const configuration = {
 };
 
 export default function getViewConfiguration(productType) {
-    return configuration[productType];
+    return layoutConfiguration[productType];
 }
 
