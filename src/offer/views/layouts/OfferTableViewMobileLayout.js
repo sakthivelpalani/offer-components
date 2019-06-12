@@ -58,10 +58,11 @@ export default class OfferTableViewMobileLayout extends React.PureComponent  {
             offersModel={this.props.offersModel}
             onFilter={this.onFilter}/>;
         return (
-            <div className={Style.offerSection}>
+            //ToDo:
+            <div className={[Style.offerSection, Style.offersCompare].join(" ")}>
                 <div className={[Style.editAppContainer, Style.container, Style.filterSticky].join(" ")}>
                     <div className={Style.filterStickyContainer}>
-                        <div className={Style.offerCountInfo}>We found 14 Credit Cards<span onClick={this.showFilter} className={[Style.filterBtn, Style.textWithIcon, Style.offerSprite, Style["bbicons-filter"]].join(" ")}>Filter</span></div>
+                        <div className={Style.offerCountInfo}>We found 14 Credit Cards<span onClick={this.showFilter} className={[Style.filterBtn, Style.iconsFilter].join(" ")}>Filter</span></div>
                     </div>
                 </div>
                 <div className={["modal", "fade", "filterModal", [this.state.filterShown ? "in":""]].join(" ")} style={!this.state.filterShown ? {display: "none"}: {display: "block"}}>
@@ -268,7 +269,7 @@ const getRowsRenderer = function(config, offer) {
     const rows = [];
     Object.entries(config.rowRenderers).forEach(function([rowNumber, itemTypes]) {
         const itemsDiv = itemTypes.map((itemType) => {
-            return (<div key={rowNumber}>{reactElementForRendererViewConfig(itemType, offer)}</div>);
+            return (<React.Fragment key={rowNumber}>{reactElementForRendererViewConfig(itemType, offer)}</React.Fragment>);
         });
         rows.push((
             <div className={[`row-${rowNumber}`, Style.row].join(" ")} key={rowNumber}>

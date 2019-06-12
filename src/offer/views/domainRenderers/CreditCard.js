@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import TextAndAdditionalInfo from "../../domain/TextAndAdditionalInfo.js";
 import SimpleString from "../../domain/SimpleString.js";
-import Style from "./../../../styles/Offer-A/CreditCard.scss";
+import Style from "./../../../styles/defaultLayout/CreditCard.scss";
 
 export class NameItemRenderer extends React.PureComponent {
     

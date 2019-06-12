@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Usp from "../../domain/Usp.js";
-import Style from "./../layouts/OfferTableViewMobileLayout.scss";
+import Style from "./../../../styles/defaultLayout/usp.scss";
 
 export class OneLinerItemRenderer extends React.PureComponent {
     
@@ -11,6 +11,7 @@ export class OneLinerItemRenderer extends React.PureComponent {
     }
 
     render() {
-        return <span className={[Style.usp, Style.textWithIcon, Style.offerSprite, Style.bbiconsTravelCard].join(" ")}>{this.props.domain.getUSPText()} </span>;
+        return <span className={[Style.usp, Style.iconsTravelCard].join(" ")}>{this.props.domain.getUSPText()} </span>;
+        // ToDo: Need to make the USP type class name in configurable Ex: bbiconsTravelCard.
     }
 }

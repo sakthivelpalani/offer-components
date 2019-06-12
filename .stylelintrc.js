@@ -103,7 +103,6 @@ module.exports = {
     "shorthand-property-no-redundant-values": true,
     "unit-case": "lower",
     "unit-no-unknown": true,
-    "value-keyword-case": "lower",
     "value-list-max-empty-lines": 0,
     "value-list-comma-newline-after": "never-multi-line",
     "value-list-comma-space-after": "always",

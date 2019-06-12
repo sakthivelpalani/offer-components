@@ -1,0 +1,8 @@
+@import "./../mixins/Sprite";
+
+.usp {
+    margin: 3px 0;
+    &:before {
+        @extend %textWithIcon;
+    }
+}

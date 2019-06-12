@@ -1,4 +1,5 @@
 @import "../filter/config/filter";
+@import "./../mixins/Sprite";
 
 .filterSticky {
     position: relative;
@@ -19,5 +20,8 @@
         float: right;
         padding: 0 10px;
         color: map-deep-get($filterSticky, filterBtn, textColor);
+        &:before {
+            @extend %textWithIcon;
+        }
     }
 }

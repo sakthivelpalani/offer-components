@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import ReviewsSummary from "../../domain/ReviewsSummary.js";
-import Style from "./../../../styles/Offer-A/ReviewsSummary.scss";
+import Style from "./../../../styles/defaultLayout/ReviewsSummary.scss";
 
 export class RatingItemRenderer extends React.PureComponent {
 
@@ -12,7 +12,7 @@ export class RatingItemRenderer extends React.PureComponent {
 
     render() {
         return (
-            <span className={[Style.textWithIcon, Style.offerSprite, Style.UserRating, Style.bbiconsUserRating].join(" ")}>
+            <span className={[Style.UserRating, Style.iconsUserRating].join(" ")}>
                 {this.props.domain.getAvgRating()}
             </span>
         );

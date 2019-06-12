@@ -11,7 +11,8 @@ export default class DropdownFilterRenderer extends React.PureComponent {
         options: PropTypes.arrayOf(PropTypes.any).isRequired,
         onChange: PropTypes.func.isRequired,
         selectedOptions: PropTypes.arrayOf(PropTypes.any),
-        title: PropTypes.string.isRequired
+        title: PropTypes.string.isRequired,
+        imageClassName: PropTypes.string.isRequired
     }
 
     static defaultProps = {
@@ -40,7 +41,7 @@ export default class DropdownFilterRenderer extends React.PureComponent {
             );
         };
         return <li>
-            <div className={["filterName", "iconWidth", "filterSprite", "bbicons"+[this.props.title.replace(/ /g, "")]].join(" ")}>{this.props.title}</div>
+            <div className={["filterName", "icons"+[this.props.imageClassName]].join(" ")}>{this.props.title}</div>
             <Select
                 value={selectedOptionsForDropdown}
                 onChange={this.handleChange}

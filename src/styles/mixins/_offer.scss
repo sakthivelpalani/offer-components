@@ -59,8 +59,8 @@
         height: 11px;
     }
 }
-@mixin checkbox($checkbox-width: 20px, $checkbox-height: 20px, $checkbox-position: null, $checkbox-top: null, $checkbox-radius: null, $checkbox-before: null, $checkbox-after: null) {
-    .checkbox {
+@mixin checkbox($checkbox-width: 20px, $checkbox-height: 20px, $checkbox-position: null, $checkbox-top: null, $checkbox-radius: null, $checkbox-before: null, $checkbox-after: null, $checkbox-checked-after: null) {
+    input.checkcontainer {
         position: $checkbox-position;
         width: $checkbox-width;
         height: $checkbox-height;
@@ -77,6 +77,11 @@
         @if $checkbox-after != null {
             &:after {
                 @include RepeatProperty($checkbox-before);
+            }
+        }
+        @if $checkbox-checked-after != null {
+            &:checked:after {
+                @include RepeatProperty($checkbox-checked-after);
             }
         }
     }
@@ -182,7 +187,7 @@
             $column-number: $col;
         }
         @if $index != 1 {
-            #{$parent} .bbicons#{$name} {
+            #{$parent} .icons#{$name} {
                 background-position: (-$column-width * $column-number) (-$column-height * $row-number);
             }
         }

@@ -7,7 +7,7 @@ export const CardCategoryFilterRenderer = {
     domain: Domains.CardCategoryFilterableDomain,
     props: {
         title: "Card Categories",
-        imageClassName: "sprite-card-categories"
+        imageClassName: "CardCategories"
     }
 };
 export const CardFeeTypeFilterRenderer = {
@@ -15,7 +15,7 @@ export const CardFeeTypeFilterRenderer = {
     domain: Domains.CardFeeTypeFilterableDomain,
     props: {
         title: "Card Fee Type",
-        imageClassName: "sprite-card-fee-type"
+        imageClassName: "CardFeeType"
     }
 };
 
@@ -24,7 +24,7 @@ export const CardNetworkFilterRenderer = {
     domain: Domains.CardNetworkFilterableDomain,
     props: {
         title: "Card Network",
-        imageClassName: "sprite-card-network"
+        imageClassName: "CardNetwork"
     }
 };
 
@@ -33,6 +33,6 @@ export const BankFilterRenderer = {
     domain: Domains.BankFilterableDomain,
     props:{
         title: "Bank",
-        imageClassName: "sprite-bank"
+        imageClassName: "Bank"
     }
 };

@@ -1,0 +1,33 @@
+@import "./../mixins/animation";
+@import "./../mixins/functions";
+@import "./../mixins/offer";
+@import "./../mixins/Sprite";
+@import "./../config/offer";
+
+.textValue {
+    color: map-deep-get($text-color, textvalue, textcolor);
+    font-size: map-deep-get($text-color, textvalue, textsize);
+    line-height: 12px;
+    &:before {
+        @extend %textWithIconSmall;
+    }
+    &Scondary {
+        color: map-deep-get($text-color, textvaluescondary, textcolor);
+        font-size: map-deep-get($text-color, textvaluescondary, textsize);
+        text-transform: map-deep-get($text-color, textvaluescondary, textcase);
+    }
+}
+
+.strikeValue {
+    color: #999;
+    font-size: 14px;
+    text-decoration: line-through;
+    padding-right: 8px;
+    &:before {
+        @extend %textWithIconSmall;
+    }
+}
+
+.nonStrikeLoading {
+    @extend %nonStrikeLoading;
+}

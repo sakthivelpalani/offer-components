@@ -1,0 +1,49 @@
+$offerImgUrl: url(/images/offerflow/sprite-offers-mob.png);
+
+$offerSprite: (
+    url: $offerImgUrl
+);
+
+$filterImgUrl: url(/images/offerflow/sprite-filter-mob.png);
+
+$filterSprite: (
+    url: $filterImgUrl
+);
+
+$nonStrikeLoadingImgUrl: url(/images/bb-progress.gif);
+
+$nonStrikeLoadingSprite: (
+    url: $nonStrikeLoadingImgUrl,
+    width: 28px,
+    height: 10px
+);
+
+@mixin icon($config) {
+    background-image: map-get($config, url);
+    width: map-get($config, width);
+    height: map-get($config, height);
+    background-repeat: no-repeat;
+}
+
+%textWithIconSmall {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 8px;
+    height: 11px;
+    @include icon($offerSprite);
+}
+
+%textWithIcon {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
+    margin-right: 3px;
+    @include icon($offerSprite);
+}
+
+%nonStrikeLoading {
+    @include icon($nonStrikeLoadingSprite);
+}

@@ -45,13 +45,13 @@ export default class FilterContainerMobileLayout extends React.PureComponent {
             });
         });
         return <div className="filterSection">
-            <div className="filterTitle filterSpriteTextWithIcon bbiconsGoBack">Go Back</div>
+            <div className="filterTitle iconsGoBack">Go Back</div>
             <ul>
                 {filterRendererComponents}
             </ul>
             <div className="filterControl">
-                <a className="btn btnLeft filterSpriteTextWithIcon bbiconsClearFilter" name="Reset" onClick={this.onResetClick}>Clear Filter</a>
-                <a className="btn btnRight filterSpriteTextWithIcon bbiconsApplyFilter" name="Filter" onClick={this.onFilterClick}>Apply Filter</a>
+                <a className="btn btnLeft iconsClearFilter" name="Reset" onClick={this.onResetClick}>Clear Filter</a>
+                <a className="btn btnRight iconsApplyFilter" name="Filter" onClick={this.onFilterClick}>Apply Filter</a>
             </div>
         </div>;
     }

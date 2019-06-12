@@ -1,26 +1,40 @@
 @import "./../mixins/functions";
 @import "config/filter";
+@import "../mixins/Sprite";
 
 .filterName {
     line-height: 20px;
     margin: 8px 0;
     padding-left: 25px;
+    @include icon($filterSprite);
 }
 
 .menuListItem {
-    padding: 6px 10px 6px 27px;
+    padding: 6px 10px 6px 30px;
     margin: 0 0 1px;
     position: relative;
     &.checked {
-        background-color: #edeeef;
-        color: #000;
+        background-color: map-deep-get($filterModal, menuListItem, bgColor);
+        color: map-deep-get($filterModal, menuListItem, textColor);
     }
     &:last-child {
         margin: 0;
     }
+    :global {
+        input {
+            &.checkcontainer {
+                position: absolute;
+                left: 10px;
+            }
+        }
+    }
 }
 
 :global {
+
+    // ToDo: Need to do the change
+    // Comments : we should not have having these auto generated names in our stylesheet. If you want to style a particular part of the dropdown differently then we need to override that in react select
+
     .css-2b097c-container {
         font-size: 12px;
     }

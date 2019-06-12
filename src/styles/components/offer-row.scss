@@ -8,16 +8,7 @@
     background-position: 0 100px;
 }
 
-.offerSpriteGV {
-    background-image: url(/images/offerflow/sprite-gift-voucher-ab1-mob.png);
-    background-repeat: no-repeat;
-    background-position: 0 100px;
-}
-
 @include offerRow($number-of-column: 2, $text-config: $text-color);
-@include checkbox($checkbox-width: 0, $checkbox-height: 0, $checkbox-position: absolute, $checkbox-top: (left:-25px,top:50%),$checkbox-radius: 0,$checkbox-before: (height: 20px,width: 20px));
-@include badges($color-config: $text-color, $font-size: 10px, $text-transform: uppercase, $other-config: (width: 92px, left: -7px, top: -16px, position: absolute, z-index: 1));
-@include SlidingAnimation($slide-width: 10px, $slide-height: 18px, $other-config: (position: absolute, left: 0, top: -2px));
 
 .offerSection {
     background-color: #d7d8dd;
@@ -29,15 +20,6 @@
     .offerTopSection {
         padding: 5px 5px 5px 98px;
         min-height: 90px;
-    }
-
-    .ad {
-        .title:after {
-            width: 18px;
-            margin-left: 5px;
-            @extend .textWithIconSmall:before;
-            @extend .offerSprite:before;
-        }
     }
 
     .offerImageSection {
@@ -62,83 +44,17 @@
         font-size: map-deep-get($text-color, offerButton, textsize);
     }
 
-    .giftVoucher {
-        margin: 3px 0;
-        padding-left: 16px;
-    }
-
-    .paperless {
-        .offerImageSection {
-            top: 24px;
-        }
-    }
-
     &.offersCompare {
+        .offer {
+            :global {
+                @include checkbox($checkbox-width: 20px, $checkbox-height: 20px, $checkbox-position: absolute, $checkbox-top: (left:-24px,top:50%,margin-top:-10px),$checkbox-radius: 0,$checkbox-checked-after: (height:9px,width:4px));
+            }
+        }
         .offerTopSection {
             padding: 5px 5px 5px 120px;
         }
         .offerImageSection {
             left: 30px;
-        }
-    }
-
-    .offerBottomSection {
-        background: map-deep-get($text-color, bottomsection, bgcolor);
-        color: map-deep-get($text-color, viewdetails, textcolor);
-        line-height: 22px;
-        span:before {
-            margin: -2px 1px 0 4px;
-        }
-        .viewDetails {
-            color: map-deep-get($text-color, viewdetails, textcolor);
-            padding: 0 0 0 10px;
-            float: right;
-            width: 90px;
-            &:after {
-                width: 14px;
-                margin-left: 5px;
-                height: 8px;
-                @extend .textWithIconSmall:before;
-                @extend .offerSprite:before;
-            }
-        }
-    }
-
-    .offerDetailsSection {
-        background: map-deep-get($offer-details, offer-details, bgColor);
-        .detailsTitle {
-            background: map-deep-get($offer-details, offer-details-title, bgColor);
-            color: map-deep-get($offer-details, offer-details-title, textColor);
-            padding: 5px 0 5px 10px;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            z-index: 1;
-        }
-        ul {
-            margin: 5px 10px 10px 3px;
-            &.downloads {
-                li {
-                    list-style: none;
-                    margin-left: 10px;
-                }
-            }
-            li {
-                color: map-deep-get($offer-details, offer-details-title-li, textColor);
-                padding: 0 0 3px;
-                list-style: disc;
-                margin-left: 20px;
-                &.disabled {
-                    text-decoration: line-through;
-                    opacity: 0.5;
-                }
-                .subTitle {
-                    color: map-deep-get($offer-details, customer-review-sub-title, textColor);
-                    span {
-                        color: map-deep-get($offer-details, customer-review-span, textColor);
-                    }
-                }
-            }
         }
     }
 }

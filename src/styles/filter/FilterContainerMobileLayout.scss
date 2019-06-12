@@ -1,26 +1,9 @@
 @import "./../mixins/functions";
 @import "./../mixins/offer";
 @import "config/filter";
+@import "../mixins/Sprite";
 
-.filterModal {
-    background-color: map-deep-get($filterModal, filterModal, bgColor);
-    padding: 0 0 50px;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    .filterTitle {
-        background-color: map-deep-get($filterModal, filterTitle, bgColor);
-        color: map-deep-get($filterModal, filterTitle, textColor);
-        font-size: map-deep-get($filterModal, filterTitle, textSize);
-        padding: 10px;
-        text-transform: uppercase;
-    }
-    ul {
-        padding: 0 10px;
-    }
-}
-
-.filterSpriteTextWithIcon:before {
+%filterSpriteTextWithIcon {
     content: "";
     display: inline-block;
     vertical-align: middle;
@@ -28,13 +11,29 @@
     height: 20px;
     margin-right: 5px;
     float: left;
-    @extend .filterSprite;
+    @include icon($filterSprite);
 }
 
-.filterSprite {
-    background-image: url(/images/offerflow/sprite-filter-mob.png);
-    background-position: 0 0;
-    background-repeat: no-repeat;
+.filterModal {
+    background-color: map-deep-get($filterModal, filterModal, bgColor);
+    padding: 0 0 50px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    ul {
+        padding: 0 10px;
+    }
+}
+
+.filterTitle {
+    background-color: map-deep-get($filterModal, filterTitle, bgColor);
+    color: map-deep-get($filterModal, filterTitle, textColor);
+    font-size: map-deep-get($filterModal, filterTitle, textSize);
+    padding: 10px;
+    text-transform: uppercase;
+    &:before {
+        @extend %filterSpriteTextWithIcon;
+    }
 }
 
 //Filter Footer Button Sticky
@@ -52,9 +51,15 @@
         &.btnLeft {
             color: map-deep-get($filterModal, filterControlBtnLeft, textColor);
             background-color: map-deep-get($filterModal, filterControlBtnLeft, bgColor);
+            &:before {
+                @extend %filterSpriteTextWithIcon;
+            }
         }
         &.btnRight {
             background-color: map-deep-get($filterModal, filterControlBtnRight, bgColor);
+            &:before {
+                @extend %filterSpriteTextWithIcon;
+            }
         }
     }
 }
