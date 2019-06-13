@@ -11,7 +11,7 @@ export class OneLinerItemRenderer extends React.PureComponent {
     }
 
     render() {
-        return <span className={[Style.usp, Style.iconsTravelCard].join(" ")}>{this.props.domain.getUSPText()} </span>;
-        // ToDo: Need to make the USP type class name in configurable Ex: bbiconsTravelCard.
+        return <span className={[Style.usp, Style.symbolTravelCard].join(" ")}>{this.props.domain.getUSPText()} </span>;
+        // ToDo: Need to make the USP type class name in configurable Ex: symbolTravelCard.
     }
 }

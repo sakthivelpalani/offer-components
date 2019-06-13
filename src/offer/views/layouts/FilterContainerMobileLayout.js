@@ -5,7 +5,7 @@ import {find} from "lodash";
 import getViewConfiguration from "../Config.js";
 import OffersModel from "../../model/OffersModel.js";
 import FilterChain from "../../domain/filters/FilterChain.js";
-import "./../../../styles/filter/FilterContainerMobileLayout.scss";
+import Style from "./../../../styles/filter/FilterContainerMobileLayout.scss";
 
 export default class FilterContainerMobileLayout extends React.PureComponent {
     static propTypes = {
@@ -44,14 +44,14 @@ export default class FilterContainerMobileLayout extends React.PureComponent {
                 ...filterRendererConfig.props
             });
         });
-        return <div className="filterSection">
-            <div className="filterTitle iconsGoBack">Go Back</div>
+        return <div className={Style.filterSection}>
+            <div className={[Style.filterTitle, Style.symbolGoBack].join(" ")}>Go Back</div>
             <ul>
                 {filterRendererComponents}
             </ul>
-            <div className="filterControl">
-                <a className="btn btnLeft iconsClearFilter" name="Reset" onClick={this.onResetClick}>Clear Filter</a>
-                <a className="btn btnRight iconsApplyFilter" name="Filter" onClick={this.onFilterClick}>Apply Filter</a>
+            <div className={Style.filterControl}>
+                <a className={[Style.btn, Style.btnLeft, Style.symbolClearFilter].join(" ")} name="Reset" onClick={this.onResetClick}>Clear Filter</a>
+                <a className={[Style.btn, Style.btnRight, Style.symbolApplyFilter].join(" ")} name="Filter" onClick={this.onFilterClick}>Apply Filter</a>
             </div>
         </div>;
     }

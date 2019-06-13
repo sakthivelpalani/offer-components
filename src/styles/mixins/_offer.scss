@@ -187,7 +187,7 @@
             $column-number: $col;
         }
         @if $index != 1 {
-            #{$parent} .icons#{$name} {
+            #{$parent} .symbol#{$name} {
                 background-position: (-$column-width * $column-number) (-$column-height * $row-number);
             }
         }

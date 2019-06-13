@@ -15,8 +15,8 @@ export class FirstYearFeeItemRenderer extends React.PureComponent {
 
     render() {
         return <React.Fragment>
-            <span className={[Style.strikeValue, Style.iconsRsTwo].join(" ")}>{this.props.domain.firstYearFee.getOldFees()}<span className={Style.nonStrikeLoading}></span></span>
-            <strong className={[Style.textValue, Style.iconsRsOne].join(" ")}>{this.props.domain.firstYearFee.getCurrentFee()}</strong>
+            <span className={[Style.strikeValue, Style.symbolRsTwo].join(" ")}>{this.props.domain.firstYearFee.getOldFees()}<span className={Style.nonStrikeLoading}></span></span>
+            <strong className={[Style.textValue, Style.symbolRsOne].join(" ")}>{this.props.domain.firstYearFee.getCurrentFee()}</strong>
             <div className={Style.textValueScondary}>1<sup>st</sup> Year Fee</div>
         </React.Fragment>;
     }

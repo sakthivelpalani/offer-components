@@ -12,7 +12,7 @@ export class RatingItemRenderer extends React.PureComponent {
 
     render() {
         return (
-            <span className={[Style.UserRating, Style.iconsUserRating].join(" ")}>
+            <span className={[Style.UserRating, Style.symbolUserRating].join(" ")}>
                 {this.props.domain.getAvgRating()}
             </span>
         );

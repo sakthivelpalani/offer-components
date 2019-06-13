@@ -4,7 +4,7 @@ import {find, isEmpty} from "lodash";
 import Select from "react-select";
 
 import Checkbox from "../../../../controls/Checkbox.js";
-import  "./../../../../styles/filter/DropdownFilterRenderer.scss";
+import Style from  "./../../../../styles/filter/DropdownFilterRenderer.scss";
 
 export default class DropdownFilterRenderer extends React.PureComponent {
     static propTypes = {
@@ -34,14 +34,14 @@ export default class DropdownFilterRenderer extends React.PureComponent {
         });
         const Option = (props) => {
             return (
-                <div className={["menuListItem", [props.isSelected ? "checked":""]].join(" ")} ref={props.innerRef} onClick={props.innerProps.onClick}>
+                <div className={[Style.menuListItem, [props.isSelected ? "checked":""]].join(" ")} ref={props.innerRef} onClick={props.innerProps.onClick}>
                     <Checkbox name={props.data.label} value={props.data.value}
                         checked={props.isSelected} />
                 </div>
             );
         };
         return <li>
-            <div className={["filterName", "icons"+[this.props.imageClassName]].join(" ")}>{this.props.title}</div>
+            <div className={[Style.filterName, [this.props.imageClassName]].join(" ")}>{this.props.title}</div>
             <Select
                 value={selectedOptionsForDropdown}
                 onChange={this.handleChange}

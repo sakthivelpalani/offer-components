@@ -1,7 +1,7 @@
-@import "./../mixins/animation";
-@import "./../mixins/functions";
-@import "./../mixins/offer";
-@import "./../config/offer";
+@import "../mixins/animation";
+@import "../mixins/functions";
+@import "../mixins/offer";
+@import "../config/offer";
 
 .offerSprite:before {
     background-image: url(/images/offerflow/sprite-offers-mob.png);
@@ -57,6 +57,26 @@
             left: 30px;
         }
     }
+}
+
+.moreOffers, .offerScrollTop {
+    position: fixed;
+    background-color: rgba(255,255,255,0.9);
+    padding: 5px 30px 5px 10px;
+    border-radius: 4px;
+    left: 50%;
+    margin-left: -42px;
+    bottom: 5%;
+    z-index: 1;
+    font-weight: bold;
+    box-shadow: 0 2px 14px -1px #000;
+}
+
+.offerScrollTop {
+    padding: 18px;
+    border-radius: 100%;
+    left: 50%;
+    margin-left: -20px;
 }
 
 @include sprite-offer($sprite-config);
